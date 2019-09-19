@@ -15,6 +15,10 @@
 		B057B4002333DBD500A59F11 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B057B3FE2333DBD500A59F11 /* Main.storyboard */; };
 		B057B4022333DBD600A59F11 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B057B4012333DBD600A59F11 /* Assets.xcassets */; };
 		B057B4052333DBD600A59F11 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B057B4032333DBD600A59F11 /* LaunchScreen.storyboard */; };
+		B057B40D2333DE1100A59F11 /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B057B40C2333DE1100A59F11 /* Storyboard.storyboard */; };
+		B057B40F2333DECE00A59F11 /* PaginateTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B057B40E2333DECE00A59F11 /* PaginateTableViewController.swift */; };
+		B057B4112333E07300A59F11 /* Resource.swift in Sources */ = {isa = PBXBuildFile; fileRef = B057B4102333E07300A59F11 /* Resource.swift */; };
+		B057B4132333E10100A59F11 /* ResourceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B057B4122333E10100A59F11 /* ResourceTest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +52,10 @@
 		B057B4012333DBD600A59F11 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B057B4042333DBD600A59F11 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B057B4062333DBD600A59F11 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B057B40C2333DE1100A59F11 /* Storyboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Storyboard.storyboard; sourceTree = "<group>"; };
+		B057B40E2333DECE00A59F11 /* PaginateTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaginateTableViewController.swift; sourceTree = "<group>"; };
+		B057B4102333E07300A59F11 /* Resource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resource.swift; sourceTree = "<group>"; };
+		B057B4122333E10100A59F11 /* ResourceTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResourceTest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +108,9 @@
 			isa = PBXGroup;
 			children = (
 				B057B3DD2333DB5B00A59F11 /* WHUIComponents.h */,
+				B057B40E2333DECE00A59F11 /* PaginateTableViewController.swift */,
+				B057B4102333E07300A59F11 /* Resource.swift */,
+				B057B40C2333DE1100A59F11 /* Storyboard.storyboard */,
 				B057B3DE2333DB5B00A59F11 /* Info.plist */,
 			);
 			path = WHUIComponents;
@@ -108,6 +119,7 @@
 		B057B3E72333DB5B00A59F11 /* WHUIComponentsTests */ = {
 			isa = PBXGroup;
 			children = (
+				B057B4122333E10100A59F11 /* ResourceTest.swift */,
 				B057B3E82333DB5B00A59F11 /* WHUIComponentsTests.swift */,
 				B057B3EA2333DB5B00A59F11 /* Info.plist */,
 			);
@@ -207,6 +219,7 @@
 				TargetAttributes = {
 					B057B3D92333DB5B00A59F11 = {
 						CreatedOnToolsVersion = 10.3;
+						LastSwiftMigration = 1030;
 					};
 					B057B3E22333DB5B00A59F11 = {
 						CreatedOnToolsVersion = 10.3;
@@ -241,6 +254,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B057B40D2333DE1100A59F11 /* Storyboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -268,6 +282,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B057B40F2333DECE00A59F11 /* PaginateTableViewController.swift in Sources */,
+				B057B4112333E07300A59F11 /* Resource.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -276,6 +292,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B057B3E92333DB5B00A59F11 /* WHUIComponentsTests.swift in Sources */,
+				B057B4132333E10100A59F11 /* ResourceTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -448,6 +465,7 @@
 		B057B3EF2333DB5B00A59F11 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Manual;
 				DEFINES_MODULE = YES;
@@ -467,6 +485,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -475,6 +494,7 @@
 		B057B3F02333DB5B00A59F11 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Manual;
 				DEFINES_MODULE = YES;
@@ -502,6 +522,7 @@
 		B057B3F22333DB5B00A59F11 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 94MBHXKUB6;
 				INFOPLIST_FILE = WHUIComponentsTests/Info.plist;
@@ -520,6 +541,7 @@
 		B057B3F32333DB5B00A59F11 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 94MBHXKUB6;
 				INFOPLIST_FILE = WHUIComponentsTests/Info.plist;
