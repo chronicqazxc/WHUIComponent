@@ -19,6 +19,8 @@
 		B057B40F2333DECE00A59F11 /* PaginateTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B057B40E2333DECE00A59F11 /* PaginateTableViewController.swift */; };
 		B057B4112333E07300A59F11 /* Resource.swift in Sources */ = {isa = PBXBuildFile; fileRef = B057B4102333E07300A59F11 /* Resource.swift */; };
 		B057B4132333E10100A59F11 /* ResourceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B057B4122333E10100A59F11 /* ResourceTest.swift */; };
+		B057B4152333E30C00A59F11 /* TableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B057B4142333E30C00A59F11 /* TableViewModel.swift */; };
+		B057B4172333E4E500A59F11 /* TableViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = B057B4162333E4E500A59F11 /* TableViewState.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +58,8 @@
 		B057B40E2333DECE00A59F11 /* PaginateTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaginateTableViewController.swift; sourceTree = "<group>"; };
 		B057B4102333E07300A59F11 /* Resource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resource.swift; sourceTree = "<group>"; };
 		B057B4122333E10100A59F11 /* ResourceTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResourceTest.swift; sourceTree = "<group>"; };
+		B057B4142333E30C00A59F11 /* TableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewModel.swift; sourceTree = "<group>"; };
+		B057B4162333E4E500A59F11 /* TableViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewState.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +112,8 @@
 			isa = PBXGroup;
 			children = (
 				B057B3DD2333DB5B00A59F11 /* WHUIComponents.h */,
+				B057B4162333E4E500A59F11 /* TableViewState.swift */,
+				B057B4142333E30C00A59F11 /* TableViewModel.swift */,
 				B057B40E2333DECE00A59F11 /* PaginateTableViewController.swift */,
 				B057B4102333E07300A59F11 /* Resource.swift */,
 				B057B40C2333DE1100A59F11 /* Storyboard.storyboard */,
@@ -282,8 +288,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B057B4152333E30C00A59F11 /* TableViewModel.swift in Sources */,
 				B057B40F2333DECE00A59F11 /* PaginateTableViewController.swift in Sources */,
 				B057B4112333E07300A59F11 /* Resource.swift in Sources */,
+				B057B4172333E4E500A59F11 /* TableViewState.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
