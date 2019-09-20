@@ -46,6 +46,7 @@
 		A6B6F145233479040061F48C /* TableViewDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewDataModel.swift; sourceTree = "<group>"; };
 		A6B6F14923347C170061F48C /* TableViewViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewViewModelTest.swift; sourceTree = "<group>"; };
 		A6B6F14B233484CA0061F48C /* .travis.yml */ = {isa = PBXFileReference; lastKnownFileType = text; path = .travis.yml; sourceTree = "<group>"; };
+		A6B6F14D23348C8F0061F48C /* Gemfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Gemfile; sourceTree = "<group>"; };
 		B057B3DA2333DB5B00A59F11 /* WHUIComponents.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = WHUIComponents.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B057B3DD2333DB5B00A59F11 /* WHUIComponents.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WHUIComponents.h; sourceTree = "<group>"; };
 		B057B3DE2333DB5B00A59F11 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -96,6 +97,7 @@
 		B057B3D02333DB5B00A59F11 = {
 			isa = PBXGroup;
 			children = (
+				A6B6F14D23348C8F0061F48C /* Gemfile */,
 				A6B6F14B233484CA0061F48C /* .travis.yml */,
 				B057B3F92333DBD500A59F11 /* WHUIComponentsDemo */,
 				B057B3DC2333DB5B00A59F11 /* WHUIComponents */,
