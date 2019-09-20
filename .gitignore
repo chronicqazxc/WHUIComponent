@@ -5,6 +5,9 @@
 ## Build generated
 build/
 DerivedData/
+vendor/
+test_output/
+.bundle/
 
 ## Various settings
 *.pbxuser
