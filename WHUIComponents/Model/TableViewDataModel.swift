@@ -11,11 +11,11 @@ import Foundation
 public protocol TableViewDataModelProtocol {
     var title: String { get }
     var content: String { get }
-    var image: UIImage { get }
+    var image: UIImage? { get }
 }
 
 public struct TableViewDataModel: TableViewDataModelProtocol {
     public var title: String
     public var content: String
-    public var image: UIImage
+    public var image: UIImage?
 }
