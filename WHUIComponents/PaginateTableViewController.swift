@@ -14,7 +14,7 @@ public enum PaginateTableViewControllerError: Error {
 
 public class PaginateTableViewController: UITableViewController {
     
-    public private(set) var viewModel: TableViewModel?
+    public private(set) var viewModel: TableViewViewModel!
     
     fileprivate enum Constant {
         static let PaginateTableViewController = "PaginateTableViewController"
@@ -23,7 +23,7 @@ public class PaginateTableViewController: UITableViewController {
     override public func viewDidLoad() {
         super.viewDidLoad()
         
-        viewModel = TableViewModel { [weak self] (state: TableViewState.DataSource) in
+        viewModel = TableViewViewModel { [weak self] (state: TableViewState.LoadType) in
             guard let strongSelf = self else {
                 return
             }
@@ -31,7 +31,7 @@ public class PaginateTableViewController: UITableViewController {
             case .more:
                 strongSelf.tableView.reloadData()
                 print("more")
-            case .reload:
+            case .refresh:
                 strongSelf.tableView.reloadData()
                 print("reload")
             }
@@ -46,19 +46,19 @@ public class PaginateTableViewController: UITableViewController {
     
     override public func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        viewModel?.getData()
+        
     }
 
     // MARK: - Table view data source
 
     override public func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return viewModel.data.count
     }
 
 }

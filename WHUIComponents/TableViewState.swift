@@ -9,8 +9,8 @@
 import Foundation
 
 public struct TableViewState {
-    public enum DataSource {
-        case reload
+    public enum LoadType {
+        case refresh
         case more
     }
 }

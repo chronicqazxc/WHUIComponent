@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A6B6F146233479040061F48C /* TableViewDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6B6F145233479040061F48C /* TableViewDataModel.swift */; };
+		A6B6F14A23347C170061F48C /* TableViewViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6B6F14923347C170061F48C /* TableViewViewModelTest.swift */; };
 		B057B3E42333DB5B00A59F11 /* WHUIComponents.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B057B3DA2333DB5B00A59F11 /* WHUIComponents.framework */; };
 		B057B3E92333DB5B00A59F11 /* WHUIComponentsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B057B3E82333DB5B00A59F11 /* WHUIComponentsTests.swift */; };
 		B057B3EB2333DB5B00A59F11 /* WHUIComponents.h in Headers */ = {isa = PBXBuildFile; fileRef = B057B3DD2333DB5B00A59F11 /* WHUIComponents.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -19,7 +21,7 @@
 		B057B40F2333DECE00A59F11 /* PaginateTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B057B40E2333DECE00A59F11 /* PaginateTableViewController.swift */; };
 		B057B4112333E07300A59F11 /* Resource.swift in Sources */ = {isa = PBXBuildFile; fileRef = B057B4102333E07300A59F11 /* Resource.swift */; };
 		B057B4132333E10100A59F11 /* ResourceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B057B4122333E10100A59F11 /* ResourceTest.swift */; };
-		B057B4152333E30C00A59F11 /* TableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B057B4142333E30C00A59F11 /* TableViewModel.swift */; };
+		B057B4152333E30C00A59F11 /* TableViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B057B4142333E30C00A59F11 /* TableViewViewModel.swift */; };
 		B057B4172333E4E500A59F11 /* TableViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = B057B4162333E4E500A59F11 /* TableViewState.swift */; };
 /* End PBXBuildFile section */
 
@@ -41,6 +43,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A6B6F145233479040061F48C /* TableViewDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewDataModel.swift; sourceTree = "<group>"; };
+		A6B6F14923347C170061F48C /* TableViewViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewViewModelTest.swift; sourceTree = "<group>"; };
 		B057B3DA2333DB5B00A59F11 /* WHUIComponents.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = WHUIComponents.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B057B3DD2333DB5B00A59F11 /* WHUIComponents.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WHUIComponents.h; sourceTree = "<group>"; };
 		B057B3DE2333DB5B00A59F11 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -58,7 +62,7 @@
 		B057B40E2333DECE00A59F11 /* PaginateTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaginateTableViewController.swift; sourceTree = "<group>"; };
 		B057B4102333E07300A59F11 /* Resource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resource.swift; sourceTree = "<group>"; };
 		B057B4122333E10100A59F11 /* ResourceTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResourceTest.swift; sourceTree = "<group>"; };
-		B057B4142333E30C00A59F11 /* TableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewModel.swift; sourceTree = "<group>"; };
+		B057B4142333E30C00A59F11 /* TableViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewViewModel.swift; sourceTree = "<group>"; };
 		B057B4162333E4E500A59F11 /* TableViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewState.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -113,7 +117,8 @@
 			children = (
 				B057B3DD2333DB5B00A59F11 /* WHUIComponents.h */,
 				B057B4162333E4E500A59F11 /* TableViewState.swift */,
-				B057B4142333E30C00A59F11 /* TableViewModel.swift */,
+				B057B4142333E30C00A59F11 /* TableViewViewModel.swift */,
+				A6B6F145233479040061F48C /* TableViewDataModel.swift */,
 				B057B40E2333DECE00A59F11 /* PaginateTableViewController.swift */,
 				B057B4102333E07300A59F11 /* Resource.swift */,
 				B057B40C2333DE1100A59F11 /* Storyboard.storyboard */,
@@ -127,6 +132,7 @@
 			children = (
 				B057B4122333E10100A59F11 /* ResourceTest.swift */,
 				B057B3E82333DB5B00A59F11 /* WHUIComponentsTests.swift */,
+				A6B6F14923347C170061F48C /* TableViewViewModelTest.swift */,
 				B057B3EA2333DB5B00A59F11 /* Info.plist */,
 			);
 			path = WHUIComponentsTests;
@@ -288,7 +294,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B057B4152333E30C00A59F11 /* TableViewModel.swift in Sources */,
+				A6B6F146233479040061F48C /* TableViewDataModel.swift in Sources */,
+				B057B4152333E30C00A59F11 /* TableViewViewModel.swift in Sources */,
 				B057B40F2333DECE00A59F11 /* PaginateTableViewController.swift in Sources */,
 				B057B4112333E07300A59F11 /* Resource.swift in Sources */,
 				B057B4172333E4E500A59F11 /* TableViewState.swift in Sources */,
@@ -301,6 +308,7 @@
 			files = (
 				B057B3E92333DB5B00A59F11 /* WHUIComponentsTests.swift in Sources */,
 				B057B4132333E10100A59F11 /* ResourceTest.swift in Sources */,
+				A6B6F14A23347C170061F48C /* TableViewViewModelTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
