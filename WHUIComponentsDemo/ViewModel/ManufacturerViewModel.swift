@@ -20,7 +20,7 @@ public class ManufacturerViewModel: TableViewViewModelProtocol {
     public private(set) var state = TableViewState(loadingType: nil)
     public private(set) var data: [TableViewDataModelProtocol]
     public private(set) var callback: CallBack?
-    fileprivate var page = Page(current: -1, total: 100)
+    fileprivate var page = Page(current: -1, total: 1)
     
     required public init(_ callback: @escaping CallBack) {
         self.callback = callback
@@ -64,7 +64,7 @@ public class ManufacturerViewModel: TableViewViewModelProtocol {
     
     func refreshPageIfNeeded(_ type: TableViewState.LoadingType) {
         if type == .refresh {
-            page = Page(current: -1, total: 100)
+            page = Page(current: -1, total: 1)
         }
     }
     
@@ -75,8 +75,7 @@ public class ManufacturerViewModel: TableViewViewModelProtocol {
             let totalPage = json?["totalPageCount"] as? Int else {
                 return nil
         }
-        page.current = currentPage
-        page.total = totalPage
+        page = Page(current: currentPage, total: totalPage)
         return wkda.map {
             return Manufacture(id: $0.key, model: $0.value)
         }

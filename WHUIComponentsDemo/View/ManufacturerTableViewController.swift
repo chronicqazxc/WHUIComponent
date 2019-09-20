@@ -51,8 +51,6 @@ class ManufacturerTableViewController: PaginateTableViewController {
         super.viewDidLoad()
         self.dataDelegate = self
     }
-    
-    
 }
 
 extension ManufacturerTableViewController: PaginateTableViewControllerDataDelegate {
