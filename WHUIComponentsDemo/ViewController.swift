@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import WHUIComponents
 
 class ViewController: UIViewController {
 
@@ -15,6 +16,14 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
 
-
+    @IBAction func showPaginateTableView(_ sender: Any) {
+        do {
+            let paginateViewController = try PaginateTableViewController.controller()
+            present(paginateViewController, animated: true, completion: nil)
+        } catch {
+            
+        }
+    }
+    
 }
 
