@@ -10,100 +10,103 @@ import UIKit
 
 public enum PaginateTableViewControllerError: Error {
     case typeError
+    case viewModelNil
 }
 
+public protocol PaginateTableViewControllerDataDelegate: class {
+    func numberOfSection() -> Int
+    func numberOfRowInSection(_ section: Int) -> Int
+    func cellForRowAt(indexPath: IndexPath) -> UITableViewCell
+    func reload()
+    func getMore()
+}
+
+enum LoadingStatus {
+    case idle
+    case loading
+}
+
+
+/// PaginateTableViewController adopt MVVM pattern, how to customize your paginated view controller.
+/// 1. Inherited PaginateTableViewController as well as adopt protocol PaginateTableViewControllerDataDelegate.
+/// 2. Implement TableViewViewModel.
+/// 3. Your data model must adopt TableViewDataModel.
 @objcMembers
-public class PaginateTableViewController: UITableViewController {
+open class PaginateTableViewController: UITableViewController {
     
-    public private(set) var viewModel: TableViewViewModel!
+    var loadingStatus = LoadingStatus.idle
+
+    weak public var dataDelegate: PaginateTableViewControllerDataDelegate!
     
     fileprivate enum Constant {
         static let PaginateTableViewController = "PaginateTableViewController"
     }
 
-    override public func viewDidLoad() {
+    override open func viewDidLoad() {
         super.viewDidLoad()
         
         tableView.refreshControl = UIRefreshControl()
         tableView.refreshControl?.addTarget(self, action: #selector(PaginateTableViewController.refresh), for: .valueChanged)
-        
-        viewModel = TableViewViewModel { [weak self] (state: TableViewState) in
-            guard let strongSelf = self else {
-                return
-            }
-            switch state.loadingType {
-            case .more?:
-                strongSelf.tableView.reloadData()
-                print("more")
-            case .refresh?:
-                strongSelf.tableView.reloadData()
-                print("reload")
-            case .none:
-                break
-            }
-            
-            switch state.loadingStatus {
-            case .idle:
-                if strongSelf.tableView.refreshControl?.isRefreshing == true {
-                    strongSelf.tableView.refreshControl?.endRefreshing()
-                }
-            case .loading:
-                if state.loadingType == .refresh {
-                    strongSelf.tableView.refreshControl?.beginRefreshing()
-                }
-            }
-        }
-        
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
-        
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
     
-    override public func viewDidAppear(_ animated: Bool) {
+    override open func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
     }
 
     // MARK: - Table view data source
 
-    override public func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 1
+    override open func numberOfSections(in tableView: UITableView) -> Int {
+        return dataDelegate.numberOfSection()
     }
 
-    override public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 100//viewModel.data.count
+    override open func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return dataDelegate.numberOfRowInSection(section)
     }
     
-    override public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        cell.textLabel?.text = String(indexPath.row)
-        return cell
+    override open func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        return dataDelegate.cellForRowAt(indexPath: indexPath)
     }
     
     func refresh() {
-        viewModel.refresh()
+        if loadingStatus == .idle {
+            loadingStart(.refresh)
+            dataDelegate.reload()
+        }
+    }
+    
+    /// Show loading indicator and change the internal status.
+    public func loadingStart(_ type: TableViewState.LoadingType) {
+        loadingStatus = .loading
+        if type == .refresh {
+            tableView.refreshControl?.beginRefreshing()
+        }
+    }
+    
+    /// Dismiss loading indicator and change the internal status.
+    public func loadingEnd() {
+        loadingStatus = .idle
+        DispatchQueue.main.async {
+            if self.tableView.refreshControl?.isRefreshing == true {
+                self.tableView.refreshControl?.endRefreshing()
+            }
+        }
     }
 
 }
 
 extension PaginateTableViewController {
-    override public func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        guard self.tableView.isTracking else {
+    override open func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        guard self.tableView.isTracking && scrollView.contentOffset.y > 0 else {
             return
         }
         let height = scrollView.frame.size.height
         let contentYoffset = scrollView.contentOffset.y
         let distanceFromBottom = scrollView.contentSize.height - contentYoffset
-        print("distanceFromBottom: \(distanceFromBottom)\nheight:\(height)")
-        if distanceFromBottom < height {
-            print(" you reached end of the table")
-            viewModel.getMore()
+        if distanceFromBottom < height && loadingStatus == .idle {
+            loadingStart(.more)
+            dataDelegate.getMore()
         }
     }
 }

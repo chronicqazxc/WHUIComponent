@@ -7,62 +7,86 @@
 //
 
 import Foundation
+import MyService
 
-public typealias CallBack = (TableViewState) -> Void
+public typealias CallBack = (_ loadingType: TableViewState.LoadingType, _ data: [TableViewDataModelProtocol]?, _ error: Error?) -> Void
 
-public protocol TableViewViewModelProtocol {
+/// TableView view model. Process busniess logic and API requests.
+public protocol TableViewViewModelProtocol: class {
+    
+    /// TableView state.
     var state: TableViewState { get }
+    
+    /// Data to represent.
     var data: [TableViewDataModelProtocol] { get }
+    
+    /// Callback when request complete.
     var callback: CallBack? { get }
+    
+    /// Required initial method.
+    ///
+    /// - Parameter callback: Callback when request complete
     init(_ callback: @escaping CallBack)
-    func willCallBack(_ type: TableViewState.LoadingType)
+    
+    /// Will callback to view.
+    ///
+    /// - Parameter type: Loading type
+    func willCallBack(_ type: TableViewState.LoadingType, data: [TableViewDataModelProtocol]?)
+    
+    /// Callback to view complete.
+    ///
+    /// - Parameter type: Loading type
     func didCallBack(_ type: TableViewState.LoadingType)
+    
+    /// Pull refresh
     func refresh()
+    
+    /// Trigger when scroll to bottonm
     func getMore()
+    
+    /// API call
+    ///
+    /// - Parameters:
+    ///   - type: Loading type
+    ///   - escapingcompleteHandler: API request complete handler
+    func apiRequest(type: TableViewState.LoadingType, _ escapingcompleteHandler: @escaping NetworkCompletionHandler)
+    
+    
+    /// Parse and return designated data model.
+    ///
+    /// - Returns: Data model which confirmed TableViewDataModelProtocol.
+    func parse(_ data: Data) -> [TableViewDataModelProtocol]?
 }
 
 extension TableViewViewModelProtocol {
     public func refresh() {
-        guard state.loadingStatus == .idle else {
-            return
+        let type = TableViewState.LoadingType.refresh
+        apiRequest(type: type) { (data, response, error) in
+            guard let data = data else {
+                self.callback?(type, nil, error)
+                self.didCallBack(type)
+                return
+            }
+            let model = self.parse(data)
+            self.willCallBack(type, data: model)
+            self.callback?(type, model, error)
+            self.didCallBack(type)
         }
-        willCallBack(.refresh)
-        // TODO: API request
-        callback?(self.state)
-        didCallBack(.refresh)
     }
     
     public func getMore() {
-        guard state.loadingStatus == .idle else {
-            return
+        let type = TableViewState.LoadingType.more
+        apiRequest(type: type) { (data, response, error) in
+            guard let data = data else {
+                self.callback?(type, nil, error)
+                self.didCallBack(type)
+                return
+            }
+            
+            let model = self.parse(data)
+            self.willCallBack(type, data: model)
+            self.callback?(type, model, error)
+            self.didCallBack(type)
         }
-        willCallBack(.more)
-        // TODO: API request
-        callback?(self.state)
-        didCallBack(.more)
     }
 }
-
-public class TableViewViewModel: TableViewViewModelProtocol {
-    public private(set) var state = TableViewState(loadingType: nil, loadingStatus: .idle)
-    public private(set) var data: [TableViewDataModelProtocol]
-    public private(set) var callback: CallBack?
-    
-    required public init(_ callback: @escaping CallBack) {
-        self.callback = callback
-        self.data = [TableViewDataModelProtocol]()
-    }
-    
-    public func willCallBack(_ type: TableViewState.LoadingType) {
-        state.loadingStatus = .loading
-        state.loadingType = type
-        callback?(state)
-    }
-    
-    public func didCallBack(_ type: TableViewState.LoadingType) {
-        state.loadingStatus = .idle
-        state.loadingType = nil
-        callback?(state)
-    }
-}
-

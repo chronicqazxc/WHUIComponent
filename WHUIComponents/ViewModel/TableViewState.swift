@@ -8,16 +8,17 @@
 
 import Foundation
 
+
+/// Represent tableView loading types.
 public struct TableViewState {
     public enum LoadingType {
         case refresh
         case more
     }
-    public enum LoadingStatus {
-        case idle
-        case loading
-    }
     
     public var loadingType: LoadingType?
-    public var loadingStatus: LoadingStatus
+    
+    public init(loadingType: LoadingType?) {
+        self.loadingType = loadingType
+    }
 }
