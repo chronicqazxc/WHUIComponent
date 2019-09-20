@@ -11,13 +11,13 @@ import XCTest
 
 public class MockTableViewViewModel: TableViewViewModelProtocol {
     public private(set) var state = TableViewState(loadingType: nil, loadingStatus: .idle)
-    public private(set) var data: [TableViewDataModelProtocol]
+    public private(set) var data: [TableViewDataModel]
     public private(set) var callback: CallBack?
     var isLoadingFinished: Bool = true
     
     required public init(_ callback: @escaping CallBack) {
         self.callback = callback
-        self.data = [TableViewDataModelProtocol]()
+        self.data = [TableViewDataModel]()
     }
     
     public func willCallBack(_ type: TableViewState.LoadingType) {

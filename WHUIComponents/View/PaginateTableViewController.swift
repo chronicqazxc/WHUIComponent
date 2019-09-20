@@ -8,65 +8,76 @@
 
 import UIKit
 
+/// Error generated in PaginateTableViewController.
+///
+/// - typeError: The type is not the designated type.
 public enum PaginateTableViewControllerError: Error {
     case typeError
-    case viewModelNil
 }
 
+/// The dataSource and delegate of PaginateTableViewController return following items.
+/// 1. Number of sections.
+/// 2. number of rows.
+/// 3. Cell for row in section.
+/// 4. User trigger pull refresh.
+/// 5. User trigger load more.
 public protocol PaginateTableViewControllerDataDelegate: class {
+    
+    /// Equal to the number of section dataSource method in UITableView.
+    ///
+    /// - Returns: Number of section.
     func numberOfSection() -> Int
+    
+    /// Equal to the number of row in sections dataSource method in UITableView.
+    ///
+    /// - Parameter section: UITableView section
+    /// - Returns: Number of row in section.
     func numberOfRowInSection(_ section: Int) -> Int
+    
+    /// Equal to the number of cell for row at indexPath dataSource method in UITableView.
+    ///
+    /// - Parameter indexPath: UITableView indexPath
+    /// - Returns: Designated cell.
     func cellForRowAt(indexPath: IndexPath) -> UITableViewCell
+    
+    /// Pull to reload.
     func reload()
+    
+    /// Scroll to bottom to load more.
     func getMore()
 }
 
+/// Control the pull refresh and load more logic.
+///
+/// - idle: No loading.
+/// - loading: Loading.
 enum LoadingStatus {
     case idle
     case loading
 }
 
-
-/// PaginateTableViewController adopt MVVM pattern, how to customize your paginated view controller.
+/// PaginateTableViewController which implemented paginate in UITableView, this is the base class only control the pull refresh and scroll to bottom to load more logic, the reset of all have been delegated to dataDelegate which should be implemented by users. The the PaginateTableViewController adopted pattern MVVM, following steps show how to customized your paginated UITableView.
 /// 1. Inherited PaginateTableViewController as well as adopt protocol PaginateTableViewControllerDataDelegate.
 /// 2. Implement TableViewViewModel.
 /// 3. Your data model must adopt TableViewDataModel.
 @objcMembers
 open class PaginateTableViewController: UITableViewController {
     
-    var loadingStatus = LoadingStatus.idle
-
-    weak public var dataDelegate: PaginateTableViewControllerDataDelegate!
-    
     fileprivate enum Constant {
         static let PaginateTableViewController = "PaginateTableViewController"
     }
-
+    
+    var loadingStatus = LoadingStatus.idle
+    
+    /// Responsible in dataSource and delegate in tableView, should not be nil.
+    weak public var dataDelegate: PaginateTableViewControllerDataDelegate!
+    
     override open func viewDidLoad() {
         super.viewDidLoad()
         
         tableView.refreshControl = UIRefreshControl()
         tableView.refreshControl?.addTarget(self, action: #selector(PaginateTableViewController.refresh), for: .valueChanged)
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
-    }
-    
-    override open func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        
-    }
-
-    // MARK: - Table view data source
-
-    override open func numberOfSections(in tableView: UITableView) -> Int {
-        return dataDelegate.numberOfSection()
-    }
-
-    override open func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return dataDelegate.numberOfRowInSection(section)
-    }
-    
-    override open func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return dataDelegate.cellForRowAt(indexPath: indexPath)
     }
     
     func refresh() {
@@ -96,6 +107,22 @@ open class PaginateTableViewController: UITableViewController {
 
 }
 
+// MARK: - DataSource
+extension PaginateTableViewController {
+    override open func numberOfSections(in tableView: UITableView) -> Int {
+        return dataDelegate.numberOfSection()
+    }
+    
+    override open func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return dataDelegate.numberOfRowInSection(section)
+    }
+    
+    override open func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        return dataDelegate.cellForRowAt(indexPath: indexPath)
+    }
+}
+
+// MARK: - Delegate
 extension PaginateTableViewController {
     override open func scrollViewDidScroll(_ scrollView: UIScrollView) {
         guard self.tableView.isTracking && scrollView.contentOffset.y > 0 else {
@@ -111,6 +138,7 @@ extension PaginateTableViewController {
     }
 }
 
+// MARK: - Initializer
 extension PaginateTableViewController {
     public static func controller() throws -> PaginateTableViewController {
         guard let controller = Resource.storyBoard.instantiateViewController(withIdentifier: Constant.PaginateTableViewController) as? PaginateTableViewController else {

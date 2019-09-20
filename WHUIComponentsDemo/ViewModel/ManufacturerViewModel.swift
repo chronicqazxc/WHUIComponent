@@ -18,7 +18,7 @@ public enum APIError: Error {
 public class ManufacturerViewModel: TableViewViewModelProtocol {
     
     public private(set) var state = TableViewState(loadingType: nil)
-    public private(set) var data: [TableViewDataModelProtocol]
+    public private(set) var data: [TableViewDataModel]
     public private(set) var callback: CallBack?
     fileprivate var page = Page(current: -1, total: 1)
     
@@ -27,7 +27,7 @@ public class ManufacturerViewModel: TableViewViewModelProtocol {
         self.data = [Manufacture]()
     }
     
-    public func willCallBack(_ type: TableViewState.LoadingType, data :[TableViewDataModelProtocol]?) {
+    public func willCallBack(_ type: TableViewState.LoadingType, data :[TableViewDataModel]?) {
         state.loadingType = type
         guard let data = data else {
             return
@@ -68,7 +68,7 @@ public class ManufacturerViewModel: TableViewViewModelProtocol {
         }
     }
     
-    public func parse(_ data: Data) -> [TableViewDataModelProtocol]? {
+    public func parse(_ data: Data) -> [TableViewDataModel]? {
         let json = try? JSONSerialization.jsonObject(with: data, options: []) as? [String : Any]
         guard let wkda = json?["wkda"] as? [String: String],
             let currentPage = json?["page"] as? Int,

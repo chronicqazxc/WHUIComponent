@@ -9,7 +9,7 @@
 import Foundation
 import MyService
 
-public typealias CallBack = (_ loadingType: TableViewState.LoadingType, _ data: [TableViewDataModelProtocol]?, _ error: Error?) -> Void
+public typealias CallBack = (_ loadingType: TableViewState.LoadingType, _ data: [TableViewDataModel]?, _ error: Error?) -> Void
 
 /// TableView view model. Process busniess logic and API requests.
 public protocol TableViewViewModelProtocol: class {
@@ -18,7 +18,7 @@ public protocol TableViewViewModelProtocol: class {
     var state: TableViewState { get }
     
     /// Data to represent.
-    var data: [TableViewDataModelProtocol] { get }
+    var data: [TableViewDataModel] { get }
     
     /// Callback when request complete.
     var callback: CallBack? { get }
@@ -31,7 +31,7 @@ public protocol TableViewViewModelProtocol: class {
     /// Will callback to view.
     ///
     /// - Parameter type: Loading type
-    func willCallBack(_ type: TableViewState.LoadingType, data: [TableViewDataModelProtocol]?)
+    func willCallBack(_ type: TableViewState.LoadingType, data: [TableViewDataModel]?)
     
     /// Callback to view complete.
     ///
@@ -54,8 +54,8 @@ public protocol TableViewViewModelProtocol: class {
     
     /// Parse and return designated data model.
     ///
-    /// - Returns: Data model which confirmed TableViewDataModelProtocol.
-    func parse(_ data: Data) -> [TableViewDataModelProtocol]?
+    /// - Returns: Data model which confirmed TableViewDataModel.
+    func parse(_ data: Data) -> [TableViewDataModel]?
 }
 
 extension TableViewViewModelProtocol {
