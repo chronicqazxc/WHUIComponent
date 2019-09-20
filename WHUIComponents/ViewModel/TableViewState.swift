@@ -9,8 +9,15 @@
 import Foundation
 
 public struct TableViewState {
-    public enum LoadType {
+    public enum LoadingType {
         case refresh
         case more
     }
+    public enum LoadingStatus {
+        case idle
+        case loading
+    }
+    
+    public var loadingType: LoadingType?
+    public var loadingStatus: LoadingStatus
 }

@@ -8,35 +8,43 @@
 
 import Foundation
 
-public typealias CallBack = (TableViewState.LoadType) -> Void
+public typealias CallBack = (TableViewState) -> Void
 
 public protocol TableViewViewModelProtocol {
     var state: TableViewState { get }
     var data: [TableViewDataModelProtocol] { get }
     var callback: CallBack? { get }
     init(_ callback: @escaping CallBack)
-    func willCallBack(_ type: TableViewState.LoadType)
-    func didCallBack(_ type: TableViewState.LoadType)
+    func willCallBack(_ type: TableViewState.LoadingType)
+    func didCallBack(_ type: TableViewState.LoadingType)
     func refresh()
     func getMore()
 }
 
 extension TableViewViewModelProtocol {
     public func refresh() {
+        guard state.loadingStatus == .idle else {
+            return
+        }
         willCallBack(.refresh)
-        callback?(.refresh)
+        // TODO: API request
+        callback?(self.state)
         didCallBack(.refresh)
     }
     
     public func getMore() {
+        guard state.loadingStatus == .idle else {
+            return
+        }
         willCallBack(.more)
-        callback?(.more)
+        // TODO: API request
+        callback?(self.state)
         didCallBack(.more)
     }
 }
 
 public class TableViewViewModel: TableViewViewModelProtocol {
-    public private(set) var state = TableViewState()
+    public private(set) var state = TableViewState(loadingType: nil, loadingStatus: .idle)
     public private(set) var data: [TableViewDataModelProtocol]
     public private(set) var callback: CallBack?
     
@@ -45,12 +53,16 @@ public class TableViewViewModel: TableViewViewModelProtocol {
         self.data = [TableViewDataModelProtocol]()
     }
     
-    public func willCallBack(_ type: TableViewState.LoadType) {
-        print("will callback")
+    public func willCallBack(_ type: TableViewState.LoadingType) {
+        state.loadingStatus = .loading
+        state.loadingType = type
+        callback?(state)
     }
     
-    public func didCallBack(_ type: TableViewState.LoadType) {
-        print("did callback")
+    public func didCallBack(_ type: TableViewState.LoadingType) {
+        state.loadingStatus = .idle
+        state.loadingType = nil
+        callback?(state)
     }
 }
 

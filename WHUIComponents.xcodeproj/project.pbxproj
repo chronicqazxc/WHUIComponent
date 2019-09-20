@@ -46,7 +46,7 @@
 		A6B6F145233479040061F48C /* TableViewDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewDataModel.swift; sourceTree = "<group>"; };
 		A6B6F14923347C170061F48C /* TableViewViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewViewModelTest.swift; sourceTree = "<group>"; };
 		A6B6F14B233484CA0061F48C /* .travis.yml */ = {isa = PBXFileReference; lastKnownFileType = text; path = .travis.yml; sourceTree = "<group>"; };
-		A6B6F14D23348C8F0061F48C /* Gemfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Gemfile; sourceTree = "<group>"; };
+		A6B6F14D23348C8F0061F48C /* Gemfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; path = Gemfile; sourceTree = "<group>"; };
 		B057B3DA2333DB5B00A59F11 /* WHUIComponents.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = WHUIComponents.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B057B3DD2333DB5B00A59F11 /* WHUIComponents.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WHUIComponents.h; sourceTree = "<group>"; };
 		B057B3DE2333DB5B00A59F11 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -94,6 +94,40 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A6B6F14E23349CFD0061F48C /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				B057B4162333E4E500A59F11 /* TableViewState.swift */,
+				B057B4142333E30C00A59F11 /* TableViewViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		A6B6F14F23349D080061F48C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				A6B6F145233479040061F48C /* TableViewDataModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		A6B6F15023349D0F0061F48C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B057B40E2333DECE00A59F11 /* PaginateTableViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		A6B6F15123349D3B0061F48C /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				B057B4102333E07300A59F11 /* Resource.swift */,
+				B057B40C2333DE1100A59F11 /* Storyboard.storyboard */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		B057B3D02333DB5B00A59F11 = {
 			isa = PBXGroup;
 			children = (
@@ -120,12 +154,10 @@
 			isa = PBXGroup;
 			children = (
 				B057B3DD2333DB5B00A59F11 /* WHUIComponents.h */,
-				B057B4162333E4E500A59F11 /* TableViewState.swift */,
-				B057B4142333E30C00A59F11 /* TableViewViewModel.swift */,
-				A6B6F145233479040061F48C /* TableViewDataModel.swift */,
-				B057B40E2333DECE00A59F11 /* PaginateTableViewController.swift */,
-				B057B4102333E07300A59F11 /* Resource.swift */,
-				B057B40C2333DE1100A59F11 /* Storyboard.storyboard */,
+				A6B6F14E23349CFD0061F48C /* ViewModel */,
+				A6B6F14F23349D080061F48C /* Model */,
+				A6B6F15023349D0F0061F48C /* View */,
+				A6B6F15123349D3B0061F48C /* Resources */,
 				B057B3DE2333DB5B00A59F11 /* Info.plist */,
 			);
 			path = WHUIComponents;
