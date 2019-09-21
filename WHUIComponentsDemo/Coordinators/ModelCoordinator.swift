@@ -33,7 +33,7 @@ class ModelCoordinator: Coordinator {
 
 extension ModelCoordinator: CoordinatorViewContollerDelegate {
     func navigateToNextPage() {
-        
+        // TODO: Show some fency alert view
     }
     
     func naviageBackToPreviousPage() {

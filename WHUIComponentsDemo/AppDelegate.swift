@@ -12,7 +12,7 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    var mainCoordinator: MainCoordinator?
+    var mainCoordinator: MainCoordinator!
 
     func application(_ application: UIApplication,
                      didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
@@ -20,7 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.rootViewController = UINavigationController()
         mainCoordinator = MainCoordinator(navigationController: window?.rootViewController as! UINavigationController)
-        mainCoordinator?.start()
+        mainCoordinator.start()
         window?.makeKeyAndVisible()
         
         return true
