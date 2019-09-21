@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>host</key>
+	<string>http://api-aws-eu-qa-1.auto1-test.com</string>
+	<key>getManufacturers</key>
+	<string>{host}/v1/car-types/manufacturer?page={page}&amp;pageSize={pageSize}&amp;wa_key={waKey}</string>
+</dict>
+</plist>

@@ -17,7 +17,9 @@ class ViewController: UIViewController {
 
     @IBAction func showPaginateTableView(_ sender: Any) {
         do {
-            let paginateViewController = ManufacturerTableViewController(style: .grouped)
+            let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+            let viewController = storyboard.instantiateViewController(withIdentifier: "ManufacturerTableViewController")
+            let paginateViewController = viewController//ManufacturerTableViewController(style: .grouped)
             present(paginateViewController, animated: true, completion: nil)
         } catch {
             

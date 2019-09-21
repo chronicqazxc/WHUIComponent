@@ -20,7 +20,7 @@ public class ManufacturerViewModel: TableViewViewModelProtocol {
     public private(set) var state = TableViewState(loadingType: nil)
     public private(set) var data: [TableViewDataModel]
     public private(set) var callback: CallBack?
-    fileprivate var page = Page(current: -1, total: 1)
+    fileprivate var page = Page.initialPage()
     
     required public init(_ callback: @escaping CallBack) {
         self.callback = callback
@@ -44,27 +44,22 @@ public class ManufacturerViewModel: TableViewViewModelProtocol {
         state.loadingType = nil
     }
     
-    public func apiRequest(type: TableViewState.LoadingType, _ completeHandler: @escaping NetworkCompletionHandler) {
+    public func apiRequest(type: TableViewState.LoadingType,
+                           _ completeHandler: @escaping NetworkCompletionHandler) {
         refreshPageIfNeeded(type)
         print("next page: \(page.next)")
-        guard let url = URL(string: "http://api-aws-eu-qa-1.auto1-test.com/v1/car-types/manufacturer?page=\(page.next)&pageSize=10&wa_key=coding-puzzle-client-449cc9d") else {
-            completeHandler(nil, nil, APIError.invalidURL)
-            return
-        }
-        
-        guard page.hasNextPage() == true else {
-            completeHandler(nil, nil, APIError.EOF)
-            return
-        }
-        
-        Service.shared.get(url: url) { (data, response, error) in
+        Service.shared.getManufacturer(page: page.next) { (data, response, error) in
+            guard self.page.hasNextPage() == true else {
+                completeHandler(nil, nil, APIError.EOF)
+                return
+            }
             completeHandler(data, response, error)
         }
     }
     
     func refreshPageIfNeeded(_ type: TableViewState.LoadingType) {
         if type == .refresh {
-            page = Page(current: -1, total: 1)
+            page = Page.initialPage()
         }
     }
     

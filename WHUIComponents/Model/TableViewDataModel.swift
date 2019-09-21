@@ -13,9 +13,3 @@ public protocol TableViewDataModel {
     var content: String { get }
     var image: UIImage? { get }
 }
-
-//public struct TableViewDataModel: TableViewDataModel {
-//    public var title: String
-//    public var content: String
-//    public var image: UIImage?
-//}

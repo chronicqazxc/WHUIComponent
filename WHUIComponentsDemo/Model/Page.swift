@@ -17,4 +17,7 @@ struct Page {
     func hasNextPage() -> Bool {
         return next < total
     }
+    static func initialPage() -> Page {
+        return Page(current: -1, total: 1)
+    }
 }

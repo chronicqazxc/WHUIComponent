@@ -11,7 +11,8 @@ import WHUIComponents
 
 class ManufacturerTableViewController: PaginateTableViewController {
     
-    lazy var viewModel: TableViewViewModelProtocol? = {
+    /// Generate viewModel and binding.
+    lazy var viewModel: TableViewViewModelProtocol = {
         func eofError() {
             let controller = UIAlertController(title: nil, message: "End of file", preferredStyle: .alert)
             let action = UIAlertAction(title: "ok", style: .default, handler: nil)
@@ -56,18 +57,18 @@ class ManufacturerTableViewController: PaginateTableViewController {
 extension ManufacturerTableViewController: PaginateTableViewControllerDataDelegate {
     func cellForRowAt(indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        let model = viewModel?.data[indexPath.row]
-        cell.textLabel?.text = model?.content
+        let model = viewModel.data[indexPath.row]
+        cell.textLabel?.text = model.content
         return cell
     }
     
     @objc
     func reload() {
-        viewModel!.refresh()
+        viewModel.refresh()
     }
     
     func getMore() {
-        viewModel!.getMore()
+        viewModel.getMore()
     }
     
     func numberOfSection() -> Int {
@@ -75,6 +76,6 @@ extension ManufacturerTableViewController: PaginateTableViewControllerDataDelega
     }
     
     func numberOfRowInSection(_ section: Int) -> Int {
-        return viewModel!.data.count
+        return viewModel.data.count
     }
 }
