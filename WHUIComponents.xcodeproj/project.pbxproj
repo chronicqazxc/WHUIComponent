@@ -12,9 +12,9 @@
 		A6A1672D2334DA6100E1143F /* ManufacturerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6A1672C2334DA6100E1143F /* ManufacturerTableViewController.swift */; };
 		A6A1672F2334DEB400E1143F /* ManufacturerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6A1672E2334DEB400E1143F /* ManufacturerViewModel.swift */; };
 		A6A167342334F15F00E1143F /* Manufacture.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6A167332334F15F00E1143F /* Manufacture.swift */; };
-		A6A167372335029300E1143F /* Page.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6A167362335029300E1143F /* Page.swift */; };
 		A6A1673F23360D6B00E1143F /* Services.plist in Resources */ = {isa = PBXBuildFile; fileRef = A6A1673E23360D6B00E1143F /* Services.plist */; };
 		A6A167412336142400E1143F /* MockTableViewDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6A167402336142400E1143F /* MockTableViewDataModel.swift */; };
+		A6A167472336219400E1143F /* Page.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6A167362335029300E1143F /* Page.swift */; };
 		A6B6F146233479040061F48C /* TableViewDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6B6F145233479040061F48C /* TableViewDataModel.swift */; };
 		A6B6F14A23347C170061F48C /* TableViewViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6B6F14923347C170061F48C /* TableViewViewModelTest.swift */; };
 		A6B6F1552334BDA10061F48C /* Cartfile in Resources */ = {isa = PBXBuildFile; fileRef = A6B6F1542334BDA10061F48C /* Cartfile */; };
@@ -145,7 +145,6 @@
 			isa = PBXGroup;
 			children = (
 				A6A167332334F15F00E1143F /* Manufacture.swift */,
-				A6A167362335029300E1143F /* Page.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -162,6 +161,7 @@
 		A6B6F14F23349D080061F48C /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				A6A167362335029300E1143F /* Page.swift */,
 				A6B6F145233479040061F48C /* TableViewDataModel.swift */,
 			);
 			path = Model;
@@ -431,6 +431,7 @@
 			files = (
 				A6B6F146233479040061F48C /* TableViewDataModel.swift in Sources */,
 				B057B4152333E30C00A59F11 /* TableViewViewModel.swift in Sources */,
+				A6A167472336219400E1143F /* Page.swift in Sources */,
 				B057B40F2333DECE00A59F11 /* PaginateTableViewController.swift in Sources */,
 				B057B4112333E07300A59F11 /* Resource.swift in Sources */,
 				B057B4172333E4E500A59F11 /* TableViewState.swift in Sources */,
@@ -456,7 +457,6 @@
 				A6A167342334F15F00E1143F /* Manufacture.swift in Sources */,
 				B057B3FD2333DBD500A59F11 /* ViewController.swift in Sources */,
 				B057B3FB2333DBD500A59F11 /* AppDelegate.swift in Sources */,
-				A6A167372335029300E1143F /* Page.swift in Sources */,
 				A6A1672F2334DEB400E1143F /* ManufacturerViewModel.swift in Sources */,
 				A62464DC2334C91300F60CDB /* Service.swift in Sources */,
 			);

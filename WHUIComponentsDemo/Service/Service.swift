@@ -21,7 +21,7 @@ enum Constant {
 extension Service {
     
     func getManufacturer(page: Int, _ completeHandler: @escaping NetworkCompletionHandler) {
-        print("next page: \(page)")
+        
         guard let path = Service.getPath(Constant.getManufacturers,
                                          token: [
                                             Constant.page: "\(page)",
