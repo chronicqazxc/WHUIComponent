@@ -10,6 +10,8 @@ import XCTest
 @testable import WHUIComponents
 
 public class MockTableViewViewModel: TableViewViewModelProtocol {
+    public var indexOfCurrentSelected: IndexPath?
+    
     public var page = Page.initialPage()
     
     public private(set) var state = TableViewState()
