@@ -16,7 +16,8 @@ public enum APIError: Error {
 }
 
 public class ManufacturerViewModel: TableViewViewModelProtocol {
-
+    
+    public var indexOfCurrentSelected: IndexPath?
     public private(set) var state = TableViewState()
     public private(set) var data: [TableViewDataModel]
     public private(set) var callback: CallBack?
@@ -76,8 +77,27 @@ public class ManufacturerViewModel: TableViewViewModelProtocol {
             return Manufacturer(id: $0.key, model: $0.value)
         }
     }
+}
+
+extension ManufacturerViewModel: PaginateTableViewControllerDataDelegate {
     
-    public func selected(indexPath: IndexPath) {
-        
+    public func numberOfSection() -> Int {
+        return 1
+    }
+    
+    public func tableView(_ tableView: UITableView, numberOfRowInSection section: Int) -> Int {
+        return data.count
+    }
+    
+    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        let model = data[indexPath.row]
+        cell.textLabel?.text = model.content
+        return cell
+    }
+    
+    public func tableView(_ tableView: UITableView, DidSelectRowAt indexPath: IndexPath) {
+        print("\(indexPath) been selected.")
+        indexOfCurrentSelected = indexPath
     }
 }

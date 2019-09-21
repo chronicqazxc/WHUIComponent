@@ -26,19 +26,26 @@ class ManufacturerCoordinator: Coordinator {
             return
         }
         manufacturerViewController.coordinateDelegate = self
+        viewController = manufacturerViewController
         navigationController?.pushViewController(manufacturerViewController, animated: true)
     }
 }
 
 extension ManufacturerCoordinator: CoordinatorViewContollerDelegate {
-    func navigateToNextPage(parameters: [AnyHashable: Any]?) {
-        guard let navigationController = navigationController else {
+    func navigateToNextPage() {
+        guard let navigationController = navigationController,
+            let manufacturerViewController = viewController as? ManufacturerTableViewController else {
             return
         }
+        let viewModel = manufacturerViewController.viewModel
+        guard let index = viewModel!.indexOfCurrentSelected?.row else {
+            return
+        }
+        let manufacture = viewModel!.data[index]
         
         let modelCoordinator = ModelCoordinator(navigationController: navigationController)
         modelCoordinator.delegate = self
-        modelCoordinator.parameters = parameters
+        modelCoordinator.parameters = [ManufacturerTableViewController.Constant.parameterKey: manufacture]
         modelCoordinator.start()
     }
     

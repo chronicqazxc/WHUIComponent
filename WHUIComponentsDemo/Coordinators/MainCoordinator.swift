@@ -34,7 +34,7 @@ class MainCoordinator: Coordinator {
 }
 
 extension MainCoordinator: CoordinatorViewContollerDelegate {
-    func navigateToNextPage(parameters: [AnyHashable: Any]?) {
+    func navigateToNextPage() {
         guard let navigationController = navigationController else {
             return
         }

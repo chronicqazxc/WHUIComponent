@@ -23,17 +23,16 @@ class ModelCoordinator: Coordinator {
     
     func start() {
         guard let manufacturer = parameters?[ManufacturerTableViewController.Constant.parameterKey] as? Manufacturer,
-            var modelViewController = ModelTableViewController.initFromManufacturer(manufacturer) as? CoordinatorViewController & UIViewController else {
+            let modelViewController = ModelTableViewController.initFromManufacturer(manufacturer) else {
                 return
         }
-
         modelViewController.coordinateDelegate = self
         navigationController?.pushViewController(modelViewController, animated: true)
     }
 }
 
 extension ModelCoordinator: CoordinatorViewContollerDelegate {
-    func navigateToNextPage(parameters: [AnyHashable: Any]?) {
+    func navigateToNextPage() {
         
     }
     

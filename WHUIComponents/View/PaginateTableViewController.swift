@@ -38,7 +38,8 @@ open class PaginateTableViewController: UITableViewController {
     var loadingStatus = LoadingStatus.idle
     
     /// Responsible in dataSource and delegate in tableView, should not be nil.
-    weak public var dataDelegate: PaginateTableViewControllerDataDelegate!
+    open var dataDelegate: PaginateTableViewControllerDataDelegate!
+    open var viewModel: TableViewViewModelProtocol!
     
     override open func viewDidLoad() {
         super.viewDidLoad()
@@ -51,7 +52,7 @@ open class PaginateTableViewController: UITableViewController {
     func refresh() {
         if loadingStatus == .idle {
             loadingStart(.refresh)
-            dataDelegate.reload()
+            viewModel.refresh()
         }
     }
     
@@ -82,11 +83,11 @@ extension PaginateTableViewController {
     }
     
     override open func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return dataDelegate.numberOfRowInSection(section)
+        return dataDelegate.tableView(tableView, numberOfRowInSection: section)
     }
     
     override open func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return dataDelegate.cellForRowAt(indexPath: indexPath)
+        return dataDelegate.tableView(tableView, cellForRowAt: indexPath)
     }
 }
 
@@ -122,7 +123,7 @@ extension PaginateTableViewController {
         let distanceFromBottom = scrollView.contentSize.height - offset
         if distanceFromBottom < height && loadingStatus == .idle {
             loadingStart(.more)
-            dataDelegate.getMore()
+            viewModel.getMore()
         }
     }
 }
@@ -130,7 +131,7 @@ extension PaginateTableViewController {
 // MARK: - Delegate
 extension PaginateTableViewController {
     open override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        dataDelegate.tableViewDidSelectRowAt(indexPath: indexPath)
+        dataDelegate.tableView(tableView, DidSelectRowAt: indexPath)
     }
 }
 

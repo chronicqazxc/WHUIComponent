@@ -28,6 +28,10 @@ public protocol TableViewViewModelProtocol: class {
     /// Callback when request complete.
     var callback: CallBack? { get }
     
+    /// TableView did selecte at indexPath.
+    var indexOfCurrentSelected: IndexPath? { get }
+    
+    /// Presresent the page information.
     var page: Page { get }
     
     /// Required initial method.
@@ -63,8 +67,6 @@ public protocol TableViewViewModelProtocol: class {
     ///
     /// - Returns: Data model which confirmed TableViewDataModel.
     func parse(_ data: Data) -> [TableViewDataModel]?
-    
-    func selected(indexPath: IndexPath)
 }
 
 extension TableViewViewModelProtocol {

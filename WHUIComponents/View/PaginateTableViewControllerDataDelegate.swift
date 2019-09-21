@@ -25,22 +25,16 @@ public protocol PaginateTableViewControllerDataDelegate: class {
     ///
     /// - Parameter section: UITableView section
     /// - Returns: Number of row in section.
-    func numberOfRowInSection(_ section: Int) -> Int
+    func tableView(_ tableView: UITableView, numberOfRowInSection section: Int) -> Int
     
     /// Equal to the number of cell for row at indexPath dataSource method in UITableView.
     ///
     /// - Parameter indexPath: UITableView indexPath
     /// - Returns: Designated cell.
-    func cellForRowAt(indexPath: IndexPath) -> UITableViewCell
-    
-    /// Pull to reload.
-    func reload()
-    
-    /// Scroll to bottom to load more.
-    func getMore()
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     
     /// Equal to the delegate method "didSelectRowAtIndex" in UITableView.
     ///
     /// - Parameter indexPath: indexPath of cell which been selected.
-    func tableViewDidSelectRowAt(indexPath: IndexPath)
+    func tableView(_ tableView: UITableView, DidSelectRowAt indexPath: IndexPath)
 }

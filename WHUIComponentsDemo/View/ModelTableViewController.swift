@@ -17,7 +17,7 @@ class ModelTableViewController: PaginateTableViewController, CoordinatorViewCont
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Model"
+        title = "\(model.manufacturer.content)"
         
     }
 
