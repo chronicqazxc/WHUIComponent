@@ -9,8 +9,10 @@
 import UIKit
 import WHUIComponents
 
-class ManufacturerTableViewController: PaginateTableViewController {
+class ManufacturerTableViewController: PaginateTableViewController, CoordinatorViewController {
     
+    var coordinateDelegate: CoordinatorViewContollerDelegate?
+
     /// Generate viewModel and binding.
     lazy var viewModel: TableViewViewModelProtocol = {
         func eofError() {
@@ -50,7 +52,9 @@ class ManufacturerTableViewController: PaginateTableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.dataDelegate = self
+        dataDelegate = self
+        viewModel.refresh()
+        title = "Manufacturer"
     }
 }
 
@@ -77,5 +81,10 @@ extension ManufacturerTableViewController: PaginateTableViewControllerDataDelega
     
     func numberOfRowInSection(_ section: Int) -> Int {
         return viewModel.data.count
+    }
+    
+    func tableViewDidSelectRowAt(indexPath: IndexPath) {
+        print("\(indexPath) been selected.")
+        coordinateDelegate?.navigateToNextPage()
     }
 }

@@ -15,6 +15,14 @@
 		A6A1673F23360D6B00E1143F /* Services.plist in Resources */ = {isa = PBXBuildFile; fileRef = A6A1673E23360D6B00E1143F /* Services.plist */; };
 		A6A167412336142400E1143F /* MockTableViewDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6A167402336142400E1143F /* MockTableViewDataModel.swift */; };
 		A6A167472336219400E1143F /* Page.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6A167362335029300E1143F /* Page.swift */; };
+		A6A167492336266700E1143F /* PaginateTableViewControllerDataDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6A167482336266700E1143F /* PaginateTableViewControllerDataDelegate.swift */; };
+		A6A1674B233639BA00E1143F /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6A1674A233639BA00E1143F /* Coordinator.swift */; };
+		A6A1674E23363A5900E1143F /* CoordinatorViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6A1674D23363A5900E1143F /* CoordinatorViewControllerDelegate.swift */; };
+		A6A1675023363BE100E1143F /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6A1674F23363BE100E1143F /* MainCoordinator.swift */; };
+		A6A1675223363E5000E1143F /* CoordinatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6A1675123363E5000E1143F /* CoordinatorViewController.swift */; };
+		A6A1675523363F5100E1143F /* ManufacturerCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6A1675423363F5100E1143F /* ManufacturerCoordinator.swift */; };
+		A6A1675723364A3600E1143F /* ModelTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6A1675623364A3600E1143F /* ModelTableViewController.swift */; };
+		A6A1675923364A7000E1143F /* ModelCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6A1675823364A7000E1143F /* ModelCoordinator.swift */; };
 		A6B6F146233479040061F48C /* TableViewDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6B6F145233479040061F48C /* TableViewDataModel.swift */; };
 		A6B6F14A23347C170061F48C /* TableViewViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6B6F14923347C170061F48C /* TableViewViewModelTest.swift */; };
 		A6B6F1552334BDA10061F48C /* Cartfile in Resources */ = {isa = PBXBuildFile; fileRef = A6B6F1542334BDA10061F48C /* Cartfile */; };
@@ -62,6 +70,14 @@
 		A6A167362335029300E1143F /* Page.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Page.swift; sourceTree = "<group>"; };
 		A6A1673E23360D6B00E1143F /* Services.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Services.plist; sourceTree = "<group>"; };
 		A6A167402336142400E1143F /* MockTableViewDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockTableViewDataModel.swift; sourceTree = "<group>"; };
+		A6A167482336266700E1143F /* PaginateTableViewControllerDataDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaginateTableViewControllerDataDelegate.swift; sourceTree = "<group>"; };
+		A6A1674A233639BA00E1143F /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		A6A1674D23363A5900E1143F /* CoordinatorViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorViewControllerDelegate.swift; sourceTree = "<group>"; };
+		A6A1674F23363BE100E1143F /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
+		A6A1675123363E5000E1143F /* CoordinatorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorViewController.swift; sourceTree = "<group>"; };
+		A6A1675423363F5100E1143F /* ManufacturerCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManufacturerCoordinator.swift; sourceTree = "<group>"; };
+		A6A1675623364A3600E1143F /* ModelTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelTableViewController.swift; sourceTree = "<group>"; };
+		A6A1675823364A7000E1143F /* ModelCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelCoordinator.swift; sourceTree = "<group>"; };
 		A6B6F145233479040061F48C /* TableViewDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewDataModel.swift; sourceTree = "<group>"; };
 		A6B6F14923347C170061F48C /* TableViewViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewViewModelTest.swift; sourceTree = "<group>"; };
 		A6B6F14B233484CA0061F48C /* .travis.yml */ = {isa = PBXFileReference; lastKnownFileType = text; path = .travis.yml; sourceTree = "<group>"; };
@@ -120,7 +136,9 @@
 		A6A167302334E45400E1143F /* View */ = {
 			isa = PBXGroup;
 			children = (
+				B057B3FC2333DBD500A59F11 /* ViewController.swift */,
 				A6A1672C2334DA6100E1143F /* ManufacturerTableViewController.swift */,
+				A6A1675623364A3600E1143F /* ModelTableViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -149,6 +167,26 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		A6A1674C23363A0D00E1143F /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				A6A1674A233639BA00E1143F /* Coordinator.swift */,
+				A6A1674D23363A5900E1143F /* CoordinatorViewControllerDelegate.swift */,
+				A6A1675123363E5000E1143F /* CoordinatorViewController.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		A6A1675323363F2E00E1143F /* Coordinators */ = {
+			isa = PBXGroup;
+			children = (
+				A6A1674F23363BE100E1143F /* MainCoordinator.swift */,
+				A6A1675423363F5100E1143F /* ManufacturerCoordinator.swift */,
+				A6A1675823364A7000E1143F /* ModelCoordinator.swift */,
+			);
+			path = Coordinators;
+			sourceTree = "<group>";
+		};
 		A6B6F14E23349CFD0061F48C /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -171,6 +209,7 @@
 			isa = PBXGroup;
 			children = (
 				B057B40E2333DECE00A59F11 /* PaginateTableViewController.swift */,
+				A6A167482336266700E1143F /* PaginateTableViewControllerDataDelegate.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -222,6 +261,7 @@
 			isa = PBXGroup;
 			children = (
 				B057B3DD2333DB5B00A59F11 /* WHUIComponents.h */,
+				A6A1674C23363A0D00E1143F /* Coordinator */,
 				A6B6F14E23349CFD0061F48C /* ViewModel */,
 				A6B6F14F23349D080061F48C /* Model */,
 				A6B6F15023349D0F0061F48C /* View */,
@@ -247,7 +287,7 @@
 			isa = PBXGroup;
 			children = (
 				B057B3FA2333DBD500A59F11 /* AppDelegate.swift */,
-				B057B3FC2333DBD500A59F11 /* ViewController.swift */,
+				A6A1675323363F2E00E1143F /* Coordinators */,
 				A6A167352334F16200E1143F /* Model */,
 				A6A167302334E45400E1143F /* View */,
 				A6A167312334E45B00E1143F /* ViewModel */,
@@ -429,9 +469,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A6A1674B233639BA00E1143F /* Coordinator.swift in Sources */,
 				A6B6F146233479040061F48C /* TableViewDataModel.swift in Sources */,
 				B057B4152333E30C00A59F11 /* TableViewViewModel.swift in Sources */,
+				A6A167492336266700E1143F /* PaginateTableViewControllerDataDelegate.swift in Sources */,
 				A6A167472336219400E1143F /* Page.swift in Sources */,
+				A6A1675223363E5000E1143F /* CoordinatorViewController.swift in Sources */,
+				A6A1674E23363A5900E1143F /* CoordinatorViewControllerDelegate.swift in Sources */,
 				B057B40F2333DECE00A59F11 /* PaginateTableViewController.swift in Sources */,
 				B057B4112333E07300A59F11 /* Resource.swift in Sources */,
 				B057B4172333E4E500A59F11 /* TableViewState.swift in Sources */,
@@ -454,6 +498,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				A6A1672D2334DA6100E1143F /* ManufacturerTableViewController.swift in Sources */,
+				A6A1675723364A3600E1143F /* ModelTableViewController.swift in Sources */,
+				A6A1675923364A7000E1143F /* ModelCoordinator.swift in Sources */,
+				A6A1675523363F5100E1143F /* ManufacturerCoordinator.swift in Sources */,
+				A6A1675023363BE100E1143F /* MainCoordinator.swift in Sources */,
 				A6A167342334F15F00E1143F /* Manufacture.swift in Sources */,
 				B057B3FD2333DBD500A59F11 /* ViewController.swift in Sources */,
 				B057B3FB2333DBD500A59F11 /* AppDelegate.swift in Sources */,
@@ -636,7 +684,7 @@
 				);
 				INFOPLIST_FILE = WHUIComponents/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -669,7 +717,7 @@
 				);
 				INFOPLIST_FILE = WHUIComponents/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -743,7 +791,7 @@
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = WHUIComponentsDemo/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -766,7 +814,7 @@
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = WHUIComponentsDemo/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
