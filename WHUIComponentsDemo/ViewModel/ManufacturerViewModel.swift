@@ -17,7 +17,7 @@ public enum APIError: Error {
 
 public class ManufacturerViewModel: TableViewViewModelProtocol {
     
-    public private(set) var state = TableViewState(loadingType: nil)
+    public private(set) var state = TableViewState()
     public private(set) var data: [TableViewDataModel]
     public private(set) var callback: CallBack?
     fileprivate var page = Page.initialPage()
@@ -45,7 +45,7 @@ public class ManufacturerViewModel: TableViewViewModelProtocol {
     }
     
     public func apiRequest(type: TableViewState.LoadingType,
-                           _ completeHandler: @escaping NetworkCompletionHandler) {
+                           _ completeHandler: @escaping APIRequestComplete) {
         refreshPageIfNeeded(type)
         print("next page: \(page.next)")
         Service.shared.getManufacturer(page: page.next) { (data, response, error) in

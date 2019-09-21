@@ -9,7 +9,12 @@
 import Foundation
 import MyService
 
-public typealias CallBack = (_ loadingType: TableViewState.LoadingType, _ data: [TableViewDataModel]?, _ error: Error?) -> Void
+public typealias APIRequestComplete = (Data?, URLResponse?, Error?) -> Void
+
+public typealias CallBack = (
+    _ loadingType: TableViewState.LoadingType,
+    _ data: [TableViewDataModel]?,
+    _ error: Error?) -> Void
 
 /// TableView view model. Process busniess logic and API requests.
 public protocol TableViewViewModelProtocol: class {
@@ -49,7 +54,7 @@ public protocol TableViewViewModelProtocol: class {
     /// - Parameters:
     ///   - type: Loading type
     ///   - escapingcompleteHandler: API request complete handler
-    func apiRequest(type: TableViewState.LoadingType, _ escapingcompleteHandler: @escaping NetworkCompletionHandler)
+    func apiRequest(type: TableViewState.LoadingType, _ escapingcompleteHandler: @escaping APIRequestComplete)
     
     
     /// Parse and return designated data model.

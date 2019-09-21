@@ -18,7 +18,7 @@ public struct TableViewState {
     
     public var loadingType: LoadingType?
     
-    public init(loadingType: LoadingType?) {
+    public init(loadingType: LoadingType? = nil) {
         self.loadingType = loadingType
     }
 }

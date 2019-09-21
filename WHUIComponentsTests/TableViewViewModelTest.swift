@@ -10,7 +10,8 @@ import XCTest
 @testable import WHUIComponents
 
 public class MockTableViewViewModel: TableViewViewModelProtocol {
-    public private(set) var state = TableViewState(loadingType: nil, loadingStatus: .idle)
+    
+    public private(set) var state = TableViewState()
     public private(set) var data: [TableViewDataModel]
     public private(set) var callback: CallBack?
     var isLoadingFinished: Bool = true
@@ -21,30 +22,40 @@ public class MockTableViewViewModel: TableViewViewModelProtocol {
     }
     
     public func willCallBack(_ type: TableViewState.LoadingType) {
-        state.loadingStatus = .loading
         state.loadingType = type
         isLoadingFinished = false
         
         switch type {
         case .more:
             data = [
-                TableViewDataModel(title: "BMW", content: "z4", image: nil),
-                TableViewDataModel(title: "Mecendes Benz", content: "A1", image: nil)
+                MockTableViewDataModel(title: "BMW", content: "z4", image: nil),
+                MockTableViewDataModel(title: "Mecendes Benz", content: "A1", image: nil)
             ]
         case .refresh:
             data = [
-                TableViewDataModel(title: "BMW", content: "z4", image: nil),
-                TableViewDataModel(title: "Mecendes Benz", content: "A1", image: nil),
-                TableViewDataModel(title: "Audi", content: "Q1", image: nil)
+                MockTableViewDataModel(title: "BMW", content: "z4", image: nil),
+                MockTableViewDataModel(title: "Mecendes Benz", content: "A1", image: nil),
+                MockTableViewDataModel(title: "Audi", content: "Q1", image: nil)
             ]
         }
         
     }
     
     public func didCallBack(_ type: TableViewState.LoadingType) {
-        state.loadingStatus = .idle
         state.loadingType = nil
         isLoadingFinished = true
+    }
+    
+    public func willCallBack(_ type: TableViewState.LoadingType, data: [TableViewDataModel]?) {
+        
+    }
+    
+    public func apiRequest(type: TableViewState.LoadingType, _ escapingcompleteHandler: @escaping APIRequestComplete) {
+        
+    }
+    
+    public func parse(_ data: Data) -> [TableViewDataModel]? {
+        return nil
     }
 }
 
@@ -61,35 +72,16 @@ class TableViewViewModelTest: XCTestCase {
     }
 
     func testViewModelLoadingType() {
-        mockTableViewModel = MockTableViewViewModel { [weak self] in
+        mockTableViewModel = MockTableViewViewModel { [weak self] (type, data, error) in
             guard let strongSelf = self else {
                 return
             }
-            switch $0.loadingType {
-            case .refresh?:
+
+            switch type {
+            case .refresh:
                 XCTAssertEqual(strongSelf.mockTableViewModel.data.count, 3)
-            case .more?:
+            case .more:
                 XCTAssertEqual(strongSelf.mockTableViewModel.data.count, 2)
-            case .none:
-                break
-            }
-        }
-        
-        mockTableViewModel.getMore()
-        mockTableViewModel.refresh()
-    }
-    
-    func testViewModelLoadingStatus() {
-        mockTableViewModel = MockTableViewViewModel { [weak self] in
-            guard let strongSelf = self else {
-                return
-            }
-            
-            switch $0.loadingStatus {
-            case .idle:
-                XCTAssertTrue(strongSelf.mockTableViewModel.isLoadingFinished)
-            case .loading:
-                XCTAssertFalse(strongSelf.mockTableViewModel.isLoadingFinished)
             }
         }
         
