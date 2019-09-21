@@ -28,6 +28,12 @@ public protocol TableViewViewModelProtocol: class {
     /// Callback when request complete.
     var callback: CallBack? { get }
     
+    /// TableView did selecte at indexPath.
+    var indexOfCurrentSelected: IndexPath? { get }
+    
+    /// Presresent the page information.
+    var page: Page { get }
+    
     /// Required initial method.
     ///
     /// - Parameter callback: Callback when request complete

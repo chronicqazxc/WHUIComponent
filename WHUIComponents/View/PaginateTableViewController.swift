@@ -15,38 +15,6 @@ public enum PaginateTableViewControllerError: Error {
     case typeError
 }
 
-/// The dataSource and delegate of PaginateTableViewController return following items.
-/// 1. Number of sections.
-/// 2. number of rows.
-/// 3. Cell for row in section.
-/// 4. User trigger pull refresh.
-/// 5. User trigger load more.
-public protocol PaginateTableViewControllerDataDelegate: class {
-    
-    /// Equal to the number of section dataSource method in UITableView.
-    ///
-    /// - Returns: Number of section.
-    func numberOfSection() -> Int
-    
-    /// Equal to the number of row in sections dataSource method in UITableView.
-    ///
-    /// - Parameter section: UITableView section
-    /// - Returns: Number of row in section.
-    func numberOfRowInSection(_ section: Int) -> Int
-    
-    /// Equal to the number of cell for row at indexPath dataSource method in UITableView.
-    ///
-    /// - Parameter indexPath: UITableView indexPath
-    /// - Returns: Designated cell.
-    func cellForRowAt(indexPath: IndexPath) -> UITableViewCell
-    
-    /// Pull to reload.
-    func reload()
-    
-    /// Scroll to bottom to load more.
-    func getMore()
-}
-
 /// Control the pull refresh and load more logic.
 ///
 /// - idle: No loading.
@@ -70,7 +38,8 @@ open class PaginateTableViewController: UITableViewController {
     var loadingStatus = LoadingStatus.idle
     
     /// Responsible in dataSource and delegate in tableView, should not be nil.
-    weak public var dataDelegate: PaginateTableViewControllerDataDelegate!
+    open var dataDelegate: PaginateTableViewControllerDataDelegate!
+    open var viewModel: TableViewViewModelProtocol!
     
     override open func viewDidLoad() {
         super.viewDidLoad()
@@ -83,7 +52,7 @@ open class PaginateTableViewController: UITableViewController {
     func refresh() {
         if loadingStatus == .idle {
             loadingStart(.refresh)
-            dataDelegate.reload()
+            viewModel.refresh()
         }
     }
     
@@ -114,27 +83,55 @@ extension PaginateTableViewController {
     }
     
     override open func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return dataDelegate.numberOfRowInSection(section)
+        return dataDelegate.tableView(tableView, numberOfRowInSection: section)
     }
     
     override open func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return dataDelegate.cellForRowAt(indexPath: indexPath)
+        return dataDelegate.tableView(tableView, cellForRowAt: indexPath)
     }
 }
 
 // MARK: - Delegate
 extension PaginateTableViewController {
     override open func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        guard self.tableView.isTracking && scrollView.contentOffset.y > 0 else {
+        
+        let offset = scrollView.contentOffset.y
+        
+        func isScrollDown() -> Bool {
+            return offset > 0
+        }
+        
+//        func isHideNavigationBar() -> Bool {
+//            return scrollView.contentOffset.y > offset
+//        }
+        
+//        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+//            if scrollView.isDragging {
+//                let hideNavigationBar = isHideNavigationBar()
+//                if hideNavigationBar == false {
+//                    print(hideNavigationBar)
+//                }
+//                self.navigationController?.setNavigationBarHidden(hideNavigationBar, animated: false)
+//            }
+//        }
+
+        guard self.tableView.isTracking && isScrollDown() else {
             return
         }
+
         let height = scrollView.frame.size.height
-        let contentYoffset = scrollView.contentOffset.y
-        let distanceFromBottom = scrollView.contentSize.height - contentYoffset
+        let distanceFromBottom = scrollView.contentSize.height - offset
         if distanceFromBottom < height && loadingStatus == .idle {
             loadingStart(.more)
-            dataDelegate.getMore()
+            viewModel.getMore()
         }
+    }
+}
+
+// MARK: - Delegate
+extension PaginateTableViewController {
+    open override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        dataDelegate.tableView(tableView, DidSelectRowAt: indexPath)
     }
 }
 

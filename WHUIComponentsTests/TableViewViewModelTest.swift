@@ -10,10 +10,14 @@ import XCTest
 @testable import WHUIComponents
 
 public class MockTableViewViewModel: TableViewViewModelProtocol {
+    public var indexOfCurrentSelected: IndexPath?
+    
+    public var page = Page.initialPage()
     
     public private(set) var state = TableViewState()
     public private(set) var data: [TableViewDataModel]
     public private(set) var callback: CallBack?
+    
     var isLoadingFinished: Bool = true
     
     required public init(_ callback: @escaping CallBack) {
@@ -57,6 +61,10 @@ public class MockTableViewViewModel: TableViewViewModelProtocol {
     public func parse(_ data: Data) -> [TableViewDataModel]? {
         return nil
     }
+    
+    public func selected(indexPath: IndexPath) {
+        
+    }
 }
 
 class TableViewViewModelTest: XCTestCase {
@@ -87,6 +95,10 @@ class TableViewViewModelTest: XCTestCase {
         
         mockTableViewModel.getMore()
         mockTableViewModel.refresh()
+    }
+    
+    func testSelected() {
+        
     }
 
     func testPerformanceExample() {
