@@ -8,6 +8,7 @@ before_install:
 # - gem install bundler
   - brew install carthage || true
   - brew outdated carthage || brew upgrade carthage
+  - carthage bootstrap --verbose --no-use-binaries --platform iOS --cache-builds
 install:
 #  - brew install swiftlint
 #  - bundle update
@@ -20,7 +21,7 @@ osx_image:
 language:
   - swift
 before_script:
-  - carthage update --cache-builds --platform ios
+#  - carthage update --cache-builds --platform ios
 script:
   - bundle exec fastlane scan -s WHUIComponents
 #  - bundle exec danger
