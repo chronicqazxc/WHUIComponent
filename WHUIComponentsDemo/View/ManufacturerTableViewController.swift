@@ -62,7 +62,7 @@ extension ManufacturerTableViewController {
         if viewModel.page.hasNextPage() == false {
             footerView.reachEndOfPage()
         } else {
-            footerView.notReachEndOfPage()
+            footerView.putllToPage(viewModel.page.next+1)
         }
         return footerView
     }

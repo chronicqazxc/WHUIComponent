@@ -22,10 +22,14 @@ public class FooterView: UILabel {
     }
     
     public func reachEndOfPage() {
-        text = "✊It's the end."
+        text = "✊That's all!"
     }
     
-    public func notReachEndOfPage() {
-        text = "👆Keep pull!"
+    public func putllToPage(_ page: Int?) {
+        if let page = page {
+            text = "👆Pull up to page \(page)"
+        } else {
+            text = "👆Keep pull up!"
+        }
     }
 }
