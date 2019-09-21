@@ -11,26 +11,18 @@ import WHUIComponents
 
 class ModelTableViewController: PaginateTableViewController, CoordinatorViewController {
     
-    fileprivate var model: Model!
-    
     weak var coordinateDelegate: CoordinatorViewContollerDelegate?
+    
+    var modelViewModel: ModelViewModel {
+        return viewModel as! ModelViewModel
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "\(model.manufacturer.content)"
         
-    }
-
-    // MARK: - Table view data source
-
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
-    }
-
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        title = "\(modelViewModel.manufacturer!.content)"
+        dataDelegate = viewModel as? PaginateTableViewControllerDataDelegate
+        viewModel.refresh()
     }
 }
 
@@ -40,7 +32,52 @@ extension ModelTableViewController {
         guard let modelViewController = storyboard.instantiateViewController(withIdentifier: "ModelTableViewController") as? ModelTableViewController else {
             return nil
         }
-        modelViewController.model = Model(manufacturer: manufacturer)
+        modelViewController.viewModel = ModelViewModel { [weak modelViewController] (state: TableViewState.LoadingType, models, error) in
+            guard let strongModelViewController = modelViewController else {
+                return
+            }
+            defer {
+                strongModelViewController.loadingEnd()
+            }
+            switch state {
+            case .more:
+                DispatchQueue.main.async {
+                    guard error == nil else {
+                        return
+                    }
+                    strongModelViewController.tableView.reloadData()
+                }
+            case .refresh:
+                DispatchQueue.main.async {
+                    guard error == nil else {
+                        return
+                    }
+                    strongModelViewController.tableView.reloadData()
+                }
+            }
+        }
+        if let modelViewModel = modelViewController.viewModel as? ModelViewModel {
+            modelViewModel.manufacturer = manufacturer
+        }
         return modelViewController
+    }
+}
+
+extension ModelTableViewController {
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        super.tableView(tableView, didSelectRowAt: indexPath)
+        coordinateDelegate?.navigateToNextPage()
+    }
+    
+    override func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        let rect = CGRect(x: 0, y: 0, width: tableView.frame.size.width, height: 120)
+        let footerView = FooterView(frame: rect)
+        
+        if viewModel.page.hasNextPage() == false {
+            footerView.reachEndOfPage()
+        } else {
+            footerView.notReachEndOfPage()
+        }
+        return footerView
     }
 }

@@ -7,7 +7,20 @@
 //
 
 import Foundation
+import WHUIComponents
 
-struct Model {
+struct Model: TableViewDataModel {
+    
+    var title: String {
+        return "\(manufacturer.content) - \(id)"
+    }
+    
+    var content: String {
+        return id
+    }
+    
+    var image: UIImage?
+    
+    let id: String
     let manufacturer: Manufacturer
 }

@@ -19,6 +19,7 @@ class ManufacturerTableViewController: PaginateTableViewController, CoordinatorV
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        title = "Manufacturer"
         viewModel = ManufacturerViewModel { [weak self] (state: TableViewState.LoadingType, models, error) in
             guard let strongSelf = self else {
                 return
@@ -43,9 +44,8 @@ class ManufacturerTableViewController: PaginateTableViewController, CoordinatorV
                 }
             }
         }
-        dataDelegate = viewModel as! PaginateTableViewControllerDataDelegate
+        dataDelegate = viewModel as? PaginateTableViewControllerDataDelegate
         viewModel.refresh()
-        title = "Manufacturer"
     }
 }
 

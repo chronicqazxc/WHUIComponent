@@ -59,7 +59,7 @@ public class ManufacturerViewModel: TableViewViewModelProtocol {
         }
     }
     
-    func refreshPageIfNeeded(_ type: TableViewState.LoadingType) {
+    public func refreshPageIfNeeded(_ type: TableViewState.LoadingType) {
         if type == .refresh {
             page = Page.initialPage()
         }
@@ -97,7 +97,6 @@ extension ManufacturerViewModel: PaginateTableViewControllerDataDelegate {
     }
     
     public func tableView(_ tableView: UITableView, DidSelectRowAt indexPath: IndexPath) {
-        print("\(indexPath) been selected.")
         indexOfCurrentSelected = indexPath
     }
 }
