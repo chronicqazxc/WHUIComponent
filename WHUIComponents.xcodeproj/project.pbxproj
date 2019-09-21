@@ -3,12 +3,22 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A62464DC2334C91300F60CDB /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = A62464DB2334C91300F60CDB /* Service.swift */; };
+		A62464E12334D5E100F60CDB /* MyService.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6B6F1592334C05F0061F48C /* MyService.framework */; };
+		A6A1672D2334DA6100E1143F /* ManufacturerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6A1672C2334DA6100E1143F /* ManufacturerTableViewController.swift */; };
+		A6A1672F2334DEB400E1143F /* ManufacturerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6A1672E2334DEB400E1143F /* ManufacturerViewModel.swift */; };
+		A6A167342334F15F00E1143F /* Manufacture.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6A167332334F15F00E1143F /* Manufacture.swift */; };
+		A6A167372335029300E1143F /* Page.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6A167362335029300E1143F /* Page.swift */; };
+		A6A1673F23360D6B00E1143F /* Services.plist in Resources */ = {isa = PBXBuildFile; fileRef = A6A1673E23360D6B00E1143F /* Services.plist */; };
+		A6A167412336142400E1143F /* MockTableViewDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6A167402336142400E1143F /* MockTableViewDataModel.swift */; };
 		A6B6F146233479040061F48C /* TableViewDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6B6F145233479040061F48C /* TableViewDataModel.swift */; };
 		A6B6F14A23347C170061F48C /* TableViewViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6B6F14923347C170061F48C /* TableViewViewModelTest.swift */; };
+		A6B6F1552334BDA10061F48C /* Cartfile in Resources */ = {isa = PBXBuildFile; fileRef = A6B6F1542334BDA10061F48C /* Cartfile */; };
+		A6B6F15A2334C05F0061F48C /* MyService.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6B6F1592334C05F0061F48C /* MyService.framework */; };
 		B057B3E42333DB5B00A59F11 /* WHUIComponents.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B057B3DA2333DB5B00A59F11 /* WHUIComponents.framework */; };
 		B057B3E92333DB5B00A59F11 /* WHUIComponentsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B057B3E82333DB5B00A59F11 /* WHUIComponentsTests.swift */; };
 		B057B3EB2333DB5B00A59F11 /* WHUIComponents.h in Headers */ = {isa = PBXBuildFile; fileRef = B057B3DD2333DB5B00A59F11 /* WHUIComponents.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -43,10 +53,21 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A62464DB2334C91300F60CDB /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
+		A6A1672A2334D71D00E1143F /* input.xcfilelist */ = {isa = PBXFileReference; lastKnownFileType = text.xcfilelist; path = input.xcfilelist; sourceTree = "<group>"; };
+		A6A1672B2334D72500E1143F /* output.xcfilelist */ = {isa = PBXFileReference; lastKnownFileType = text.xcfilelist; path = output.xcfilelist; sourceTree = "<group>"; };
+		A6A1672C2334DA6100E1143F /* ManufacturerTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManufacturerTableViewController.swift; sourceTree = "<group>"; };
+		A6A1672E2334DEB400E1143F /* ManufacturerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManufacturerViewModel.swift; sourceTree = "<group>"; };
+		A6A167332334F15F00E1143F /* Manufacture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Manufacture.swift; sourceTree = "<group>"; };
+		A6A167362335029300E1143F /* Page.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Page.swift; sourceTree = "<group>"; };
+		A6A1673E23360D6B00E1143F /* Services.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Services.plist; sourceTree = "<group>"; };
+		A6A167402336142400E1143F /* MockTableViewDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockTableViewDataModel.swift; sourceTree = "<group>"; };
 		A6B6F145233479040061F48C /* TableViewDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewDataModel.swift; sourceTree = "<group>"; };
 		A6B6F14923347C170061F48C /* TableViewViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewViewModelTest.swift; sourceTree = "<group>"; };
 		A6B6F14B233484CA0061F48C /* .travis.yml */ = {isa = PBXFileReference; lastKnownFileType = text; path = .travis.yml; sourceTree = "<group>"; };
 		A6B6F14D23348C8F0061F48C /* Gemfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; path = Gemfile; sourceTree = "<group>"; };
+		A6B6F1542334BDA10061F48C /* Cartfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; path = Cartfile; sourceTree = "<group>"; };
+		A6B6F1592334C05F0061F48C /* MyService.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MyService.framework; path = Carthage/Build/iOS/MyService.framework; sourceTree = "<group>"; };
 		B057B3DA2333DB5B00A59F11 /* WHUIComponents.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = WHUIComponents.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B057B3DD2333DB5B00A59F11 /* WHUIComponents.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WHUIComponents.h; sourceTree = "<group>"; };
 		B057B3DE2333DB5B00A59F11 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -73,6 +94,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A6B6F15A2334C05F0061F48C /* MyService.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -88,12 +110,46 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A62464E12334D5E100F60CDB /* MyService.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A6A167302334E45400E1143F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				A6A1672C2334DA6100E1143F /* ManufacturerTableViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		A6A167312334E45B00E1143F /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				A6A1672E2334DEB400E1143F /* ManufacturerViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		A6A167322334E46100E1143F /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				A62464DB2334C91300F60CDB /* Service.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		A6A167352334F16200E1143F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				A6A167332334F15F00E1143F /* Manufacture.swift */,
+				A6A167362335029300E1143F /* Page.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		A6B6F14E23349CFD0061F48C /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -128,15 +184,27 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
+		A6B6F1582334C05F0061F48C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A6B6F1592334C05F0061F48C /* MyService.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		B057B3D02333DB5B00A59F11 = {
 			isa = PBXGroup;
 			children = (
+				A6A1672A2334D71D00E1143F /* input.xcfilelist */,
+				A6A1672B2334D72500E1143F /* output.xcfilelist */,
 				A6B6F14D23348C8F0061F48C /* Gemfile */,
+				A6B6F1542334BDA10061F48C /* Cartfile */,
 				A6B6F14B233484CA0061F48C /* .travis.yml */,
 				B057B3F92333DBD500A59F11 /* WHUIComponentsDemo */,
 				B057B3DC2333DB5B00A59F11 /* WHUIComponents */,
 				B057B3E72333DB5B00A59F11 /* WHUIComponentsTests */,
 				B057B3DB2333DB5B00A59F11 /* Products */,
+				A6B6F1582334C05F0061F48C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -169,6 +237,7 @@
 				B057B4122333E10100A59F11 /* ResourceTest.swift */,
 				B057B3E82333DB5B00A59F11 /* WHUIComponentsTests.swift */,
 				A6B6F14923347C170061F48C /* TableViewViewModelTest.swift */,
+				A6A167402336142400E1143F /* MockTableViewDataModel.swift */,
 				B057B3EA2333DB5B00A59F11 /* Info.plist */,
 			);
 			path = WHUIComponentsTests;
@@ -179,10 +248,15 @@
 			children = (
 				B057B3FA2333DBD500A59F11 /* AppDelegate.swift */,
 				B057B3FC2333DBD500A59F11 /* ViewController.swift */,
+				A6A167352334F16200E1143F /* Model */,
+				A6A167302334E45400E1143F /* View */,
+				A6A167312334E45B00E1143F /* ViewModel */,
+				A6A167322334E46100E1143F /* Service */,
 				B057B3FE2333DBD500A59F11 /* Main.storyboard */,
 				B057B4012333DBD600A59F11 /* Assets.xcassets */,
 				B057B4032333DBD600A59F11 /* LaunchScreen.storyboard */,
 				B057B4062333DBD600A59F11 /* Info.plist */,
+				A6A1673E23360D6B00E1143F /* Services.plist */,
 			);
 			path = WHUIComponentsDemo;
 			sourceTree = "<group>";
@@ -244,6 +318,7 @@
 				B057B3F42333DBD400A59F11 /* Sources */,
 				B057B3F52333DBD400A59F11 /* Frameworks */,
 				B057B3F62333DBD400A59F11 /* Resources */,
+				A62464E22334D5F000F60CDB /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -302,6 +377,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A6B6F1552334BDA10061F48C /* Cartfile in Resources */,
 				B057B40D2333DE1100A59F11 /* Storyboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -317,6 +393,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A6A1673F23360D6B00E1143F /* Services.plist in Resources */,
 				B057B4052333DBD600A59F11 /* LaunchScreen.storyboard in Resources */,
 				B057B4022333DBD600A59F11 /* Assets.xcassets in Resources */,
 				B057B4002333DBD500A59F11 /* Main.storyboard in Resources */,
@@ -324,6 +401,28 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		A62464E22334D5F000F60CDB /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"$(SRCROOT)/input.xcfilelist",
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+				"$(SRCROOT)/output.xcfilelist",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		B057B3D62333DB5B00A59F11 /* Sources */ = {
@@ -345,6 +444,7 @@
 				B057B3E92333DB5B00A59F11 /* WHUIComponentsTests.swift in Sources */,
 				B057B4132333E10100A59F11 /* ResourceTest.swift in Sources */,
 				A6B6F14A23347C170061F48C /* TableViewViewModelTest.swift in Sources */,
+				A6A167412336142400E1143F /* MockTableViewDataModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -352,8 +452,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A6A1672D2334DA6100E1143F /* ManufacturerTableViewController.swift in Sources */,
+				A6A167342334F15F00E1143F /* Manufacture.swift in Sources */,
 				B057B3FD2333DBD500A59F11 /* ViewController.swift in Sources */,
 				B057B3FB2333DBD500A59F11 /* AppDelegate.swift in Sources */,
+				A6A167372335029300E1143F /* Page.swift in Sources */,
+				A6A1672F2334DEB400E1143F /* ManufacturerViewModel.swift in Sources */,
+				A62464DC2334C91300F60CDB /* Service.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -444,7 +549,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -502,7 +607,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -525,6 +630,10 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = WHUIComponents/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
@@ -554,6 +663,10 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = WHUIComponents/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
@@ -577,11 +690,16 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 94MBHXKUB6;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = WHUIComponentsTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.wayne.hsiao.WHUIComponentsTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -596,11 +714,16 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 94MBHXKUB6;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = WHUIComponentsTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.wayne.hsiao.WHUIComponentsTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -615,6 +738,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 94MBHXKUB6;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = WHUIComponentsDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -634,6 +761,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 94MBHXKUB6;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = WHUIComponentsDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (

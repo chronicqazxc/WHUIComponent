@@ -1,10 +1,15 @@
 bundler_args: "--path vendor/bundle"
+cache:
+  directories:
+  - Carthage
 before_install:
   - git fetch --depth=1000000
 # - gem install bundler
+  - brew install carthage || true
+  - brew outdated carthage || brew upgrade carthage
 install:
 #  - brew install swiftlint
-  - bundle update
+#  - bundle update
 after_install:
 
 os:
@@ -13,6 +18,8 @@ osx_image:
   - xcode10.2
 language:
   - swift
+before_script:
+  - carthage update --cache-builds --platform ios
 script:
   - bundle exec fastlane scan -s WHUIComponents
 #  - bundle exec danger

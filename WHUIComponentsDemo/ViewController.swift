@@ -10,7 +10,6 @@ import UIKit
 import WHUIComponents
 
 class ViewController: UIViewController {
-
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -18,7 +17,9 @@ class ViewController: UIViewController {
 
     @IBAction func showPaginateTableView(_ sender: Any) {
         do {
-            let paginateViewController = try PaginateTableViewController.controller()
+            let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+            let viewController = storyboard.instantiateViewController(withIdentifier: "ManufacturerTableViewController")
+            let paginateViewController = viewController//ManufacturerTableViewController(style: .grouped)
             present(paginateViewController, animated: true, completion: nil)
         } catch {
             
