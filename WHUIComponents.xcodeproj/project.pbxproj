@@ -28,6 +28,8 @@
 		A6B6F14A23347C170061F48C /* TableViewViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6B6F14923347C170061F48C /* TableViewViewModelTest.swift */; };
 		A6B6F1552334BDA10061F48C /* Cartfile in Resources */ = {isa = PBXBuildFile; fileRef = A6B6F1542334BDA10061F48C /* Cartfile */; };
 		A6B6F15A2334C05F0061F48C /* MyService.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6B6F1592334C05F0061F48C /* MyService.framework */; };
+		A6F3EDAE2336943200B00996 /* ModelViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6F3EDAD2336943200B00996 /* ModelViewModel.swift */; };
+		A6F3EDB0233694B800B00996 /* FooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6F3EDAF233694B800B00996 /* FooterView.swift */; };
 		B057B3E42333DB5B00A59F11 /* WHUIComponents.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B057B3DA2333DB5B00A59F11 /* WHUIComponents.framework */; };
 		B057B3E92333DB5B00A59F11 /* WHUIComponentsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B057B3E82333DB5B00A59F11 /* WHUIComponentsTests.swift */; };
 		B057B3EB2333DB5B00A59F11 /* WHUIComponents.h in Headers */ = {isa = PBXBuildFile; fileRef = B057B3DD2333DB5B00A59F11 /* WHUIComponents.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -86,6 +88,8 @@
 		A6B6F14D23348C8F0061F48C /* Gemfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; path = Gemfile; sourceTree = "<group>"; };
 		A6B6F1542334BDA10061F48C /* Cartfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; path = Cartfile; sourceTree = "<group>"; };
 		A6B6F1592334C05F0061F48C /* MyService.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MyService.framework; path = Carthage/Build/iOS/MyService.framework; sourceTree = "<group>"; };
+		A6F3EDAD2336943200B00996 /* ModelViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelViewModel.swift; sourceTree = "<group>"; };
+		A6F3EDAF233694B800B00996 /* FooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FooterView.swift; sourceTree = "<group>"; };
 		B057B3DA2333DB5B00A59F11 /* WHUIComponents.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = WHUIComponents.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B057B3DD2333DB5B00A59F11 /* WHUIComponents.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WHUIComponents.h; sourceTree = "<group>"; };
 		B057B3DE2333DB5B00A59F11 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -149,6 +153,7 @@
 			isa = PBXGroup;
 			children = (
 				A6A1672E2334DEB400E1143F /* ManufacturerViewModel.swift */,
+				A6F3EDAD2336943200B00996 /* ModelViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -213,6 +218,7 @@
 			children = (
 				B057B40E2333DECE00A59F11 /* PaginateTableViewController.swift */,
 				A6A167482336266700E1143F /* PaginateTableViewControllerDataDelegate.swift */,
+				A6F3EDAF233694B800B00996 /* FooterView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -478,6 +484,7 @@
 				A6A167492336266700E1143F /* PaginateTableViewControllerDataDelegate.swift in Sources */,
 				A6A167472336219400E1143F /* Page.swift in Sources */,
 				A6A1675223363E5000E1143F /* CoordinatorViewController.swift in Sources */,
+				A6F3EDB0233694B800B00996 /* FooterView.swift in Sources */,
 				A6A1674E23363A5900E1143F /* CoordinatorViewControllerDelegate.swift in Sources */,
 				B057B40F2333DECE00A59F11 /* PaginateTableViewController.swift in Sources */,
 				B057B4112333E07300A59F11 /* Resource.swift in Sources */,
@@ -508,6 +515,7 @@
 				A6A167342334F15F00E1143F /* Manufacturer.swift in Sources */,
 				B057B3FD2333DBD500A59F11 /* ViewController.swift in Sources */,
 				B057B3FB2333DBD500A59F11 /* AppDelegate.swift in Sources */,
+				A6F3EDAE2336943200B00996 /* ModelViewModel.swift in Sources */,
 				A6A1675B23365F3700E1143F /* Model.swift in Sources */,
 				A6A1672F2334DEB400E1143F /* ManufacturerViewModel.swift in Sources */,
 				A62464DC2334C91300F60CDB /* Service.swift in Sources */,

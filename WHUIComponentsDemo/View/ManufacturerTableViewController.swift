@@ -57,13 +57,12 @@ extension ManufacturerTableViewController {
     
     override func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         let rect = CGRect(x: 0, y: 0, width: tableView.frame.size.width, height: 120)
-        let footerView = UILabel(frame: rect)
-        footerView.textAlignment = .center
-        footerView.textColor = .lightGray
+        let footerView = FooterView(frame: rect)
+        
         if viewModel.page.hasNextPage() == false {
-            footerView.text = "✊It's the end."
+            footerView.reachEndOfPage()
         } else {
-            footerView.text = "👆Keep pull!"
+            footerView.notReachEndOfPage()
         }
         return footerView
     }
