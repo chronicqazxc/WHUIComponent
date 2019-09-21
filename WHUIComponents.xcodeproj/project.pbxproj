@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		A62464DA2334C87100F60CDB /* TableViewService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A62464D92334C87100F60CDB /* TableViewService.swift */; };
 		A62464DC2334C91300F60CDB /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = A62464DB2334C91300F60CDB /* Service.swift */; };
 		A62464E12334D5E100F60CDB /* MyService.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6B6F1592334C05F0061F48C /* MyService.framework */; };
 		A6A1672D2334DA6100E1143F /* ManufacturerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6A1672C2334DA6100E1143F /* ManufacturerTableViewController.swift */; };
@@ -54,7 +53,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		A62464D92334C87100F60CDB /* TableViewService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewService.swift; sourceTree = "<group>"; };
 		A62464DB2334C91300F60CDB /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
 		A6A1672A2334D71D00E1143F /* input.xcfilelist */ = {isa = PBXFileReference; lastKnownFileType = text.xcfilelist; path = input.xcfilelist; sourceTree = "<group>"; };
 		A6A1672B2334D72500E1143F /* output.xcfilelist */ = {isa = PBXFileReference; lastKnownFileType = text.xcfilelist; path = output.xcfilelist; sourceTree = "<group>"; };
@@ -224,7 +222,6 @@
 			isa = PBXGroup;
 			children = (
 				B057B3DD2333DB5B00A59F11 /* WHUIComponents.h */,
-				A62464D92334C87100F60CDB /* TableViewService.swift */,
 				A6B6F14E23349CFD0061F48C /* ViewModel */,
 				A6B6F14F23349D080061F48C /* Model */,
 				A6B6F15023349D0F0061F48C /* View */,
@@ -433,7 +430,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				A6B6F146233479040061F48C /* TableViewDataModel.swift in Sources */,
-				A62464DA2334C87100F60CDB /* TableViewService.swift in Sources */,
 				B057B4152333E30C00A59F11 /* TableViewViewModel.swift in Sources */,
 				B057B40F2333DECE00A59F11 /* PaginateTableViewController.swift in Sources */,
 				B057B4112333E07300A59F11 /* Resource.swift in Sources */,
