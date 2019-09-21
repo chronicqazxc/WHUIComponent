@@ -32,19 +32,17 @@ class ManufacturerTableViewController: PaginateTableViewController, CoordinatorV
             switch state {
             case .more:
                 DispatchQueue.main.async {
-                    if let error = error as? APIError, error == APIError.EOF {
-                        eofError()
-                    } else {
-                        strongSelf.tableView.reloadData()
+                    guard error == nil else {
+                        return
                     }
+                    strongSelf.tableView.reloadData()
                 }
             case .refresh:
                 DispatchQueue.main.async {
-                    if let error = error as? APIError, error == APIError.EOF {
-                        eofError()
-                    } else {
-                        strongSelf.tableView.reloadData()
+                    guard error == nil else {
+                        return
                     }
+                    strongSelf.tableView.reloadData()
                 }
             }
         }
@@ -86,5 +84,17 @@ extension ManufacturerTableViewController: PaginateTableViewControllerDataDelega
     func tableViewDidSelectRowAt(indexPath: IndexPath) {
         print("\(indexPath) been selected.")
         coordinateDelegate?.navigateToNextPage()
+    }
+    
+    override func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        if viewModel.page.hasNextPage() == false {
+            let rect = CGRect(x: 0, y: 0, width: tableView.frame.size.width, height: 120)
+            let footerView = UILabel(frame: rect)
+            footerView.textAlignment = .center
+            footerView.text = "= End ="
+            return footerView
+        } else {
+            return nil
+        }
     }
 }

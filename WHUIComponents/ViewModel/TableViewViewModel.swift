@@ -28,6 +28,8 @@ public protocol TableViewViewModelProtocol: class {
     /// Callback when request complete.
     var callback: CallBack? { get }
     
+    var page: Page { get }
+    
     /// Required initial method.
     ///
     /// - Parameter callback: Callback when request complete

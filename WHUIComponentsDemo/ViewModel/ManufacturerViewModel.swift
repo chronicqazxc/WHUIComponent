@@ -20,7 +20,7 @@ public class ManufacturerViewModel: TableViewViewModelProtocol {
     public private(set) var state = TableViewState()
     public private(set) var data: [TableViewDataModel]
     public private(set) var callback: CallBack?
-    fileprivate var page = Page.initialPage()
+    public private(set) var page = Page.initialPage()
     
     required public init(_ callback: @escaping CallBack) {
         self.callback = callback
