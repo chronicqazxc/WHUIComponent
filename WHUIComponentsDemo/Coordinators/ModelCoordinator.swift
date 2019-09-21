@@ -10,6 +10,7 @@ import Foundation
 import WHUIComponents
 
 class ModelCoordinator: Coordinator {
+    var parameters: [AnyHashable : Any]?
     
     weak var navigationController: UINavigationController?
     var delegate: Coordinator?
@@ -21,17 +22,18 @@ class ModelCoordinator: Coordinator {
     }
     
     func start() {
-        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
-        guard var modelViewController = storyboard.instantiateViewController(withIdentifier: "ModelTableViewController") as? CoordinatorViewController & UIViewController else {
-            return
+        guard let manufacturer = parameters?[ManufacturerTableViewController.Constant.parameterKey] as? Manufacturer,
+            var modelViewController = ModelTableViewController.initFromManufacturer(manufacturer) as? CoordinatorViewController & UIViewController else {
+                return
         }
+
         modelViewController.coordinateDelegate = self
         navigationController?.pushViewController(modelViewController, animated: true)
     }
 }
 
 extension ModelCoordinator: CoordinatorViewContollerDelegate {
-    func navigateToNextPage() {
+    func navigateToNextPage(parameters: [AnyHashable: Any]?) {
         
     }
     

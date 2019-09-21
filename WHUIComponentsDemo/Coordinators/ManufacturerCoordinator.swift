@@ -11,6 +11,7 @@ import WHUIComponents
 
 class ManufacturerCoordinator: Coordinator {
     
+    var parameters: [AnyHashable : Any]?
     var delegate: Coordinator?
     private(set) var viewController: UIViewController?
     weak var navigationController: UINavigationController?
@@ -30,12 +31,14 @@ class ManufacturerCoordinator: Coordinator {
 }
 
 extension ManufacturerCoordinator: CoordinatorViewContollerDelegate {
-    func navigateToNextPage() {
+    func navigateToNextPage(parameters: [AnyHashable: Any]?) {
         guard let navigationController = navigationController else {
             return
         }
+        
         let modelCoordinator = ModelCoordinator(navigationController: navigationController)
         modelCoordinator.delegate = self
+        modelCoordinator.parameters = parameters
         modelCoordinator.start()
     }
     

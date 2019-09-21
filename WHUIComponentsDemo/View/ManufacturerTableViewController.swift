@@ -10,6 +10,9 @@ import UIKit
 import WHUIComponents
 
 class ManufacturerTableViewController: PaginateTableViewController, CoordinatorViewController {
+    enum Constant {
+        static let parameterKey = "SelectedManufacturer"
+    }
     
     var coordinateDelegate: CoordinatorViewContollerDelegate?
 
@@ -83,7 +86,8 @@ extension ManufacturerTableViewController: PaginateTableViewControllerDataDelega
     
     func tableViewDidSelectRowAt(indexPath: IndexPath) {
         print("\(indexPath) been selected.")
-        coordinateDelegate?.navigateToNextPage()
+        let selectedManufacturer = viewModel.data[indexPath.row]
+        coordinateDelegate?.navigateToNextPage(parameters: [Constant.parameterKey: selectedManufacturer])
     }
     
     override func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {

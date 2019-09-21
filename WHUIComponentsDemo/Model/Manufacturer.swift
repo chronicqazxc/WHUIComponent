@@ -9,7 +9,7 @@
 import Foundation
 import WHUIComponents
 
-public struct Manufacture: TableViewDataModel {
+public struct Manufacturer: TableViewDataModel {
     public var title: String {
         return id
     }

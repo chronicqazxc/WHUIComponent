@@ -16,15 +16,16 @@ public enum APIError: Error {
 }
 
 public class ManufacturerViewModel: TableViewViewModelProtocol {
-    
+
     public private(set) var state = TableViewState()
     public private(set) var data: [TableViewDataModel]
     public private(set) var callback: CallBack?
     public private(set) var page = Page.initialPage()
     
+    
     required public init(_ callback: @escaping CallBack) {
         self.callback = callback
-        self.data = [Manufacture]()
+        self.data = [Manufacturer]()
     }
     
     public func willCallBack(_ type: TableViewState.LoadingType, data :[TableViewDataModel]?) {
@@ -72,7 +73,11 @@ public class ManufacturerViewModel: TableViewViewModelProtocol {
         }
         page = Page(current: currentPage, total: totalPage)
         return wkda.map {
-            return Manufacture(id: $0.key, model: $0.value)
+            return Manufacturer(id: $0.key, model: $0.value)
         }
+    }
+    
+    public func selected(indexPath: IndexPath) {
+        
     }
 }

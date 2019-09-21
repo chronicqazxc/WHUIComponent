@@ -11,16 +11,14 @@ import WHUIComponents
 
 class ModelTableViewController: PaginateTableViewController, CoordinatorViewController {
     
+    fileprivate var model: Model!
+    
     weak var coordinateDelegate: CoordinatorViewContollerDelegate?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        title = "Model"
+        
     }
 
     // MARK: - Table view data source
@@ -33,5 +31,16 @@ class ModelTableViewController: PaginateTableViewController, CoordinatorViewCont
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         return 0
+    }
+}
+
+extension ModelTableViewController {
+    static func initFromManufacturer(_ manufacturer: Manufacturer) -> ModelTableViewController? {
+        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+        guard let modelViewController = storyboard.instantiateViewController(withIdentifier: "ModelTableViewController") as? ModelTableViewController else {
+            return nil
+        }
+        modelViewController.model = Model(manufacturer: manufacturer)
+        return modelViewController
     }
 }

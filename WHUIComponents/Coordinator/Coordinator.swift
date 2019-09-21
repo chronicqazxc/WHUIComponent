@@ -10,6 +10,7 @@ import Foundation
 
 public protocol Coordinator: class {
     var delegate: Coordinator? { get set }
+    var parameters: [AnyHashable: Any]? { get set }
     var viewController: UIViewController? { get }
     init(navigationController: UINavigationController)
     func start()

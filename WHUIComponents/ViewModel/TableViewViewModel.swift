@@ -63,6 +63,8 @@ public protocol TableViewViewModelProtocol: class {
     ///
     /// - Returns: Data model which confirmed TableViewDataModel.
     func parse(_ data: Data) -> [TableViewDataModel]?
+    
+    func selected(indexPath: IndexPath)
 }
 
 extension TableViewViewModelProtocol {

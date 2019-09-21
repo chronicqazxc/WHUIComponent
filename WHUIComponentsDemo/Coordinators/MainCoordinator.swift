@@ -11,6 +11,7 @@ import WHUIComponents
 
 class MainCoordinator: Coordinator {
     
+    var parameters: [AnyHashable : Any]?
     weak var delegate: Coordinator?
     private(set) var viewController: UIViewController?
     weak var navigationController: UINavigationController?
@@ -33,7 +34,7 @@ class MainCoordinator: Coordinator {
 }
 
 extension MainCoordinator: CoordinatorViewContollerDelegate {
-    func navigateToNextPage() {
+    func navigateToNextPage(parameters: [AnyHashable: Any]?) {
         guard let navigationController = navigationController else {
             return
         }

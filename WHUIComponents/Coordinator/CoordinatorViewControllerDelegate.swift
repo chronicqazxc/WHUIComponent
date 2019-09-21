@@ -9,6 +9,6 @@
 import Foundation
 
 public protocol CoordinatorViewContollerDelegate: class {
-    func navigateToNextPage()
+    func navigateToNextPage(parameters: [AnyHashable: Any]?)
     func naviageBackToPreviousPage()
 }

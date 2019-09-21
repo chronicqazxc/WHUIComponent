@@ -19,7 +19,7 @@ class ViewController: UIViewController, CoordinatorViewController {
     }
 
     @IBAction func showPaginateTableView(_ sender: Any) {
-        coordinateDelegate?.navigateToNextPage()
+        coordinateDelegate?.navigateToNextPage(parameters: nil)
     }
     
 }
