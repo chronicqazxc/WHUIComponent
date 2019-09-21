@@ -61,10 +61,13 @@ public class ModelViewModel: TableViewViewModelProtocol {
     }
     
     public func parse(_ data: Data) -> [TableViewDataModel]? {
-        let json = try? JSONSerialization.jsonObject(with: data, options: []) as? [String : Any]
-        guard let wkda = json?["wkda"] as? [String: String],
-            let currentPage = json?["page"] as? Int,
-            let totalPage = json?["totalPageCount"] as? Int else {
+
+        guard let serializedJson = try? JSONSerialization.jsonObject(with: data, options: []) as? [String : Any] else {
+                return nil
+        }
+        guard let wkda = serializedJson["wkda"] as? [String: String],
+            let currentPage = serializedJson["page"] as? Int,
+            let totalPage = serializedJson["totalPageCount"] as? Int else {
                 return nil
         }
         page = Page(current: currentPage, total: totalPage)
