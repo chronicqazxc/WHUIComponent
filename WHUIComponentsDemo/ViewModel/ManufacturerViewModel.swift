@@ -17,12 +17,11 @@ public enum APIError: Error {
 
 public class ManufacturerViewModel: TableViewViewModelProtocol {
     
-    public var indexOfCurrentSelected: IndexPath?
+    fileprivate var indexOfCurrentSelected: IndexPath?
     public private(set) var state = TableViewState()
     public private(set) var data: [TableViewDataModel]
     public private(set) var callback: CallBack?
     public private(set) var page = Page.initialPage()
-    
     
     required public init(_ callback: @escaping CallBack) {
         self.callback = callback
@@ -79,26 +78,29 @@ public class ManufacturerViewModel: TableViewViewModelProtocol {
             return Manufacturer(id: $0.key, model: $0.value)
         }
     }
+    
+    public func selectDataAt(indexPath: IndexPath) {
+        indexOfCurrentSelected = indexPath
+    }
+    
+    public func selectedData() -> [TableViewDataModel] {
+        if let indexOfCurrentSelected = indexOfCurrentSelected {
+            return [data[indexOfCurrentSelected.row]]
+        } else {
+            return []
+        }
+    }
 }
 
-extension ManufacturerViewModel: PaginateTableViewControllerDataDelegate {
-    
-    public func numberOfSection() -> Int {
-        return 1
-    }
-    
-    public func tableView(_ tableView: UITableView, numberOfRowInSection section: Int) -> Int {
-        return data.count
-    }
-    
-    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        let model = data[indexPath.row]
-        cell.textLabel?.text = model.content
+extension ManufacturerViewModel {
+    func cell(_ cell: UITableViewCell, forRowAtIndexPath indexPath: IndexPath) -> UITableViewCell {
+        if indexPath.row % 2 != 0 {
+            cell.backgroundColor = UIColor.lightGray
+        } else {
+            cell.backgroundColor = UIColor.white
+        }
+        let manufacturer = data[indexPath.row]
+        cell.textLabel?.text = manufacturer.content
         return cell
-    }
-    
-    public func tableView(_ tableView: UITableView, DidSelectRowAt indexPath: IndexPath) {
-        indexOfCurrentSelected = indexPath
     }
 }

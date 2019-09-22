@@ -21,7 +21,6 @@ class ModelTableViewController: PaginateTableViewController, CoordinatorViewCont
         super.viewDidLoad()
         
         title = "\(modelViewModel.manufacturer!.content)"
-        dataDelegate = viewModel as? PaginateTableViewControllerDataDelegate
         viewModel.refresh()
     }
 }
@@ -64,6 +63,22 @@ extension ModelTableViewController {
 }
 
 extension ModelTableViewController {
+    
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return viewModel.data.count
+    }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        let model = viewModel.data[indexPath.row]
+        cell.textLabel?.text = model.title
+        return cell
+    }
+    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         super.tableView(tableView, didSelectRowAt: indexPath)
         coordinateDelegate?.navigateToNextPage()

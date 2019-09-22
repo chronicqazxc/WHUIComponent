@@ -38,10 +38,7 @@ extension ManufacturerCoordinator: CoordinatorViewContollerDelegate {
             return
         }
         let viewModel = manufacturerViewController.viewModel
-        guard let index = viewModel!.indexOfCurrentSelected?.row else {
-            return
-        }
-        let manufacture = viewModel!.data[index]
+        let manufacture = viewModel!.selectedData().first as! Manufacturer
         
         let modelCoordinator = ModelCoordinator(navigationController: navigationController)
         modelCoordinator.delegate = self
