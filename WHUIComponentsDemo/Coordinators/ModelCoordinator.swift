@@ -41,8 +41,8 @@ extension ModelCoordinator: CoordinatorViewContollerDelegate {
         guard let selected = modelViewController?.modelViewModel.selectedData().first else {
             return
         }
-        let alertController = UIAlertController(title: selected.title,
-                                                message: selected.content,
+        let alertController = UIAlertController(title: "Dear guest",
+                                                message: "You selected the \(selected.title) - \(selected.content)",
                                                 preferredStyle: .alert)
         let action = UIAlertAction(title: "Ok", style: .default)
         alertController.addAction(action)
