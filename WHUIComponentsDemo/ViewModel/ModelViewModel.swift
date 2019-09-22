@@ -14,7 +14,14 @@ public class ModelViewModel: TableViewViewModelProtocol {
     
     public private(set) var indexOfCurrentSelected: IndexPath?
     public private(set) var state = TableViewState()
-    public private(set) var data: [TableViewDataModel]
+    public private(set) var data: [TableViewDataModel] {
+        didSet {
+            data = data.sorted(by: {
+                $0.content < $1.content
+            })
+        }
+    }
+    
     public private(set) var callback: CallBack?
     public private(set) var page = Page.initialPage()
     var manufacturer: Manufacturer?
