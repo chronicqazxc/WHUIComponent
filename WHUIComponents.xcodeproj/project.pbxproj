@@ -151,12 +151,8 @@
 			isa = PBXGroup;
 			children = (
 				B057B3FC2333DBD500A59F11 /* ViewController.swift */,
-				A6A1672C2334DA6100E1143F /* ManufacturerTableViewController.swift */,
-				B092A21E2337C60C003DEC7C /* ManufacturerTableViewCell.swift */,
-				B092A21F2337C60C003DEC7C /* ManufacturerTableViewCell.xib */,
-				A6A1675623364A3600E1143F /* ModelTableViewController.swift */,
-				B092A2222337DF7C003DEC7C /* ModelTableViewCell.swift */,
-				B092A2232337DF7C003DEC7C /* ModelTableViewCell.xib */,
+				B092A22A2337E7FA003DEC7C /* Manufacturer */,
+				B092A22B2337E804003DEC7C /* Model */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -320,6 +316,26 @@
 				A6A1673E23360D6B00E1143F /* Services.plist */,
 			);
 			path = WHUIComponentsDemo;
+			sourceTree = "<group>";
+		};
+		B092A22A2337E7FA003DEC7C /* Manufacturer */ = {
+			isa = PBXGroup;
+			children = (
+				A6A1672C2334DA6100E1143F /* ManufacturerTableViewController.swift */,
+				B092A21E2337C60C003DEC7C /* ManufacturerTableViewCell.swift */,
+				B092A21F2337C60C003DEC7C /* ManufacturerTableViewCell.xib */,
+			);
+			path = Manufacturer;
+			sourceTree = "<group>";
+		};
+		B092A22B2337E804003DEC7C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				A6A1675623364A3600E1143F /* ModelTableViewController.swift */,
+				B092A2222337DF7C003DEC7C /* ModelTableViewCell.swift */,
+				B092A2232337DF7C003DEC7C /* ModelTableViewCell.xib */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
