@@ -11,11 +11,11 @@ import WHUIComponents
 
 public struct Manufacturer: TableViewDataModel {
     public var title: String {
-        return id
+        return model
     }
     
     public var content: String {
-        return model
+        return id
     }
     
     public var image: UIImage?

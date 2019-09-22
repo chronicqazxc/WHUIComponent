@@ -12,9 +12,16 @@ import MyService
 
 public class ModelViewModel: TableViewViewModelProtocol {
     
-    public var indexOfCurrentSelected: IndexPath?
+    public private(set) var indexOfCurrentSelected: IndexPath?
     public private(set) var state = TableViewState()
-    public private(set) var data: [TableViewDataModel]
+    public private(set) var data: [TableViewDataModel] {
+        didSet {
+            data = data.sorted(by: {
+                $0.content < $1.content
+            })
+        }
+    }
+    
     public private(set) var callback: CallBack?
     public private(set) var page = Page.initialPage()
     var manufacturer: Manufacturer?
@@ -76,26 +83,29 @@ public class ModelViewModel: TableViewViewModelProtocol {
         }
     }
     
-}
-
-extension ModelViewModel: PaginateTableViewControllerDataDelegate {
-    public func numberOfSection() -> Int {
-        return 1
-    }
-    
-    public func tableView(_ tableView: UITableView, numberOfRowInSection section: Int) -> Int {
-        return data.count
-    }
-    
-    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        let model = data[indexPath.row]
-        cell.textLabel?.text = model.title
-        return cell
-    }
-    
-    public func tableView(_ tableView: UITableView, DidSelectRowAt indexPath: IndexPath) {
+    public func selectDataAt(indexPath: IndexPath) {
         indexOfCurrentSelected = indexPath
     }
     
+    public func selectedData() -> [TableViewDataModel] {
+        if let indexOfCurrentSelected = indexOfCurrentSelected {
+            return [data[indexOfCurrentSelected.row]]
+        } else {
+            return []
+        }
+    }
+}
+
+extension ModelViewModel {
+    func cell(_ cell: UITableViewCell, forRowAtIndexPath indexPath: IndexPath) -> UITableViewCell {
+        if indexPath.row % 2 != 0 {
+            cell.backgroundColor = UIColor.lightGray
+        } else {
+            cell.backgroundColor = UIColor.white
+        }
+        let model = data[indexPath.row]
+        
+        cell.textLabel?.text = model.content
+        return cell
+    }
 }

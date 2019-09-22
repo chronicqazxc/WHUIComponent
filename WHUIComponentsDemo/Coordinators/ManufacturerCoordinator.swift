@@ -13,7 +13,7 @@ class ManufacturerCoordinator: Coordinator {
     
     var parameters: [AnyHashable : Any]?
     var delegate: Coordinator?
-    private(set) var viewController: UIViewController?
+    weak private(set) var viewController: UIViewController?
     weak var navigationController: UINavigationController?
     
     required init(navigationController: UINavigationController) {
@@ -38,10 +38,7 @@ extension ManufacturerCoordinator: CoordinatorViewContollerDelegate {
             return
         }
         let viewModel = manufacturerViewController.viewModel
-        guard let index = viewModel!.indexOfCurrentSelected?.row else {
-            return
-        }
-        let manufacture = viewModel!.data[index]
+        let manufacture = viewModel!.selectedData().first as! Manufacturer
         
         let modelCoordinator = ModelCoordinator(navigationController: navigationController)
         modelCoordinator.delegate = self

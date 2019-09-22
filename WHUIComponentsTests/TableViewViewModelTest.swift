@@ -10,6 +10,7 @@ import XCTest
 @testable import WHUIComponents
 
 public class MockTableViewViewModel: TableViewViewModelProtocol {
+
     public var indexOfCurrentSelected: IndexPath?
     
     public var page = Page.initialPage()
@@ -62,8 +63,12 @@ public class MockTableViewViewModel: TableViewViewModelProtocol {
         return nil
     }
     
-    public func selected(indexPath: IndexPath) {
+    public func selectDataAt(indexPath: IndexPath) {
         
+    }
+    
+    public func selectedData() -> [TableViewDataModel] {
+        return []
     }
 }
 
