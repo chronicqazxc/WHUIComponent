@@ -13,7 +13,7 @@ class ManufacturerCoordinator: Coordinator {
     
     var parameters: [AnyHashable : Any]?
     var delegate: Coordinator?
-    private(set) var viewController: UIViewController?
+    weak private(set) var viewController: UIViewController?
     weak var navigationController: UINavigationController?
     
     required init(navigationController: UINavigationController) {

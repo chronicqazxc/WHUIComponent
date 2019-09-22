@@ -15,7 +15,7 @@ class ModelCoordinator: Coordinator {
     weak var navigationController: UINavigationController?
     var delegate: Coordinator?
     
-    var viewController: UIViewController?
+    weak var viewController: UIViewController?
     var modelViewController: ModelTableViewController? {
         return viewController as? ModelTableViewController
     }
