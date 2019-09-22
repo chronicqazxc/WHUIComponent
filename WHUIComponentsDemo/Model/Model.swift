@@ -12,7 +12,7 @@ import WHUIComponents
 struct Model: TableViewDataModel {
     
     var title: String {
-        return "\(manufacturer.content) - \(id)"
+        return manufacturer.title
     }
     
     var content: String {

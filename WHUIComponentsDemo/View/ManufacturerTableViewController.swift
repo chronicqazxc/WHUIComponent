@@ -15,8 +15,8 @@ class ManufacturerTableViewController: PaginateTableViewController, CoordinatorV
     }
     
     var coordinateDelegate: CoordinatorViewContollerDelegate?
-    var manufacturerViewModel: ManufacturerViewModel? {
-        return (viewModel as? ManufacturerViewModel)
+    var manufacturerViewModel: ManufacturerViewModel {
+        return viewModel as! ManufacturerViewModel
     }
 
     override func viewDidLoad() {
@@ -62,17 +62,20 @@ extension ManufacturerTableViewController {
         return viewModel.data.count
     }
     
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 100
+    }
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         var cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        if let formatedCell = manufacturerViewModel?.cell(cell, forRowAtIndexPath: indexPath) {
-            cell = formatedCell
-        }
+        cell = manufacturerViewModel.cell(cell, forRowAtIndexPath: indexPath)
         return cell
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         super.tableView(tableView, didSelectRowAt: indexPath)
         coordinateDelegate?.navigateToNextPage()
+        tableView.deselectRow(at: indexPath, animated: true)
     }
     
     override func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {

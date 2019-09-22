@@ -1,18 +1,18 @@
 //
-//  ManufacturerTableViewCell.swift
+//  ModelTableViewCell.swift
 //  WHUIComponentsDemo
 //
-//  Created by Wayne Hsiao on 2019/9/22.
+//  Created by Wayne Hsiao on 2019/9/23.
 //  Copyright © 2019 Wayne Hsiao. All rights reserved.
 //
 
 import UIKit
+import WHUIComponents
 
-class ManufacturerTableViewCell: UITableViewCell {
+class ModelTableViewCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        textLabel?.textAlignment = .center
         textLabel?.font = UIFont.whTitle()
     }
 

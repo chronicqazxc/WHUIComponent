@@ -19,7 +19,13 @@ public class ManufacturerViewModel: TableViewViewModelProtocol {
     
     fileprivate var indexOfCurrentSelected: IndexPath?
     public private(set) var state = TableViewState()
-    public private(set) var data: [TableViewDataModel]
+    public private(set) var data: [TableViewDataModel] {
+        didSet {
+            data = data.sorted(by: {
+                $0.content < $1.content
+            })
+        }
+    }
     public private(set) var callback: CallBack?
     public private(set) var page = Page.initialPage()
     
@@ -100,7 +106,7 @@ extension ManufacturerViewModel {
             cell.backgroundColor = UIColor.white
         }
         let manufacturer = data[indexPath.row]
-        cell.textLabel?.text = manufacturer.content
+        cell.textLabel?.text = manufacturer.title
         return cell
     }
 }

@@ -11,7 +11,7 @@ import WHUIComponents
 
 class ModelTableViewController: PaginateTableViewController, CoordinatorViewController {
     
-    weak var coordinateDelegate: CoordinatorViewContollerDelegate?
+    var coordinateDelegate: CoordinatorViewContollerDelegate?
     
     var modelViewModel: ModelViewModel {
         return viewModel as! ModelViewModel
@@ -20,8 +20,11 @@ class ModelTableViewController: PaginateTableViewController, CoordinatorViewCont
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        title = "\(modelViewModel.manufacturer!.content)"
+        let modelTableViewCellNib = UINib(nibName: "ModelTableViewCell", bundle: Bundle.main)
+        tableView.register(modelTableViewCellNib, forCellReuseIdentifier: "cell")
+        title = "\(modelViewModel.manufacturer!.title)"
         viewModel.refresh()
+        
     }
 }
 
@@ -72,16 +75,20 @@ extension ModelTableViewController {
         return viewModel.data.count
     }
     
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 100
+    }
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        let model = viewModel.data[indexPath.row]
-        cell.textLabel?.text = model.title
+        var cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        cell = modelViewModel.cell(cell, forRowAtIndexPath: indexPath)
         return cell
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         super.tableView(tableView, didSelectRowAt: indexPath)
         coordinateDelegate?.navigateToNextPage()
+        tableView.deselectRow(at: indexPath, animated: true)
     }
     
     override func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {

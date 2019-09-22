@@ -16,6 +16,9 @@ class ModelCoordinator: Coordinator {
     var delegate: Coordinator?
     
     var viewController: UIViewController?
+    var modelViewController: ModelTableViewController? {
+        return viewController as? ModelTableViewController
+    }
     
     required init(navigationController: UINavigationController) {
         self.navigationController = navigationController
@@ -27,13 +30,23 @@ class ModelCoordinator: Coordinator {
                 return
         }
         modelViewController.coordinateDelegate = self
+        viewController = modelViewController
         navigationController?.pushViewController(modelViewController, animated: true)
     }
 }
 
 extension ModelCoordinator: CoordinatorViewContollerDelegate {
     func navigateToNextPage() {
-        // TODO: Show some fency alert view
+        
+        guard let selected = modelViewController?.modelViewModel.selectedData().first else {
+            return
+        }
+        let alertController = UIAlertController(title: selected.title,
+                                                message: selected.content,
+                                                preferredStyle: .alert)
+        let action = UIAlertAction(title: "Ok", style: .default)
+        alertController.addAction(action)
+        viewController?.present(alertController, animated: true)
     }
     
     func naviageBackToPreviousPage() {

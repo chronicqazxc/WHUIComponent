@@ -88,3 +88,17 @@ public class ModelViewModel: TableViewViewModelProtocol {
         }
     }
 }
+
+extension ModelViewModel {
+    func cell(_ cell: UITableViewCell, forRowAtIndexPath indexPath: IndexPath) -> UITableViewCell {
+        if indexPath.row % 2 != 0 {
+            cell.backgroundColor = UIColor.lightGray
+        } else {
+            cell.backgroundColor = UIColor.white
+        }
+        let model = data[indexPath.row]
+        
+        cell.textLabel?.text = model.content
+        return cell
+    }
+}
