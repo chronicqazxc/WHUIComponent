@@ -14,3 +14,9 @@ struct MockTableViewDataModel: TableViewDataModel {
     var content: String
     var image: UIImage?
 }
+
+extension MockTableViewDataModel: Equatable {
+    static func ==(lhs: MockTableViewDataModel, rhs: MockTableViewDataModel) -> Bool {
+        return lhs.title == rhs.title && lhs.content == rhs.content
+    }
+}

@@ -1,0 +1,264 @@
+{
+  "warnings": [
+    {
+      "file": "/Users/whsiao/Documents/workspace/wayne/WHUIComponent/WHUIComponents/Coordinator/CoordinatorViewController.swift",
+      "line": 13,
+      "symbol": "CoordinatorViewController.coordinateDelegate",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/whsiao/Documents/workspace/wayne/WHUIComponent/WHUIComponents/Coordinator/CoordinatorViewControllerDelegate.swift",
+      "line": 14,
+      "symbol": "CoordinatorViewContollerDelegate.navigateToNextPage()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/whsiao/Documents/workspace/wayne/WHUIComponent/WHUIComponents/Coordinator/CoordinatorViewControllerDelegate.swift",
+      "line": 15,
+      "symbol": "CoordinatorViewContollerDelegate.naviageBackToPreviousPage()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/whsiao/Documents/workspace/wayne/WHUIComponent/WHUIComponents/Font+.swift",
+      "line": 13,
+      "symbol": "UIFont.Constant",
+      "symbol_kind": "source.lang.swift.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/whsiao/Documents/workspace/wayne/WHUIComponent/WHUIComponents/Font+.swift",
+      "line": 14,
+      "symbol": "UIFont.Constant.avenir",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/whsiao/Documents/workspace/wayne/WHUIComponent/WHUIComponents/Font+.swift",
+      "line": 15,
+      "symbol": "UIFont.Constant.Size",
+      "symbol_kind": "source.lang.swift.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/whsiao/Documents/workspace/wayne/WHUIComponent/WHUIComponents/Font+.swift",
+      "line": 16,
+      "symbol": "UIFont.Constant.Size.content",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/whsiao/Documents/workspace/wayne/WHUIComponent/WHUIComponents/Font+.swift",
+      "line": 17,
+      "symbol": "UIFont.Constant.Size.title",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/whsiao/Documents/workspace/wayne/WHUIComponent/WHUIComponents/Model/TableViewDataModel.swift",
+      "line": 13,
+      "symbol": "TableViewDataModel.title",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/whsiao/Documents/workspace/wayne/WHUIComponent/WHUIComponents/Model/TableViewDataModel.swift",
+      "line": 14,
+      "symbol": "TableViewDataModel.content",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/whsiao/Documents/workspace/wayne/WHUIComponent/WHUIComponents/Model/TableViewDataModel.swift",
+      "line": 15,
+      "symbol": "TableViewDataModel.image",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/whsiao/Documents/workspace/wayne/WHUIComponent/WHUIComponents/Resources/Resource.swift",
+      "line": 11,
+      "symbol": "Resource",
+      "symbol_kind": "source.lang.swift.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/whsiao/Documents/workspace/wayne/WHUIComponent/WHUIComponents/Resources/Resource.swift",
+      "line": 12,
+      "symbol": "Resource.Constant",
+      "symbol_kind": "source.lang.swift.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/whsiao/Documents/workspace/wayne/WHUIComponent/WHUIComponents/Resources/Resource.swift",
+      "line": 13,
+      "symbol": "Resource.Constant.WHUIComponents",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/whsiao/Documents/workspace/wayne/WHUIComponent/WHUIComponents/Resources/Resource.swift",
+      "line": 14,
+      "symbol": "Resource.Constant.storyboard",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/whsiao/Documents/workspace/wayne/WHUIComponent/WHUIComponents/View/FooterView.swift",
+      "line": 15,
+      "symbol": "FooterView.init(frame:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/whsiao/Documents/workspace/wayne/WHUIComponent/WHUIComponents/View/FooterView.swift",
+      "line": 22,
+      "symbol": "FooterView.init(coder:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/whsiao/Documents/workspace/wayne/WHUIComponent/WHUIComponents/View/FooterView.swift",
+      "line": 26,
+      "symbol": "FooterView.reachEndOfPage()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/whsiao/Documents/workspace/wayne/WHUIComponent/WHUIComponents/View/FooterView.swift",
+      "line": 30,
+      "symbol": "FooterView.putllToPage(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/whsiao/Documents/workspace/wayne/WHUIComponent/WHUIComponents/View/PaginateTableViewController.swift",
+      "line": 15,
+      "symbol": "PaginateTableViewControllerError.typeError",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/whsiao/Documents/workspace/wayne/WHUIComponent/WHUIComponents/View/PaginateTableViewController.swift",
+      "line": 23,
+      "symbol": "LoadingStatus.idle",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/whsiao/Documents/workspace/wayne/WHUIComponent/WHUIComponents/View/PaginateTableViewController.swift",
+      "line": 24,
+      "symbol": "LoadingStatus.loading",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/whsiao/Documents/workspace/wayne/WHUIComponent/WHUIComponents/View/PaginateTableViewController.swift",
+      "line": 33,
+      "symbol": "PaginateTableViewController.Constant",
+      "symbol_kind": "source.lang.swift.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/whsiao/Documents/workspace/wayne/WHUIComponent/WHUIComponents/View/PaginateTableViewController.swift",
+      "line": 34,
+      "symbol": "PaginateTableViewController.Constant.PaginateTableViewController",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/whsiao/Documents/workspace/wayne/WHUIComponent/WHUIComponents/View/PaginateTableViewController.swift",
+      "line": 37,
+      "symbol": "PaginateTableViewController.loadingStatus",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/whsiao/Documents/workspace/wayne/WHUIComponent/WHUIComponents/View/PaginateTableViewController.swift",
+      "line": 42,
+      "symbol": "PaginateTableViewController.viewDidLoad()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/whsiao/Documents/workspace/wayne/WHUIComponent/WHUIComponents/View/PaginateTableViewController.swift",
+      "line": 49,
+      "symbol": "PaginateTableViewController.refresh()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/whsiao/Documents/workspace/wayne/WHUIComponent/WHUIComponents/View/PaginateTableViewController.swift",
+      "line": 78,
+      "symbol": "PaginateTableViewController.numberOfSections(in:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/whsiao/Documents/workspace/wayne/WHUIComponent/WHUIComponents/View/PaginateTableViewController.swift",
+      "line": 82,
+      "symbol": "PaginateTableViewController.tableView(_:numberOfRowsInSection:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/whsiao/Documents/workspace/wayne/WHUIComponent/WHUIComponents/View/PaginateTableViewController.swift",
+      "line": 86,
+      "symbol": "PaginateTableViewController.tableView(_:didSelectRowAt:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/whsiao/Documents/workspace/wayne/WHUIComponent/WHUIComponents/View/PaginateTableViewController.swift",
+      "line": 93,
+      "symbol": "PaginateTableViewController.scrollViewDidScroll(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/whsiao/Documents/workspace/wayne/WHUIComponent/WHUIComponents/View/PaginateTableViewController.swift",
+      "line": 97,
+      "symbol": "PaginateTableViewController.scrollViewDidScroll(_:).isScrollDown()",
+      "symbol_kind": "source.lang.swift.decl.function.free",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/whsiao/Documents/workspace/wayne/WHUIComponent/WHUIComponents/ViewModel/TableViewState.swift",
+      "line": 20,
+      "symbol": "TableViewState.LoadingType.refresh",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/whsiao/Documents/workspace/wayne/WHUIComponent/WHUIComponents/ViewModel/TableViewState.swift",
+      "line": 21,
+      "symbol": "TableViewState.LoadingType.more",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/whsiao/Documents/workspace/wayne/WHUIComponent/WHUIComponents/ViewModel/TableViewState.swift",
+      "line": 24,
+      "symbol": "TableViewState.loadingType",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/whsiao/Documents/workspace/wayne/WHUIComponent/WHUIComponents/ViewModel/TableViewState.swift",
+      "line": 26,
+      "symbol": "TableViewState.init(loadingType:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/whsiao/Documents/workspace/wayne/WHUIComponent/WHUIComponents/ViewModel/TableViewViewModel.swift",
+      "line": 12,
+      "symbol": "APIRequestComplete",
+      "symbol_kind": "source.lang.swift.decl.typealias",
+      "warning": "undocumented"
+    }
+  ],
+  "source_directory": "/Users/whsiao/Documents/workspace/wayne/WHUIComponent"
+}

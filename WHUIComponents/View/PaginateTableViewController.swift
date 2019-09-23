@@ -24,9 +24,9 @@ enum LoadingStatus {
     case loading
 }
 
-/// PaginateTableViewController which implemented paginate in UITableView, this is the base class only control the pull refresh and scroll to bottom to load more logic, the reset of all have been delegated to dataDelegate which should be implemented by users. The the PaginateTableViewController adopted pattern MVVM, following steps show how to customized your paginated UITableView.
+/// PaginateTableViewController which implemented paginate in UITableView, this is the base class only control the pull refresh and scroll to bottom to load more logic, the reset of all logics have been delegated to TableViewViewModel which should be implemented by the users. The the PaginateTableViewController adopted MVVM, following steps introduce the steps to customized your paginated UITableView.
 /// 1. Implement TableViewViewModel.
-/// 2. Your data model must adopt TableViewDataModel.
+/// 2. Confrim your data model to protocol TableViewDataModel.
 @objcMembers
 open class PaginateTableViewController: UITableViewController {
     
@@ -37,7 +37,7 @@ open class PaginateTableViewController: UITableViewController {
     var loadingStatus = LoadingStatus.idle
     
     /// Responsible in dataSource and delegate in tableView, should not be nil.
-    open var viewModel: TableViewViewModelProtocol!
+    open var viewModel: TableViewViewModelProtocol?
     
     override open func viewDidLoad() {
         super.viewDidLoad()
@@ -49,7 +49,7 @@ open class PaginateTableViewController: UITableViewController {
     func refresh() {
         if loadingStatus == .idle {
             loadingStart(.refresh)
-            viewModel.refresh()
+            viewModel?.refresh()
         }
     }
     
@@ -84,7 +84,7 @@ extension PaginateTableViewController {
     }
     
     override open func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        viewModel.selectDataAt(indexPath: indexPath)
+        viewModel?.selectDataAt(indexPath: indexPath)
     }
 }
 
@@ -120,17 +120,24 @@ extension PaginateTableViewController {
         let distanceFromBottom = scrollView.contentSize.height - offset
         if distanceFromBottom < height && loadingStatus == .idle {
             loadingStart(.more)
-            viewModel.getMore()
+            viewModel?.getMore()
         }
     }
 }
 
 // MARK: - Initializer
 extension PaginateTableViewController {
-    public static func controller() throws -> PaginateTableViewController {
+    
+    /// Convenience method to generate PaginateTableViewController
+    ///
+    /// - Parameter viewModel: Inject pattern, pass your custom view model on your demand.
+    /// - Returns: The PaginateTableViewController.
+    /// - Throws: Throws PaginateTableViewControllerError.
+    public static func controller(withViewModel viewModel: TableViewViewModelProtocol? = nil) throws -> PaginateTableViewController {
         guard let controller = Resource.storyBoard.instantiateViewController(withIdentifier: Constant.PaginateTableViewController) as? PaginateTableViewController else {
             throw PaginateTableViewControllerError.typeError
         }
+        controller.viewModel = viewModel
         return controller
     }
 }

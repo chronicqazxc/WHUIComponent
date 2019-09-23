@@ -8,6 +8,7 @@
 
 import Foundation
 
+/// Confirm this protocol to your designated data models.
 public protocol TableViewDataModel {
     var title: String { get }
     var content: String { get }

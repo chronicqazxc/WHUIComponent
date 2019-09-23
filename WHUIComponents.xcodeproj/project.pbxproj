@@ -93,6 +93,8 @@
 		A6B6F1592334C05F0061F48C /* MyService.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MyService.framework; path = Carthage/Build/iOS/MyService.framework; sourceTree = "<group>"; };
 		A6F3EDAD2336943200B00996 /* ModelViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelViewModel.swift; sourceTree = "<group>"; };
 		A6F3EDAF233694B800B00996 /* FooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FooterView.swift; sourceTree = "<group>"; };
+		A6F3EDB1233894A300B00996 /* .jazzy.yaml */ = {isa = PBXFileReference; lastKnownFileType = text; path = .jazzy.yaml; sourceTree = "<group>"; };
+		A6F3EDB223389FF500B00996 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		B057B3DA2333DB5B00A59F11 /* WHUIComponents.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = WHUIComponents.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B057B3DD2333DB5B00A59F11 /* WHUIComponents.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WHUIComponents.h; sourceTree = "<group>"; };
 		B057B3DE2333DB5B00A59F11 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -250,6 +252,8 @@
 		B057B3D02333DB5B00A59F11 = {
 			isa = PBXGroup;
 			children = (
+				A6F3EDB223389FF500B00996 /* README.md */,
+				A6F3EDB1233894A300B00996 /* .jazzy.yaml */,
 				A6A1672A2334D71D00E1143F /* input.xcfilelist */,
 				A6A1672B2334D72500E1143F /* output.xcfilelist */,
 				A6B6F14D23348C8F0061F48C /* Gemfile */,
