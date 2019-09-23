@@ -11,6 +11,11 @@ import Foundation
 
 /// Represent tableView loading types.
 public struct TableViewState {
+    
+    /// Loding types.
+    ///
+    /// - refresh: Pull to refresh.
+    /// - more: Scroll down to get more.
     public enum LoadingType {
         case refresh
         case more

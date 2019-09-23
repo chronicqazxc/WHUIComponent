@@ -8,6 +8,8 @@
 
 import UIKit
 
+
+/// WHFooterView, used in table view with only one sction or the last section.
 public class FooterView: UILabel {
 
     public override init(frame: CGRect) {

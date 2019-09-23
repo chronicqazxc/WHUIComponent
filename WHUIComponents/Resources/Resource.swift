@@ -14,6 +14,9 @@ enum Resource {
         static let storyboard = "Storyboard"
     }
     
+    /// WHUIComponent bundle.
     public static let bundle = Bundle(identifier: Constant.WHUIComponents)
+    
+    /// Storyboard of WHUIComponent.
     public static let storyBoard = UIStoryboard(name: Constant.storyboard, bundle: bundle)
 }
