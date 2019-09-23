@@ -1,4 +1,4 @@
-output: docs/swift
+output: docs
 clean: true
 framework_root: ./WHUIComponents/
 sdk: iphonesimulator

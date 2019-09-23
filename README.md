@@ -1,7 +1,5 @@
 # WHUIComponent
-![](https://travis-ci.org/chronicqazxc/WHUIComponent.svg?branch=master)
-
-[![CI Status](https://travis-ci.org/chronicqazxc/WHUIComponent.svg?style=flat)](https://github.com/chronicqazxc/WHUIComponent)
+[![CI Status](https://travis-ci.org/chronicqazxc/WHUIComponent.svg?branch=master)](https://github.com/chronicqazxc/WHUIComponent)
 [![License](https://img.shields.io/github/license/chronicqazxc/WHUIComponent)](https://github.com/chronicqazxc/WHUIComponent)
 [![Platform](https://img.shields.io/badge/iOS-Carthage-green)](https://github.com/chronicqazxc/WHUIComponent)
 
@@ -11,7 +9,8 @@ A collection of UI components with scalability and reusability, following list s
 3. Paginated TableViewController.
 
 ## Documentations
-[here](./docs/swift/index.html)
+
+Clone the repos and checkout the `docs` folder.
 
 ## Example
 
@@ -29,8 +28,8 @@ by adding the following line to your `Cartfile`:
 
 ## Author
 
-[Wayne Hsiao](mailto://chronicqazxc@gmail.com)
-<a href="https://wayne-blog.herokuapp.com" target="_blank">Blog</a>
+- [Wayne Hsiao](mailto://chronicqazxc@gmail.com)
+- <a href="https://wayne-blog.herokuapp.com" target="_blank">Blog</a>
 
 ## License
 
