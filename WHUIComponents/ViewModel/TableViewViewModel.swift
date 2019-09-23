@@ -11,6 +11,8 @@ import MyService
 
 public typealias APIRequestComplete = (Data?, URLResponse?, Error?) -> Void
 
+
+/// Will be invoked when API request complete by TableViewModel.
 public typealias CallBack = (
     _ loadingType: TableViewState.LoadingType,
     _ data: [TableViewDataModel]?,
@@ -74,6 +76,8 @@ public protocol TableViewViewModelProtocol: class {
 }
 
 extension TableViewViewModelProtocol {
+    
+    /// Pull to refresh.
     public func refresh() {
         let type = TableViewState.LoadingType.refresh
         apiRequest(type: type) { (data, response, error) in
@@ -89,6 +93,7 @@ extension TableViewViewModelProtocol {
         }
     }
     
+    /// Scroll down to get more.
     public func getMore() {
         let type = TableViewState.LoadingType.more
         apiRequest(type: type) { (data, response, error) in

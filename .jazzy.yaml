@@ -1,0 +1,13 @@
+output: docs/swift
+clean: true
+framework_root: ./WHUIComponents/
+sdk: iphonesimulator
+module: WHUIComponents
+github_url: https://github.com/chronicqazxc/WHUIComponent
+github_file_prefix: https://github.com/chronicqazxc/WHUIComponent/tree/master
+skip_undocumented: false
+hide_documentation_coverage: true
+theme: fullwidth
+use_safe_filenames: true
+swift_version: 5.0.1
+min_acl: private

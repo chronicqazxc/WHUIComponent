@@ -11,7 +11,7 @@ import XCTest
 
 public class MockTableViewViewModel: TableViewViewModelProtocol {
 
-    public var indexOfCurrentSelected: IndexPath?
+    fileprivate private(set) var indexOfCurrentSelected: IndexPath?
     
     public var page = Page.initialPage()
     
@@ -30,20 +30,6 @@ public class MockTableViewViewModel: TableViewViewModelProtocol {
         state.loadingType = type
         isLoadingFinished = false
         
-        switch type {
-        case .more:
-            data = [
-                MockTableViewDataModel(title: "BMW", content: "z4", image: nil),
-                MockTableViewDataModel(title: "Mecendes Benz", content: "A1", image: nil)
-            ]
-        case .refresh:
-            data = [
-                MockTableViewDataModel(title: "BMW", content: "z4", image: nil),
-                MockTableViewDataModel(title: "Mecendes Benz", content: "A1", image: nil),
-                MockTableViewDataModel(title: "Audi", content: "Q1", image: nil)
-            ]
-        }
-        
     }
     
     public func didCallBack(_ type: TableViewState.LoadingType) {
@@ -55,61 +41,95 @@ public class MockTableViewViewModel: TableViewViewModelProtocol {
         
     }
     
-    public func apiRequest(type: TableViewState.LoadingType, _ escapingcompleteHandler: @escaping APIRequestComplete) {
-        
+    public func apiRequest(type: TableViewState.LoadingType, _ completeHandler: @escaping APIRequestComplete) {
+        completeHandler(Data(), nil, nil)
     }
     
     public func parse(_ data: Data) -> [TableViewDataModel]? {
-        return nil
+        let mockData = [
+            MockTableViewDataModel(title: "BMW", content: "z4", image: nil),
+            MockTableViewDataModel(title: "Mecendes Benz", content: "A1", image: nil),
+            MockTableViewDataModel(title: "Audi", content: "Q1", image: nil)
+        ]
+        self.data = mockData
+        return mockData
     }
     
     public func selectDataAt(indexPath: IndexPath) {
-        
+        indexOfCurrentSelected = indexPath
     }
     
     public func selectedData() -> [TableViewDataModel] {
-        return []
+        guard let index = indexOfCurrentSelected?.row else {
+            return []
+        }
+        return [data[index]]
     }
 }
 
 class TableViewViewModelTest: XCTestCase {
     
     var mockTableViewModel: MockTableViewViewModel!
+    var exp: XCTestExpectation!
 
     override func setUp() {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        exp = expectation(description: "SomeService does stuff and runs the callback closure")
+        mockTableViewModel = MockTableViewViewModel { [weak self] (type, data, error) in
+            guard let strongSelf = self else {
+                return
+            }
+            
+            XCTAssertEqual(strongSelf.mockTableViewModel.data.count, 3)
+            strongSelf.exp.fulfill()
+        }
     }
 
     override func tearDown() {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
-
-    func testViewModelLoadingType() {
-        mockTableViewModel = MockTableViewViewModel { [weak self] (type, data, error) in
-            guard let strongSelf = self else {
-                return
-            }
-
-            switch type {
-            case .refresh:
-                XCTAssertEqual(strongSelf.mockTableViewModel.data.count, 3)
-            case .more:
-                XCTAssertEqual(strongSelf.mockTableViewModel.data.count, 2)
+    
+    func testViewModelDidCallback() {
+        mockTableViewModel.refresh()
+        XCTAssertTrue(mockTableViewModel.isLoadingFinished)
+        waitForExpectations(timeout: 5.0) { error in
+            if let error = error {
+                XCTFail("waitForExpectationsWithTimeout errored: \(error)")
             }
         }
-        
-        mockTableViewModel.getMore()
+    }
+
+    func testViewModelLoadingType() {
         mockTableViewModel.refresh()
+        
+        waitForExpectations(timeout: 5.0) { error in
+            if let error = error {
+                XCTFail("waitForExpectationsWithTimeout errored: \(error)")
+            }
+        }
+    }
+    
+    func testSelectDataAt() {
+        let indexPath = IndexPath(row: 1, section: 0)
+        mockTableViewModel.selectDataAt(indexPath: indexPath)
+        XCTAssertEqual(mockTableViewModel.indexOfCurrentSelected, indexPath)
+        exp.fulfill()
+        waitForExpectations(timeout: 5.0) { error in
+            if let error = error {
+                XCTFail("waitForExpectationsWithTimeout errored: \(error)")
+            }
+        }
     }
     
     func testSelected() {
-        
-    }
-
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
+        mockTableViewModel.refresh()
+        let indexPath = IndexPath(row: 2, section: 0)
+        mockTableViewModel.selectDataAt(indexPath: indexPath)
+        XCTAssertEqual(mockTableViewModel.selectedData().first as! MockTableViewDataModel,
+                       MockTableViewDataModel(title: "Audi", content: "Q1", image: nil))
+        waitForExpectations(timeout: 5.0) { error in
+            if let error = error {
+                XCTFail("waitForExpectationsWithTimeout errored: \(error)")
+            }
         }
     }
 

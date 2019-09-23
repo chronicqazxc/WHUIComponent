@@ -8,6 +8,8 @@
 
 import Foundation
 
+
+/// Delegate manage havigation logic which invoked by view controllers, usually confirmed by coordinators.
 public protocol CoordinatorViewContollerDelegate: class {
     func navigateToNextPage()
     func naviageBackToPreviousPage()

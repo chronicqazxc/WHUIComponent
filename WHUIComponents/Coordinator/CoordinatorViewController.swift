@@ -8,6 +8,7 @@
 
 import Foundation
 
+/// ViewControllers who confirm this protocol to has the ability to invoke coordinateDelegate.
 public protocol CoordinatorViewController {
     var coordinateDelegate: CoordinatorViewContollerDelegate? { get set }
 }

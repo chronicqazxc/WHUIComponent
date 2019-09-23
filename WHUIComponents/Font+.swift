@@ -18,11 +18,18 @@ public extension UIFont {
         }
     }
     
+    
+    /// WHStyle Font
+    ///
+    /// - Returns: Font for contents.
     static func whContent() -> UIFont {
         return UIFont(name: Constant.avenir,
                       size: Constant.Size.content) ?? UIFont.preferredFont(forTextStyle: .body)
     }
     
+    /// WHStyle Font
+    ///
+    /// - Returns: Font for titles.
     static func whTitle() -> UIFont {
         return UIFont(name: Constant.avenir,
                       size: Constant.Size.title) ?? UIFont.preferredFont(forTextStyle: .title1)
