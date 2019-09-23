@@ -1,7 +1,7 @@
 # WHUIComponent
 [![CI Status](https://travis-ci.org/chronicqazxc/WHUIComponent.svg?branch=master)](https://github.com/chronicqazxc/WHUIComponent)
 [![License](https://img.shields.io/github/license/chronicqazxc/WHUIComponent)](https://github.com/chronicqazxc/WHUIComponent)
-[![Platform](https://img.shields.io/badge/iOS-Carthage-green)](https://github.com/chronicqazxc/WHUIComponent)
+[![Platform](https://img.shields.io/badge/iOS-Carthage-blue)](https://github.com/chronicqazxc/WHUIComponent)
 
 A collection of UI components with scalability and reusability, following list show current supported components or features.
 1. Coordinator Pattern.
