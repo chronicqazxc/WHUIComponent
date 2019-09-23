@@ -37,7 +37,7 @@ open class PaginateTableViewController: UITableViewController {
     var loadingStatus = LoadingStatus.idle
     
     /// Responsible in dataSource and delegate in tableView, should not be nil.
-    open var viewModel: TableViewViewModelProtocol!
+    open var viewModel: TableViewViewModelProtocol?
     
     override open func viewDidLoad() {
         super.viewDidLoad()
@@ -49,7 +49,7 @@ open class PaginateTableViewController: UITableViewController {
     func refresh() {
         if loadingStatus == .idle {
             loadingStart(.refresh)
-            viewModel.refresh()
+            viewModel?.refresh()
         }
     }
     
@@ -84,7 +84,7 @@ extension PaginateTableViewController {
     }
     
     override open func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        viewModel.selectDataAt(indexPath: indexPath)
+        viewModel?.selectDataAt(indexPath: indexPath)
     }
 }
 
@@ -120,17 +120,18 @@ extension PaginateTableViewController {
         let distanceFromBottom = scrollView.contentSize.height - offset
         if distanceFromBottom < height && loadingStatus == .idle {
             loadingStart(.more)
-            viewModel.getMore()
+            viewModel?.getMore()
         }
     }
 }
 
 // MARK: - Initializer
 extension PaginateTableViewController {
-    public static func controller() throws -> PaginateTableViewController {
+    public static func controller(withViewModel viewModel: TableViewViewModelProtocol? = nil) throws -> PaginateTableViewController {
         guard let controller = Resource.storyBoard.instantiateViewController(withIdentifier: Constant.PaginateTableViewController) as? PaginateTableViewController else {
             throw PaginateTableViewControllerError.typeError
         }
+        controller.viewModel = viewModel
         return controller
     }
 }

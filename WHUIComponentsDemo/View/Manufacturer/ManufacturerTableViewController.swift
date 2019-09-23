@@ -46,7 +46,7 @@ class ManufacturerTableViewController: PaginateTableViewController, CoordinatorV
                 }
             }
         }
-        viewModel.refresh()
+        viewModel?.refresh()
         let manufacturerTableViewCellNib = UINib(nibName: "ManufacturerTableViewCell", bundle: Bundle.main)
         tableView.register(manufacturerTableViewCellNib, forCellReuseIdentifier: "cell")
     }
@@ -59,7 +59,7 @@ extension ManufacturerTableViewController {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.data.count
+        return viewModel?.data.count ?? 0
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -82,9 +82,12 @@ extension ManufacturerTableViewController {
         let rect = CGRect(x: 0, y: 0, width: tableView.frame.size.width, height: 120)
         let footerView = FooterView(frame: rect)
         
-        if viewModel.page.hasNextPage() == false {
+        if viewModel?.page.hasNextPage() == false {
             footerView.reachEndOfPage()
         } else {
+            guard let viewModel = viewModel else {
+                return nil
+            }
             footerView.putllToPage(viewModel.page.next+1)
         }
         return footerView

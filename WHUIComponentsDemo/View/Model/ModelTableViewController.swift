@@ -23,7 +23,7 @@ class ModelTableViewController: PaginateTableViewController, CoordinatorViewCont
         let modelTableViewCellNib = UINib(nibName: "ModelTableViewCell", bundle: Bundle.main)
         tableView.register(modelTableViewCellNib, forCellReuseIdentifier: "cell")
         title = "\(modelViewModel.manufacturer!.title)"
-        viewModel.refresh()
+        viewModel?.refresh()
         
     }
 }
@@ -72,7 +72,7 @@ extension ModelTableViewController {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.data.count
+        return viewModel?.data.count ?? 0
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -95,9 +95,12 @@ extension ModelTableViewController {
         let rect = CGRect(x: 0, y: 0, width: tableView.frame.size.width, height: 120)
         let footerView = FooterView(frame: rect)
         
-        if viewModel.page.hasNextPage() == false {
+        if viewModel?.page.hasNextPage() == false {
             footerView.reachEndOfPage()
         } else {
+            guard let viewModel = viewModel else {
+                return nil
+            }
             footerView.putllToPage(viewModel.page.next+1)
         }
         return footerView
