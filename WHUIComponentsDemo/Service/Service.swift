@@ -15,9 +15,7 @@ enum Constant {
     static let page = "page"
     static let pageSizeKey = "pageSize"
     static let manufacturer = "manufacturer"
-    static let pageSize = "10"
-    static let waKey = "waKey"
-    static let waKeyValue = "coding-puzzle-client-449cc9d"
+    static let pageSize = "5"
 }
 
 extension Service {
@@ -27,8 +25,7 @@ extension Service {
         guard let path = Service.getPath(Constant.getManufacturers,
                                          token: [
                                             Constant.page: "\(page)",
-                                            Constant.pageSizeKey: Constant.pageSize,
-                                            Constant.waKey: Constant.waKeyValue
+                                            Constant.pageSizeKey: Constant.pageSize
             ]),
             let url = URL(string: path) else {
                 completeHandler(nil, nil, APIError.invalidURL)
@@ -44,9 +41,7 @@ extension Service {
         guard let path = Service.getPath(Constant.getModel,
                                          token: [
                                             Constant.manufacturer: manufacturerId,
-                                            Constant.page: "\(page)",
-                                            Constant.pageSizeKey: Constant.pageSize,
-                                            Constant.waKey: Constant.waKeyValue
+                                            Constant.page: "\(page)"
             ]),
             let url = URL(string: path) else {
                 completeHandler(nil, nil, APIError.invalidURL)
