@@ -8,13 +8,35 @@
 
 import UIKit
 import WHUIComponents
+import WHPromise
 
 class ModelTableViewController: PaginateTableViewController, CoordinatorViewController {
     
     var coordinateDelegate: CoordinatorViewContollerDelegate?
     
-    var modelViewModel: ModelViewModel {
-        return viewModel as! ModelViewModel
+    override var dateUpdatedPromise: Promise<Data>? {
+        didSet {
+            dateUpdatedPromise?.then({ [weak self] (data) in
+                guard let strongSelf = self else {
+                    return
+                }
+                DispatchQueue.main.async {
+                    strongSelf.loadingEnd()
+                    strongSelf.tableView.reloadData()
+                }
+            }).catch({ [weak self] (error) in
+                guard let strongSelf = self else {
+                    return
+                }
+                let alertController = UIAlertController(title: "Error", message: error.localizedDescription, preferredStyle: .alert)
+                let alertAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+                alertController.addAction(alertAction)
+                DispatchQueue.main.async {
+                    strongSelf.loadingEnd()
+                    strongSelf.present(alertController, animated: true, completion: nil)
+                }
+            })
+        }
     }
 
     override func viewDidLoad() {
@@ -22,45 +44,20 @@ class ModelTableViewController: PaginateTableViewController, CoordinatorViewCont
         
         let modelTableViewCellNib = UINib(nibName: "ModelTableViewCell", bundle: Bundle.main)
         tableView.register(modelTableViewCellNib, forCellReuseIdentifier: "cell")
-        title = "\(modelViewModel.manufacturer!.title)"
-        viewModel?.refresh()
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "default")
+//        title = "\(modelViewModel.manufacturer.title)"
+        dateUpdatedPromise = viewModel?.promiseByRefresh()
         
     }
 }
 
 extension ModelTableViewController {
-    static func initFromManufacturer(_ manufacturer: Manufacturer) -> ModelTableViewController? {
+    static func instanceWith(viewModel: ModelViewModel) -> ModelTableViewController? {
         let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
         guard let modelViewController = storyboard.instantiateViewController(withIdentifier: "ModelTableViewController") as? ModelTableViewController else {
             return nil
         }
-        modelViewController.viewModel = ModelViewModel { [weak modelViewController] (state: TableViewState.LoadingType, models, error) in
-            guard let strongModelViewController = modelViewController else {
-                return
-            }
-            defer {
-                strongModelViewController.loadingEnd()
-            }
-            switch state {
-            case .more:
-                DispatchQueue.main.async {
-                    guard error == nil else {
-                        return
-                    }
-                    strongModelViewController.tableView.reloadData()
-                }
-            case .refresh:
-                DispatchQueue.main.async {
-                    guard error == nil else {
-                        return
-                    }
-                    strongModelViewController.tableView.reloadData()
-                }
-            }
-        }
-        if let modelViewModel = modelViewController.viewModel as? ModelViewModel {
-            modelViewModel.manufacturer = manufacturer
-        }
+        modelViewController.viewModel = viewModel
         return modelViewController
     }
 }
@@ -80,8 +77,11 @@ extension ModelTableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        var cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        cell = modelViewModel.cell(cell, forRowAtIndexPath: indexPath)
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? ModelTableViewCell, let viewModel = viewModel as? ModelViewModel else {
+            let defaultCell = tableView.dequeueReusableCell(withIdentifier: "default", for: indexPath)
+            return defaultCell
+        }
+        cell.configBy(viewModel: viewModel, indexPath: indexPath)
         return cell
     }
     

@@ -9,3 +9,4 @@
 # Build settings will be expanded, e.g. $(SRCROOT)/fileName
 
 $(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/MyService.framework
+$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/WHPromise.framework

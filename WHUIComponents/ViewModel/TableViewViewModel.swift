@@ -8,6 +8,7 @@
 
 import Foundation
 import MyService
+import WHPromise
 
 public typealias APIRequestComplete = (Data?, URLResponse?, Error?) -> Void
 
@@ -28,15 +29,10 @@ public protocol TableViewViewModelProtocol: class {
     var data: [TableViewDataModel] { get }
     
     /// Callback when request complete.
-    var callback: CallBack? { get }
+    var callback: CallBack? { get set }
     
     /// Presresent the page information.
     var page: Page { get }
-    
-    /// Required initial method.
-    ///
-    /// - Parameter callback: Callback when request complete
-    init(_ callback: @escaping CallBack)
     
     /// Will callback to view.
     ///
@@ -61,6 +57,7 @@ public protocol TableViewViewModelProtocol: class {
     ///   - escapingcompleteHandler: API request complete handler
     func apiRequest(type: TableViewState.LoadingType, _ escapingcompleteHandler: @escaping APIRequestComplete)
     
+    func apiRequest(type: TableViewState.LoadingType) -> Promise<Data>
     
     /// Parse and return designated data model.
     ///
@@ -77,6 +74,11 @@ public protocol TableViewViewModelProtocol: class {
 
 extension TableViewViewModelProtocol {
     
+    public func promiseByRefresh() -> Promise<Data> {
+        let type = TableViewState.LoadingType.refresh
+        return apiRequest(type: type)
+    }
+    
     /// Pull to refresh.
     public func refresh() {
         let type = TableViewState.LoadingType.refresh
@@ -91,6 +93,11 @@ extension TableViewViewModelProtocol {
             self.callback?(type, model, error)
             self.didCallBack(type)
         }
+    }
+    
+    public func promiseByGetMore() -> Promise<Data> {
+        let type = TableViewState.LoadingType.more
+        return apiRequest(type: type)
     }
     
     /// Scroll down to get more.

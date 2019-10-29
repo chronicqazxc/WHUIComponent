@@ -9,3 +9,4 @@
 # Build settings will be expanded, e.g. $(SRCROOT)/fileName
 
 $(SRCROOT)/Carthage/Build/iOS/MyService.framework
+$(SRCROOT)/Carthage/Build/iOS/WHPromise.framework

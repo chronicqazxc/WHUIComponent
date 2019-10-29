@@ -22,9 +22,10 @@ class ManufacturerCoordinator: Coordinator {
     
     func start() {
         let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
-        guard var manufacturerViewController = storyboard.instantiateViewController(withIdentifier: "ManufacturerTableViewController") as? CoordinatorViewController & UIViewController else {
+        guard let manufacturerViewController = storyboard.instantiateViewController(withIdentifier: "ManufacturerTableViewController") as? CoordinatorViewController & ManufacturerTableViewController else {
             return
         }
+        manufacturerViewController.viewModel = ManufacturerViewModel()
         manufacturerViewController.coordinateDelegate = self
         viewController = manufacturerViewController
         navigationController?.pushViewController(manufacturerViewController, animated: true)

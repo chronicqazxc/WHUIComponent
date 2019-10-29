@@ -4,9 +4,8 @@
 [![Platform](https://img.shields.io/badge/iOS-Carthage-blue)](https://github.com/chronicqazxc/WHUIComponent)
 
 A collection of UI components with scalability and reusability, following list show current supported components or features.
-1. Coordinator Pattern.
-2. MVVM Pattern.
-3. Paginated TableViewController.
+1. MVVMC Pattern.
+2. Paginated TableViewController.
 
 ## Documentations
 
