@@ -14,9 +14,9 @@ class ModelTableViewController: PaginateTableViewController, CoordinatorViewCont
     
     var coordinateDelegate: CoordinatorViewContollerDelegate?
     
-    override var promise: Promise<Data>? {
+    override var dateUpdatedPromise: Promise<Data>? {
         didSet {
-            promise?.then({ [weak self] (data) in
+            dateUpdatedPromise?.then({ [weak self] (data) in
                 guard let strongSelf = self else {
                     return
                 }
@@ -46,7 +46,7 @@ class ModelTableViewController: PaginateTableViewController, CoordinatorViewCont
         tableView.register(modelTableViewCellNib, forCellReuseIdentifier: "cell")
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "default")
 //        title = "\(modelViewModel.manufacturer.title)"
-        promise = viewModel?.promiseByRefresh()
+        dateUpdatedPromise = viewModel?.promiseByRefresh()
         
     }
 }

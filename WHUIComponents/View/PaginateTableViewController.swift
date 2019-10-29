@@ -36,7 +36,7 @@ open class PaginateTableViewController: UITableViewController {
     }
     
     var loadingStatus = LoadingStatus.idle
-    open var promise: Promise<Data>?
+    open var dateUpdatedPromise: Promise<Data>?
     
     /// Responsible in dataSource and delegate in tableView, should not be nil.
     open var viewModel: TableViewViewModelProtocol?
@@ -51,7 +51,7 @@ open class PaginateTableViewController: UITableViewController {
     func refresh() {
         if loadingStatus == .idle {
             loadingStart(.refresh)
-            promise = viewModel?.promiseByRefresh()
+            dateUpdatedPromise = viewModel?.promiseByRefresh()
         }
     }
     
@@ -122,7 +122,7 @@ extension PaginateTableViewController {
         let distanceFromBottom = scrollView.contentSize.height - offset
         if distanceFromBottom < height && loadingStatus == .idle {
             loadingStart(.more)
-            promise = viewModel?.promiseByGetMore()
+            dateUpdatedPromise = viewModel?.promiseByGetMore()
         }
     }
 }

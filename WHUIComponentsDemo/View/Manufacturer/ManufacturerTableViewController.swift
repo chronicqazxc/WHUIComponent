@@ -17,9 +17,9 @@ class ManufacturerTableViewController: PaginateTableViewController, CoordinatorV
     
     var coordinateDelegate: CoordinatorViewContollerDelegate?
     
-    override var promise: Promise<Data>? {
+    override var dateUpdatedPromise: Promise<Data>? {
         didSet {
-            promise?.then({ [weak self] (data) in
+            dateUpdatedPromise?.then({ [weak self] (data) in
                 guard let strongSelf = self else {
                     return
                 }
@@ -47,7 +47,7 @@ class ManufacturerTableViewController: PaginateTableViewController, CoordinatorV
         title = "Manufacturer"
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "default")
         
-        promise = viewModel?.promiseByRefresh()
+        dateUpdatedPromise = viewModel?.promiseByRefresh()
 
         let manufacturerTableViewCellNib = UINib(nibName: "ManufacturerTableViewCell", bundle: Bundle.main)
         tableView.register(manufacturerTableViewCellNib, forCellReuseIdentifier: "cell")
