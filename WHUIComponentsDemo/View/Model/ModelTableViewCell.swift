@@ -22,4 +22,14 @@ class ModelTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
+    func configBy(viewModel: ModelViewModel, indexPath: IndexPath) {
+        if indexPath.row % 2 != 0 {
+            backgroundColor = UIColor.lightGray
+        } else {
+            backgroundColor = UIColor.white
+        }
+        let model = viewModel.data[indexPath.row]
+        
+        textLabel?.text = model.content
+    }
 }

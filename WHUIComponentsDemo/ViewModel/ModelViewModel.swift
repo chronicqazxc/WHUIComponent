@@ -9,26 +9,20 @@
 import Foundation
 import WHUIComponents
 import MyService
+import WHPromise
 
 public class ModelViewModel: TableViewViewModelProtocol {
-    
     public private(set) var indexOfCurrentSelected: IndexPath?
     public private(set) var state = TableViewState()
-    public private(set) var data: [TableViewDataModel] {
-        didSet {
-            data = data.sorted(by: {
-                $0.content < $1.content
-            })
-        }
-    }
+    public private(set) var data: [TableViewDataModel] = []
+    let manufacturer: Manufacturer
     
-    public private(set) var callback: CallBack?
+    public var callback: CallBack?
     public private(set) var page = Page.initialPage()
-    var manufacturer: Manufacturer?
     
-    public required init(_ callback: @escaping CallBack) {
+    public required init(_ callback: CallBack? = nil, manufacturer: Manufacturer) {
         self.callback = callback
-        self.data = [Manufacturer]()
+        self.manufacturer = manufacturer
     }
     
     public func willCallBack(_ type: TableViewState.LoadingType, data: [TableViewDataModel]?) {
@@ -52,13 +46,37 @@ public class ModelViewModel: TableViewViewModelProtocol {
         refreshPageIfNeeded(type)
         print("next page: \(page.next)")
         
-        Service.shared.getModel(manufacturerId: manufacturer!.id, page: page.next) { (data, response, error) in
+        Service.shared.getModel(manufacturerId: manufacturer.id, page: page.next) { (data, response, error) in
             guard self.page.hasNextPage() == true else {
                 completeHandler(nil, nil, APIError.EOF)
                 return
             }
             completeHandler(data, response, error)
         }
+    }
+    
+    public func apiRequest(type: TableViewState.LoadingType) -> Promise<Data> {
+        let promise = Promise<Data>.init { (fulfill, reject) in
+            self.refreshPageIfNeeded(type)
+            print("next page: \(self.page.next)")
+            
+            Service.shared.getModel(manufacturerId: self.manufacturer.id, page: self.page.next) { (data, response, error) in
+                guard self.page.hasNextPage() == true else {
+                    reject(APIError.EOF)
+                    return
+                }
+                if let error = error {
+                    reject(error)
+                } else if let data = data {
+                    let model = self.parse(data)
+                    self.willCallBack(type, data: model)
+                    fulfill(data)
+                } else {
+                    reject(APIError.unknow)
+                }
+            }
+        }
+        return promise
     }
     
     public func refreshPageIfNeeded(_ type: TableViewState.LoadingType) {
@@ -80,7 +98,7 @@ public class ModelViewModel: TableViewViewModelProtocol {
         }
         page = Page(current: currentPage, total: totalPage)
         return wkda.map {
-            return Model(image: nil, id: $0.value, manufacturer: manufacturer!)
+            return Model(image: nil, id: $0.value, manufacturer: manufacturer)
         }
     }
     
@@ -94,19 +112,5 @@ public class ModelViewModel: TableViewViewModelProtocol {
         } else {
             return []
         }
-    }
-}
-
-extension ModelViewModel {
-    func cell(_ cell: UITableViewCell, forRowAtIndexPath indexPath: IndexPath) -> UITableViewCell {
-        if indexPath.row % 2 != 0 {
-            cell.backgroundColor = UIColor.lightGray
-        } else {
-            cell.backgroundColor = UIColor.white
-        }
-        let model = data[indexPath.row]
-        
-        cell.textLabel?.text = model.content
-        return cell
     }
 }
