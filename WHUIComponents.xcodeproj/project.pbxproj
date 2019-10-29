@@ -43,6 +43,7 @@
 		B057B4132333E10100A59F11 /* ResourceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B057B4122333E10100A59F11 /* ResourceTest.swift */; };
 		B057B4152333E30C00A59F11 /* TableViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B057B4142333E30C00A59F11 /* TableViewViewModel.swift */; };
 		B057B4172333E4E500A59F11 /* TableViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = B057B4162333E4E500A59F11 /* TableViewState.swift */; };
+		B069F53A2366D349007A7374 /* WHPromise.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B069F5392366D349007A7374 /* WHPromise.framework */; };
 		B092A2202337C60C003DEC7C /* ManufacturerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B092A21E2337C60C003DEC7C /* ManufacturerTableViewCell.swift */; };
 		B092A2212337C60C003DEC7C /* ManufacturerTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B092A21F2337C60C003DEC7C /* ManufacturerTableViewCell.xib */; };
 		B092A2242337DF7C003DEC7C /* ModelTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B092A2222337DF7C003DEC7C /* ModelTableViewCell.swift */; };
@@ -115,6 +116,7 @@
 		B057B4122333E10100A59F11 /* ResourceTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResourceTest.swift; sourceTree = "<group>"; };
 		B057B4142333E30C00A59F11 /* TableViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewViewModel.swift; sourceTree = "<group>"; };
 		B057B4162333E4E500A59F11 /* TableViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewState.swift; sourceTree = "<group>"; };
+		B069F5392366D349007A7374 /* WHPromise.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WHPromise.framework; path = Carthage/Build/iOS/WHPromise.framework; sourceTree = "<group>"; };
 		B092A21E2337C60C003DEC7C /* ManufacturerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManufacturerTableViewCell.swift; sourceTree = "<group>"; };
 		B092A21F2337C60C003DEC7C /* ManufacturerTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ManufacturerTableViewCell.xib; sourceTree = "<group>"; };
 		B092A2222337DF7C003DEC7C /* ModelTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelTableViewCell.swift; sourceTree = "<group>"; };
@@ -144,6 +146,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A62464E12334D5E100F60CDB /* MyService.framework in Frameworks */,
+				B069F53A2366D349007A7374 /* WHPromise.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -245,6 +248,7 @@
 		A6B6F1582334C05F0061F48C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B069F5392366D349007A7374 /* WHPromise.framework */,
 				A6B6F1592334C05F0061F48C /* MyService.framework */,
 			);
 			name = Frameworks;

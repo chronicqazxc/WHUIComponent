@@ -16,18 +16,17 @@ class ModelCoordinator: Coordinator {
     var delegate: Coordinator?
     
     weak var viewController: UIViewController?
-    var modelViewController: ModelTableViewController? {
-        return viewController as? ModelTableViewController
-    }
     
     required init(navigationController: UINavigationController) {
         self.navigationController = navigationController
     }
     
     func start() {
-        guard let manufacturer = parameters?[ManufacturerTableViewController.Constant.parameterKey] as? Manufacturer,
-            let modelViewController = ModelTableViewController.initFromManufacturer(manufacturer) else {
+        guard let manufacturer = parameters?[ManufacturerTableViewController.Constant.parameterKey] as? Manufacturer else {
                 return
+        }
+        guard let modelViewController = ModelTableViewController.instanceWith(viewModel: ModelViewModel(manufacturer: manufacturer)) else {
+            return
         }
         modelViewController.coordinateDelegate = self
         viewController = modelViewController
@@ -37,8 +36,9 @@ class ModelCoordinator: Coordinator {
 
 extension ModelCoordinator: CoordinatorViewContollerDelegate {
     func navigateToNextPage() {
-        
-        guard let selected = modelViewController?.modelViewModel.selectedData().first else {
+
+        guard let viewController = viewController as? ModelTableViewController,
+            let selected = viewController.viewModel?.selectedData().first else {
             return
         }
         let alertController = UIAlertController(title: "Dear guest",
@@ -46,7 +46,7 @@ extension ModelCoordinator: CoordinatorViewContollerDelegate {
                                                 preferredStyle: .alert)
         let action = UIAlertAction(title: "Ok", style: .default)
         alertController.addAction(action)
-        viewController?.present(alertController, animated: true)
+        viewController.present(alertController, animated: true)
     }
     
     func naviageBackToPreviousPage() {

@@ -9,10 +9,12 @@
 import Foundation
 import WHUIComponents
 import MyService
+import WHPromise
 
 public enum APIError: Error {
     case invalidURL
     case EOF
+    case unknow
 }
 
 public class ManufacturerViewModel: TableViewViewModelProtocol {
@@ -26,10 +28,10 @@ public class ManufacturerViewModel: TableViewViewModelProtocol {
             })
         }
     }
-    public private(set) var callback: CallBack?
+    public var callback: CallBack?
     public private(set) var page = Page.initialPage()
     
-    required public init(_ callback: @escaping CallBack) {
+    required public init(_ callback: CallBack? = nil) {
         self.callback = callback
         self.data = [Manufacturer]()
     }
@@ -62,6 +64,30 @@ public class ManufacturerViewModel: TableViewViewModelProtocol {
             }
             completeHandler(data, response, error)
         }
+    }
+    
+    public func apiRequest(type: TableViewState.LoadingType) -> Promise<Data> {
+        refreshPageIfNeeded(type)
+        print("next page: \(page.next)")
+        
+        let promise = Promise<Data>.init { (fulfill, reject) in
+            Service.shared.getManufacturer(page: self.page.next) { (data, response, error) in
+                guard self.page.hasNextPage() == true else {
+                    reject(APIError.EOF)
+                    return
+                }
+                if let error = error {
+                    reject(error)
+                } else if let data = data {
+                    let model = self.parse(data)
+                    self.willCallBack(type, data: model)
+                    fulfill(data)
+                } else {
+                    reject(APIError.unknow)
+                }
+            }
+        }
+        return promise
     }
     
     public func refreshPageIfNeeded(_ type: TableViewState.LoadingType) {
@@ -97,18 +123,5 @@ public class ManufacturerViewModel: TableViewViewModelProtocol {
         } else {
             return []
         }
-    }
-}
-
-extension ManufacturerViewModel {
-    func cell(_ cell: UITableViewCell, forRowAtIndexPath indexPath: IndexPath) -> UITableViewCell {
-        if indexPath.row % 2 != 0 {
-            cell.backgroundColor = UIColor.lightGray
-        } else {
-            cell.backgroundColor = UIColor.white
-        }
-        let manufacturer = data[indexPath.row]
-        cell.textLabel?.text = manufacturer.title
-        return cell
     }
 }

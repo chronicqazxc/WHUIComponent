@@ -8,6 +8,7 @@
 
 import UIKit
 import WHUIComponents
+import WHPromise
 
 class ManufacturerTableViewController: PaginateTableViewController, CoordinatorViewController {
     enum Constant {
@@ -15,38 +16,39 @@ class ManufacturerTableViewController: PaginateTableViewController, CoordinatorV
     }
     
     var coordinateDelegate: CoordinatorViewContollerDelegate?
-    var manufacturerViewModel: ManufacturerViewModel {
-        return viewModel as! ManufacturerViewModel
+    
+    override var promise: Promise<Data>? {
+        didSet {
+            promise?.then({ [weak self] (data) in
+                guard let strongSelf = self else {
+                    return
+                }
+                DispatchQueue.main.async {
+                    strongSelf.loadingEnd()
+                    strongSelf.tableView.reloadData()
+                }
+            }).catch({ [weak self] (error) in
+                guard let strongSelf = self else {
+                    return
+                }
+                let alertController = UIAlertController(title: "Error", message: error.localizedDescription, preferredStyle: .alert)
+                let alertAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+                alertController.addAction(alertAction)
+                DispatchQueue.main.async {
+                    strongSelf.loadingEnd()
+                    strongSelf.present(alertController, animated: true, completion: nil)
+                }
+            })
+        }
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Manufacturer"
-        viewModel = ManufacturerViewModel { [weak self] (state: TableViewState.LoadingType, models, error) in
-            guard let strongSelf = self else {
-                return
-            }
-            defer {
-                strongSelf.loadingEnd()
-            }
-            switch state {
-            case .more:
-                DispatchQueue.main.async {
-                    guard error == nil else {
-                        return
-                    }
-                    strongSelf.tableView.reloadData()
-                }
-            case .refresh:
-                DispatchQueue.main.async {
-                    guard error == nil else {
-                        return
-                    }
-                    strongSelf.tableView.reloadData()
-                }
-            }
-        }
-        viewModel?.refresh()
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "default")
+        
+        promise = viewModel?.promiseByRefresh()
+
         let manufacturerTableViewCellNib = UINib(nibName: "ManufacturerTableViewCell", bundle: Bundle.main)
         tableView.register(manufacturerTableViewCellNib, forCellReuseIdentifier: "cell")
     }
@@ -67,9 +69,12 @@ extension ManufacturerTableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        var cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        cell = manufacturerViewModel.cell(cell, forRowAtIndexPath: indexPath)
-        return cell
+        if let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? ManufacturerTableViewCell, let viewModel = viewModel as? ManufacturerViewModel {
+            cell.configBy(viewModel: viewModel, indexPath: indexPath)
+            return cell
+        }
+        let defaultCell = tableView.dequeueReusableCell(withIdentifier: "default", for: indexPath)
+        return defaultCell
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

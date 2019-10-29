@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import WHUIComponents
 
 class ManufacturerTableViewCell: UITableViewCell {
 
@@ -18,8 +19,16 @@ class ManufacturerTableViewCell: UITableViewCell {
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    }
+    
+    func configBy(viewModel: ManufacturerViewModel, indexPath: IndexPath) {
+        if indexPath.row % 2 != 0 {
+            backgroundColor = UIColor.lightGray
+        } else {
+            backgroundColor = UIColor.white
+        }
+        let manufacturer = viewModel.data[indexPath.row]
+        textLabel?.text = manufacturer.title
     }
     
 }
