@@ -1,5 +1,5 @@
 # WHUIComponent
-[![CI Status](https://travis-ci.org/chronicqazxc/WHUIComponent.svg?branch=master)](https://github.com/chronicqazxc/WHUIComponent)
+[![CI Status](https://travis-ci.com/chronicqazxc/WHUIComponent.svg?branch=master)](https://github.com/chronicqazxc/WHUIComponent)
 [![License](https://img.shields.io/github/license/chronicqazxc/WHUIComponent)](https://github.com/chronicqazxc/WHUIComponent)
 [![Platform](https://img.shields.io/badge/iOS-Carthage-blue)](https://github.com/chronicqazxc/WHUIComponent)
 
