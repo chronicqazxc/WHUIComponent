@@ -8,16 +8,17 @@
 
 import XCTest
 @testable import WHUIComponents
+import WHPromise
 
 public class MockTableViewViewModel: TableViewViewModelProtocol {
-
+    
     fileprivate private(set) var indexOfCurrentSelected: IndexPath?
     
     public var page = Page.initialPage()
     
     public private(set) var state = TableViewState()
     public private(set) var data: [TableViewDataModel]
-    public private(set) var callback: CallBack?
+    public var callback: CallBack?
     
     var isLoadingFinished: Bool = true
     
@@ -43,6 +44,10 @@ public class MockTableViewViewModel: TableViewViewModelProtocol {
     
     public func apiRequest(type: TableViewState.LoadingType, _ completeHandler: @escaping APIRequestComplete) {
         completeHandler(Data(), nil, nil)
+    }
+    
+    public func apiRequest(type: TableViewState.LoadingType) -> Promise<Data> {
+        return Promise<Data>(value: Data())
     }
     
     public func parse(_ data: Data) -> [TableViewDataModel]? {
