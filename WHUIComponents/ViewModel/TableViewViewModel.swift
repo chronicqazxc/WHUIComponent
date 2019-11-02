@@ -34,6 +34,8 @@ public protocol TableViewViewModelProtocol: class {
     /// Presresent the page information.
     var page: Page { get }
     
+    var coordinator: Coordinator? { get set }
+    
     /// Will callback to view.
     ///
     /// - Parameter type: Loading type
