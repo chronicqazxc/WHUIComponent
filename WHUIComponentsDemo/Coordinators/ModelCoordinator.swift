@@ -13,9 +13,10 @@ class ModelCoordinator: Coordinator {
     var parameters: [AnyHashable : Any]?
     
     weak var navigationController: UINavigationController?
-    var delegate: Coordinator?
+    var delegate: CoordinatorDelegate?
+    var coordinators = [Coordinator]()
     
-    weak var viewController: UIViewController?
+    var viewController: UIViewController?
     
     required init(navigationController: UINavigationController) {
         self.navigationController = navigationController
@@ -25,16 +26,17 @@ class ModelCoordinator: Coordinator {
         guard let manufacturer = parameters?[ManufacturerTableViewController.Constant.parameterKey] as? Manufacturer else {
                 return
         }
-        guard let modelViewController = ModelTableViewController.instanceWith(viewModel: ModelViewModel(manufacturer: manufacturer)) else {
+        let viewModel = ModelViewModel(manufacturer: manufacturer)
+        viewModel.coordinator = self
+        guard let modelViewController = ModelTableViewController.instanceWith(viewModel: viewModel) else {
             return
         }
-        modelViewController.coordinateDelegate = self
         viewController = modelViewController
         navigationController?.pushViewController(modelViewController, animated: true)
     }
 }
 
-extension ModelCoordinator: CoordinatorViewContollerDelegate {
+extension ModelCoordinator {
     func navigateToNextPage() {
 
         guard let viewController = viewController as? ModelTableViewController,
@@ -50,6 +52,16 @@ extension ModelCoordinator: CoordinatorViewContollerDelegate {
     }
     
     func naviageBackToPreviousPage() {
-        navigationController?.popViewController(animated: true)
+        guard let toViewController = delegate?.viewController else {
+            return
+        }
+        navigationController?.popToViewController(toViewController, animated: true)
+        delegate?.finish()
+    }
+}
+
+extension ModelCoordinator: CoordinatorDelegate {
+    func finish() {
+        coordinators.removeLast()
     }
 }

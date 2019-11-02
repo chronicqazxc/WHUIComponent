@@ -9,9 +9,21 @@
 import UIKit
 import WHUIComponents
 
-class ViewController: UIViewController, CoordinatorViewController {
+class ViewControllerViewModel {
+    weak var coordinateDelegate: Coordinator?
     
-    weak var coordinateDelegate: CoordinatorViewContollerDelegate?
+    func buttonTapped() {
+        coordinateDelegate?.navigateToNextPage()
+    }
+    
+    deinit {
+        print("")
+    }
+}
+
+class ViewController: UIViewController {
+    
+    var viewModel: ViewControllerViewModel?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,7 +31,7 @@ class ViewController: UIViewController, CoordinatorViewController {
     }
 
     @IBAction func showPaginateTableView(_ sender: Any) {
-        coordinateDelegate?.navigateToNextPage()
+        viewModel?.buttonTapped()
     }
     
 }

@@ -8,11 +8,20 @@
 
 import Foundation
 
+/// Protocol for coordinator delegate.
+public protocol CoordinatorDelegate: Coordinator {
+    /// Coordinator is no needed.
+    func finish()
+}
+
 /// Protocol for Coordinator pattern.
 public protocol Coordinator: class {
     
     /// Parent coordinator.
-    var delegate: Coordinator? { get set }
+    var delegate: CoordinatorDelegate? { get set }
+    
+    /// Child coordinators.
+    var coordinators: [Coordinator] { get }
     
     /// Parameter dictionary used to present view controllers, usually provided by delegate(parent coordinator).
     var parameters: [AnyHashable: Any]? { get set }
@@ -27,4 +36,10 @@ public protocol Coordinator: class {
     
     /// Invoke this method to present new view controller.
     func start()
+    
+    /// Logic which navigate to next page.
+    func navigateToNextPage()
+    
+    /// Logic which navigate to previous page.
+    func naviageBackToPreviousPage()
 }

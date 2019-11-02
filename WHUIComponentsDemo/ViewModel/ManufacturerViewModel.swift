@@ -18,6 +18,7 @@ public enum APIError: Error {
 }
 
 public class ManufacturerViewModel: TableViewViewModelProtocol {
+    weak public var coordinator: Coordinator?
     
     fileprivate var indexOfCurrentSelected: IndexPath?
     public private(set) var state = TableViewState()
@@ -115,6 +116,7 @@ public class ManufacturerViewModel: TableViewViewModelProtocol {
     
     public func selectDataAt(indexPath: IndexPath) {
         indexOfCurrentSelected = indexPath
+        coordinator?.navigateToNextPage()
     }
     
     public func selectedData() -> [TableViewDataModel] {
@@ -123,5 +125,9 @@ public class ManufacturerViewModel: TableViewViewModelProtocol {
         } else {
             return []
         }
+    }
+    
+    func didDismiss() {
+        coordinator?.naviageBackToPreviousPage()
     }
 }

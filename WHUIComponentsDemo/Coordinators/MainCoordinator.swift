@@ -12,7 +12,8 @@ import WHUIComponents
 class MainCoordinator: Coordinator {
     
     var parameters: [AnyHashable : Any]?
-    weak var delegate: Coordinator?
+    weak var delegate: CoordinatorDelegate?
+    var coordinators = [Coordinator]()
     weak private(set) var viewController: UIViewController?
     weak var navigationController: UINavigationController?
     
@@ -22,18 +23,19 @@ class MainCoordinator: Coordinator {
     
     func start() {
         let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
-        guard var viewController = storyboard.instantiateViewController(withIdentifier: "ViewController") as? CoordinatorViewController & UIViewController else {
+        guard let viewController = storyboard.instantiateViewController(withIdentifier: "ViewController") as? ViewController else {
             return
         }
-        viewController.coordinateDelegate = self
+        let viewModel = ViewControllerViewModel()
+        viewModel.coordinateDelegate = self
+        viewController.viewModel = viewModel
         self.viewController = viewController
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationController?.viewControllers = [viewController]
     }
-    
 }
 
-extension MainCoordinator: CoordinatorViewContollerDelegate {
+extension MainCoordinator {
     func navigateToNextPage() {
         guard let navigationController = navigationController else {
             return
@@ -41,9 +43,16 @@ extension MainCoordinator: CoordinatorViewContollerDelegate {
         let manufacturerCoordinator = ManufacturerCoordinator(navigationController: navigationController)
         manufacturerCoordinator.delegate = self
         manufacturerCoordinator.start()
+        coordinators.append(manufacturerCoordinator)
     }
     
     func naviageBackToPreviousPage() {
         
+    }
+}
+
+extension MainCoordinator: CoordinatorDelegate {
+    func finish() {
+        coordinators.removeLast()
     }
 }

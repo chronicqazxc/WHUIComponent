@@ -12,7 +12,8 @@ import WHUIComponents
 class ManufacturerCoordinator: Coordinator {
     
     var parameters: [AnyHashable : Any]?
-    var delegate: Coordinator?
+    weak var delegate: CoordinatorDelegate?
+    var coordinators = [Coordinator]()
     weak private(set) var viewController: UIViewController?
     weak var navigationController: UINavigationController?
     
@@ -22,17 +23,18 @@ class ManufacturerCoordinator: Coordinator {
     
     func start() {
         let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
-        guard let manufacturerViewController = storyboard.instantiateViewController(withIdentifier: "ManufacturerTableViewController") as? CoordinatorViewController & ManufacturerTableViewController else {
+        guard let manufacturerViewController = storyboard.instantiateViewController(withIdentifier: "ManufacturerTableViewController") as? ManufacturerTableViewController else {
             return
         }
-        manufacturerViewController.viewModel = ManufacturerViewModel()
-        manufacturerViewController.coordinateDelegate = self
+        let viewModel = ManufacturerViewModel()
+        viewModel.coordinator = self
+        manufacturerViewController.viewModel = viewModel
         viewController = manufacturerViewController
         navigationController?.pushViewController(manufacturerViewController, animated: true)
     }
 }
 
-extension ManufacturerCoordinator: CoordinatorViewContollerDelegate {
+extension ManufacturerCoordinator {
     func navigateToNextPage() {
         guard let navigationController = navigationController,
             let manufacturerViewController = viewController as? ManufacturerTableViewController else {
@@ -45,9 +47,20 @@ extension ManufacturerCoordinator: CoordinatorViewContollerDelegate {
         modelCoordinator.delegate = self
         modelCoordinator.parameters = [ManufacturerTableViewController.Constant.parameterKey: manufacture]
         modelCoordinator.start()
+        coordinators.append(modelCoordinator)
     }
     
     func naviageBackToPreviousPage() {
-        navigationController?.popViewController(animated: true)
+        guard let toViewController = delegate?.viewController else {
+            return
+        }
+        navigationController?.popToViewController(toViewController, animated: true)
+        delegate?.finish()
+    }
+}
+
+extension ManufacturerCoordinator: CoordinatorDelegate {
+    func finish() {
+        coordinators.removeLast()
     }
 }
