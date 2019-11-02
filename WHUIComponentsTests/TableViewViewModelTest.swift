@@ -11,7 +11,7 @@ import XCTest
 import WHPromise
 
 public class MockTableViewViewModel: TableViewViewModelProtocol {
-    public var coordinatorDelegate: Coordinator?
+    public var coordinator: Coordinator?
     
     fileprivate private(set) var indexOfCurrentSelected: IndexPath?
     
