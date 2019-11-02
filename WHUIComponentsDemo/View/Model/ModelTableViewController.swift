@@ -10,9 +10,7 @@ import UIKit
 import WHUIComponents
 import WHPromise
 
-class ModelTableViewController: PaginateTableViewController, CoordinatorViewController {
-    
-    var coordinateDelegate: CoordinatorViewContollerDelegate?
+class ModelTableViewController: PaginateTableViewController {
     
     override var dateUpdatedPromise: Promise<Data>? {
         didSet {
@@ -48,6 +46,13 @@ class ModelTableViewController: PaginateTableViewController, CoordinatorViewCont
 //        title = "\(modelViewModel.manufacturer.title)"
         dateUpdatedPromise = viewModel?.promiseByRefresh()
         
+        navigationItem.hidesBackButton = true
+        let backButton = UIBarButtonItem(title: "Back", style: .plain, target: self, action: #selector(ManufacturerTableViewController.back))
+        navigationItem.leftBarButtonItem = backButton
+    }
+    
+    @objc func back() {
+        (viewModel as? ModelViewModel)?.didDismiss()
     }
 }
 
@@ -87,7 +92,6 @@ extension ModelTableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         super.tableView(tableView, didSelectRowAt: indexPath)
-        coordinateDelegate?.navigateToNextPage()
         tableView.deselectRow(at: indexPath, animated: true)
     }
     

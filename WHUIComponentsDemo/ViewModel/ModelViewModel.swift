@@ -12,6 +12,8 @@ import MyService
 import WHPromise
 
 public class ModelViewModel: TableViewViewModelProtocol {
+    weak public var coordinator: Coordinator?
+    
     public private(set) var indexOfCurrentSelected: IndexPath?
     public private(set) var state = TableViewState()
     public private(set) var data: [TableViewDataModel] = []
@@ -104,6 +106,7 @@ public class ModelViewModel: TableViewViewModelProtocol {
     
     public func selectDataAt(indexPath: IndexPath) {
         indexOfCurrentSelected = indexPath
+        coordinator?.navigateToNextPage()
     }
     
     public func selectedData() -> [TableViewDataModel] {
@@ -112,5 +115,9 @@ public class ModelViewModel: TableViewViewModelProtocol {
         } else {
             return []
         }
+    }
+    
+    func didDismiss() {
+        coordinator?.naviageBackToPreviousPage()
     }
 }

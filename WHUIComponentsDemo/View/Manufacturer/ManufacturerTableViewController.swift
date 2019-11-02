@@ -10,12 +10,10 @@ import UIKit
 import WHUIComponents
 import WHPromise
 
-class ManufacturerTableViewController: PaginateTableViewController, CoordinatorViewController {
+class ManufacturerTableViewController: PaginateTableViewController {
     enum Constant {
         static let parameterKey = "SelectedManufacturer"
     }
-    
-    var coordinateDelegate: CoordinatorViewContollerDelegate?
     
     override var dateUpdatedPromise: Promise<Data>? {
         didSet {
@@ -51,6 +49,10 @@ class ManufacturerTableViewController: PaginateTableViewController, CoordinatorV
 
         let manufacturerTableViewCellNib = UINib(nibName: "ManufacturerTableViewCell", bundle: Bundle.main)
         tableView.register(manufacturerTableViewCellNib, forCellReuseIdentifier: "cell")
+        
+        navigationItem.hidesBackButton = true
+        let backButton = UIBarButtonItem(title: "Back", style: .plain, target: self, action: #selector(ManufacturerTableViewController.back))
+        navigationItem.leftBarButtonItem = backButton
     }
 }
 
@@ -79,7 +81,6 @@ extension ManufacturerTableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         super.tableView(tableView, didSelectRowAt: indexPath)
-        coordinateDelegate?.navigateToNextPage()
         tableView.deselectRow(at: indexPath, animated: true)
     }
     
@@ -96,5 +97,10 @@ extension ManufacturerTableViewController {
             footerView.putllToPage(viewModel.page.next+1)
         }
         return footerView
+    }
+    
+    @objc
+    func back() {
+        (viewModel as? ManufacturerViewModel)?.didDismiss()
     }
 }
