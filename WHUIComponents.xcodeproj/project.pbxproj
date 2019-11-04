@@ -414,6 +414,7 @@
 				B057B3D62333DB5B00A59F11 /* Sources */,
 				B057B3D72333DB5B00A59F11 /* Frameworks */,
 				B057B3D82333DB5B00A59F11 /* Resources */,
+				B03F9E84237014DA00E8FF59 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
