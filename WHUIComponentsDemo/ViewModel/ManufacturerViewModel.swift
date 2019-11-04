@@ -17,7 +17,7 @@ public enum APIError: Error {
     case unknow
 }
 
-public class ManufacturerViewModel: TableViewViewModelProtocol {
+class ManufacturerViewModel: TableViewViewModelProtocol {
     weak public var coordinator: Coordinator?
     
     fileprivate var indexOfCurrentSelected: IndexPath?
@@ -57,7 +57,6 @@ public class ManufacturerViewModel: TableViewViewModelProtocol {
     public func apiRequest(type: TableViewState.LoadingType,
                            _ completeHandler: @escaping APIRequestComplete) {
         refreshPageIfNeeded(type)
-        print("next page: \(page.next)")
         Service.shared.getManufacturer(page: page.next) { (data, response, error) in
             guard self.page.hasNextPage() == true else {
                 completeHandler(nil, nil, APIError.EOF)
@@ -69,7 +68,6 @@ public class ManufacturerViewModel: TableViewViewModelProtocol {
     
     public func apiRequest(type: TableViewState.LoadingType) -> Promise<Data> {
         refreshPageIfNeeded(type)
-        print("next page: \(page.next)")
         
         let promise = Promise<Data>.init { (fulfill, reject) in
             Service.shared.getManufacturer(page: self.page.next) { (data, response, error) in

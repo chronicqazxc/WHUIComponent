@@ -10,7 +10,8 @@ import UIKit
 import WHUIComponents
 import WHPromise
 
-class ManufacturerTableViewController: PaginateTableViewController {
+class ManufacturerTableViewController: PaginateTableViewControllerDebug {
+
     enum Constant {
         static let parameterKey = "SelectedManufacturer"
     }

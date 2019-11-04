@@ -9,8 +9,9 @@
 import UIKit
 import WHUIComponents
 import WHPromise
+import LifetimeTracker
 
-class ModelTableViewController: PaginateTableViewController {
+class ModelTableViewController: PaginateTableViewControllerDebug {
     
     override var dateUpdatedPromise: Promise<Data>? {
         didSet {
