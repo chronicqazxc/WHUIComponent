@@ -8,7 +8,7 @@
 
 import Foundation
 import WHUIComponents
-import MyService
+import WHCoreServices
 import WHPromise
 
 public class ModelViewModel: TableViewViewModelProtocol {
