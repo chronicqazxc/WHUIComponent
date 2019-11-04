@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		A62464DC2334C91300F60CDB /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = A62464DB2334C91300F60CDB /* Service.swift */; };
-		A62464E12334D5E100F60CDB /* MyService.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6B6F1592334C05F0061F48C /* MyService.framework */; };
 		A6A1672D2334DA6100E1143F /* ManufacturerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6A1672C2334DA6100E1143F /* ManufacturerTableViewController.swift */; };
 		A6A1672F2334DEB400E1143F /* ManufacturerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6A1672E2334DEB400E1143F /* ManufacturerViewModel.swift */; };
 		A6A167342334F15F00E1143F /* Manufacturer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6A167332334F15F00E1143F /* Manufacturer.swift */; };
@@ -26,9 +25,11 @@
 		A6B6F146233479040061F48C /* TableViewDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6B6F145233479040061F48C /* TableViewDataModel.swift */; };
 		A6B6F14A23347C170061F48C /* TableViewViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6B6F14923347C170061F48C /* TableViewViewModelTest.swift */; };
 		A6B6F1552334BDA10061F48C /* Cartfile in Resources */ = {isa = PBXBuildFile; fileRef = A6B6F1542334BDA10061F48C /* Cartfile */; };
-		A6B6F15A2334C05F0061F48C /* MyService.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6B6F1592334C05F0061F48C /* MyService.framework */; };
 		A6F3EDAE2336943200B00996 /* ModelViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6F3EDAD2336943200B00996 /* ModelViewModel.swift */; };
 		A6F3EDB0233694B800B00996 /* FooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6F3EDAF233694B800B00996 /* FooterView.swift */; };
+		B03F9E82237014DA00E8FF59 /* WHCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B03F9E81237014DA00E8FF59 /* WHCoreServices.framework */; };
+		B03F9E83237014DA00E8FF59 /* WHCoreServices.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B03F9E81237014DA00E8FF59 /* WHCoreServices.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		B03F9E85237014F100E8FF59 /* WHCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B03F9E81237014DA00E8FF59 /* WHCoreServices.framework */; };
 		B057B3E42333DB5B00A59F11 /* WHUIComponents.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B057B3DA2333DB5B00A59F11 /* WHUIComponents.framework */; };
 		B057B3E92333DB5B00A59F11 /* WHUIComponentsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B057B3E82333DB5B00A59F11 /* WHUIComponentsTests.swift */; };
 		B057B3EB2333DB5B00A59F11 /* WHUIComponents.h in Headers */ = {isa = PBXBuildFile; fileRef = B057B3DD2333DB5B00A59F11 /* WHUIComponents.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -68,6 +69,20 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		B03F9E84237014DA00E8FF59 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				B03F9E83237014DA00E8FF59 /* WHCoreServices.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		A62464DB2334C91300F60CDB /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
 		A6A1672A2334D71D00E1143F /* input.xcfilelist */ = {isa = PBXFileReference; lastKnownFileType = text.xcfilelist; path = input.xcfilelist; sourceTree = "<group>"; };
@@ -97,6 +112,7 @@
 		A6F3EDB1233894A300B00996 /* .jazzy.yaml */ = {isa = PBXFileReference; lastKnownFileType = text; path = .jazzy.yaml; sourceTree = "<group>"; };
 		A6F3EDB223389FF500B00996 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		A6F3EDB32338B19F00B00996 /* db.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = db.json; sourceTree = "<group>"; };
+		B03F9E81237014DA00E8FF59 /* WHCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WHCoreServices.framework; path = Carthage/Build/iOS/WHCoreServices.framework; sourceTree = "<group>"; };
 		B057B3DA2333DB5B00A59F11 /* WHUIComponents.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = WHUIComponents.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B057B3DD2333DB5B00A59F11 /* WHUIComponents.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WHUIComponents.h; sourceTree = "<group>"; };
 		B057B3DE2333DB5B00A59F11 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -129,7 +145,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A6B6F15A2334C05F0061F48C /* MyService.framework in Frameworks */,
+				B03F9E82237014DA00E8FF59 /* WHCoreServices.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -145,7 +161,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A62464E12334D5E100F60CDB /* MyService.framework in Frameworks */,
+				B03F9E85237014F100E8FF59 /* WHCoreServices.framework in Frameworks */,
 				B069F53A2366D349007A7374 /* WHPromise.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -248,6 +264,7 @@
 		A6B6F1582334C05F0061F48C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B03F9E81237014DA00E8FF59 /* WHCoreServices.framework */,
 				B069F5392366D349007A7374 /* WHPromise.framework */,
 				A6B6F1592334C05F0061F48C /* MyService.framework */,
 			);
@@ -370,6 +387,7 @@
 				B057B3D62333DB5B00A59F11 /* Sources */,
 				B057B3D72333DB5B00A59F11 /* Frameworks */,
 				B057B3D82333DB5B00A59F11 /* Resources */,
+				B03F9E84237014DA00E8FF59 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
