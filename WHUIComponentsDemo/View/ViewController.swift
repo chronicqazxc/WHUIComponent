@@ -10,14 +10,10 @@ import UIKit
 import WHUIComponents
 
 class ViewControllerViewModel {
-    weak var coordinateDelegate: Coordinator?
+    var coordinator: Coordinator?
     
     func buttonTapped() {
-        coordinateDelegate?.navigateToNextPage()
-    }
-    
-    deinit {
-        print("")
+        coordinator?.navigateToNextPage()
     }
 }
 

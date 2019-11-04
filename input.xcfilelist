@@ -10,3 +10,4 @@
 
 $(SRCROOT)/Carthage/Build/iOS/WHCoreServices.framework
 $(SRCROOT)/Carthage/Build/iOS/WHPromise.framework
+$(SRCROOT)/Carthage/Build/iOS/LifetimeTracker.framework

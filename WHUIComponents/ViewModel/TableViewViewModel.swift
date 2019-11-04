@@ -34,6 +34,7 @@ public protocol TableViewViewModelProtocol: class {
     /// Presresent the page information.
     var page: Page { get }
     
+    /// Should be weak
     var coordinator: Coordinator? { get set }
     
     /// Will callback to view.
