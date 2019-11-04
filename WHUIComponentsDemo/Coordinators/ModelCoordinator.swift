@@ -9,7 +9,8 @@
 import Foundation
 import WHUIComponents
 
-class ModelCoordinator: Coordinator {
+class ModelCoordinator: CoordinatorDebug, Coordinator {
+    
     var parameters: [AnyHashable : Any]?
     
     weak var navigationController: UINavigationController?
@@ -18,7 +19,12 @@ class ModelCoordinator: Coordinator {
     
     var viewController: UIViewController?
     
-    required init(navigationController: UINavigationController) {
+    required init() {
+        super.init()
+    }
+    
+    required convenience init(navigationController: UINavigationController) {
+        self.init()
         self.navigationController = navigationController
     }
     
@@ -28,11 +34,14 @@ class ModelCoordinator: Coordinator {
         }
         let viewModel = ModelViewModel(manufacturer: manufacturer)
         viewModel.coordinator = self
+        
         guard let modelViewController = ModelTableViewController.instanceWith(viewModel: viewModel) else {
             return
         }
-        viewController = modelViewController
+        modelViewController.viewModel = viewModel
+
         navigationController?.pushViewController(modelViewController, animated: true)
+        viewController = modelViewController
     }
 }
 

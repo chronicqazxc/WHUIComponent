@@ -8,10 +8,10 @@
 
 import Foundation
 import WHUIComponents
-import MyService
+import WHCoreServices
 import WHPromise
 
-public class ModelViewModel: TableViewViewModelProtocol {
+class ModelViewModel: TableViewViewModelProtocol {
     weak public var coordinator: Coordinator?
     
     public private(set) var indexOfCurrentSelected: IndexPath?
@@ -46,7 +46,6 @@ public class ModelViewModel: TableViewViewModelProtocol {
     
     public func apiRequest(type: TableViewState.LoadingType, _ completeHandler: @escaping APIRequestComplete) {
         refreshPageIfNeeded(type)
-        print("next page: \(page.next)")
         
         Service.shared.getModel(manufacturerId: manufacturer.id, page: page.next) { (data, response, error) in
             guard self.page.hasNextPage() == true else {
@@ -60,7 +59,6 @@ public class ModelViewModel: TableViewViewModelProtocol {
     public func apiRequest(type: TableViewState.LoadingType) -> Promise<Data> {
         let promise = Promise<Data>.init { (fulfill, reject) in
             self.refreshPageIfNeeded(type)
-            print("next page: \(self.page.next)")
             
             Service.shared.getModel(manufacturerId: self.manufacturer.id, page: self.page.next) { (data, response, error) in
                 guard self.page.hasNextPage() == true else {

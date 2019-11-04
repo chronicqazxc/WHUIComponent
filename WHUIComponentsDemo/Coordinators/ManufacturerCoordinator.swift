@@ -9,15 +9,20 @@
 import Foundation
 import WHUIComponents
 
-class ManufacturerCoordinator: Coordinator {
-    
+class ManufacturerCoordinator: CoordinatorDebug, Coordinator {
+
     var parameters: [AnyHashable : Any]?
-    weak var delegate: CoordinatorDelegate?
+    var delegate: CoordinatorDelegate?
     var coordinators = [Coordinator]()
-    weak private(set) var viewController: UIViewController?
+    private(set) var viewController: UIViewController?
     weak var navigationController: UINavigationController?
     
-    required init(navigationController: UINavigationController) {
+    required init() {
+        super.init()
+    }
+    
+    required convenience init(navigationController: UINavigationController) {
+        self.init()
         self.navigationController = navigationController
     }
     
@@ -26,11 +31,14 @@ class ManufacturerCoordinator: Coordinator {
         guard let manufacturerViewController = storyboard.instantiateViewController(withIdentifier: "ManufacturerTableViewController") as? ManufacturerTableViewController else {
             return
         }
+
         let viewModel = ManufacturerViewModel()
         viewModel.coordinator = self
+        
         manufacturerViewController.viewModel = viewModel
-        viewController = manufacturerViewController
+        
         navigationController?.pushViewController(manufacturerViewController, animated: true)
+        viewController = manufacturerViewController
     }
 }
 

@@ -7,7 +7,7 @@
 //
 
 import Foundation
-import MyService
+import WHCoreServices
 import WHPromise
 
 public typealias APIRequestComplete = (Data?, URLResponse?, Error?) -> Void
@@ -34,6 +34,7 @@ public protocol TableViewViewModelProtocol: class {
     /// Presresent the page information.
     var page: Page { get }
     
+    /// Should be weak
     var coordinator: Coordinator? { get set }
     
     /// Will callback to view.
