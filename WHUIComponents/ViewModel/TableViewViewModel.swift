@@ -7,7 +7,7 @@
 //
 
 import Foundation
-import MyService
+import WHCoreServices
 import WHPromise
 
 public typealias APIRequestComplete = (Data?, URLResponse?, Error?) -> Void
