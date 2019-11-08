@@ -9,14 +9,14 @@
 import Foundation
 @testable import WHUIComponents
 
-struct MockTableViewDataModel: TableViewDataModel {
-    var title: String
-    var content: String
-    var image: UIImage?
-}
-
-extension MockTableViewDataModel: Equatable {
-    static func ==(lhs: MockTableViewDataModel, rhs: MockTableViewDataModel) -> Bool {
-        return lhs.title == rhs.title && lhs.content == rhs.content
-    }
-}
+//struct MockTableViewDataModel: TableViewDataModel {
+//    var title: String
+//    var content: String
+//    var image: UIImage?
+//}
+//
+//extension MockTableViewDataModel: Equatable {
+//    static func ==(lhs: MockTableViewDataModel, rhs: MockTableViewDataModel) -> Bool {
+//        return lhs.title == rhs.title && lhs.content == rhs.content
+//    }
+//}

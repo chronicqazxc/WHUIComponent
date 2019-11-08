@@ -1,5 +1,5 @@
 //
-//  Model.swift
+//  CarModel.swift
 //  WHUIComponentsDemo
 //
 //  Created by Hsiao, Wayne on 2019/9/21.
@@ -9,7 +9,7 @@
 import Foundation
 import WHUIComponents
 
-struct Model: TableViewDataModel {
+struct CarModel: TableViewDataModel {
     
     var title: String {
         return manufacturer.title
@@ -22,5 +22,5 @@ struct Model: TableViewDataModel {
     var image: UIImage?
     
     let id: String
-    let manufacturer: Manufacturer
+    let manufacturer: CarManufacturer
 }

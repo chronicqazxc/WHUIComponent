@@ -8,7 +8,6 @@
 
 import UIKit
 import WHUIComponents
-import LifetimeTracker
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -40,8 +39,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         rootCoordinate = MainCoordinator(navigationController: window?.rootViewController as! UINavigationController)
         rootCoordinate.start()
         window?.makeKeyAndVisible()
-        
-        LifetimeTracker.setup(onUpdate: LifetimeTrackerDashboardIntegration(visibility: .alwaysVisible, style: .circular).refreshUI)
         
         return true
     }

@@ -9,7 +9,7 @@
 import Foundation
 import WHUIComponents
 
-class MainCoordinator: CoordinatorDebug, Coordinator {
+class MainCoordinator: Debug, Coordinator {
     
     var parameters: [AnyHashable : Any]?
     var delegate: CoordinatorDelegate?
@@ -17,7 +17,7 @@ class MainCoordinator: CoordinatorDebug, Coordinator {
     private(set) var viewController: UIViewController?
     weak var navigationController: UINavigationController?
     
-    required init() {
+    required override init() {
         super.init()
     }
     
@@ -27,16 +27,10 @@ class MainCoordinator: CoordinatorDebug, Coordinator {
     }
     
     func start() {
-        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
-        guard let entryViewController = storyboard.instantiateViewController(withIdentifier: "ViewController") as? ViewController else {
-            return
-        }
-        viewController = entryViewController
-        
+        viewController = ViewController.instanceFromStoryboard()
         let viewModel = ViewControllerViewModel()
         viewModel.coordinator = self
         (viewController as? ViewController)?.viewModel = viewModel
-
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationController?.viewControllers = [viewController!]
     }
@@ -47,7 +41,7 @@ extension MainCoordinator {
         guard let navigationController = navigationController else {
             return
         }
-        let manufacturerCoordinator = ManufacturerCoordinator(navigationController: navigationController)
+        let manufacturerCoordinator = CarManufacturerCoordinator(navigationController: navigationController)
         manufacturerCoordinator.delegate = self
         manufacturerCoordinator.start()
         coordinators.append(manufacturerCoordinator)
@@ -59,7 +53,7 @@ extension MainCoordinator {
 }
 
 extension MainCoordinator: CoordinatorDelegate {
-    func finish() {
+    func presentingFinished() {
         coordinators.removeLast()
     }
 }

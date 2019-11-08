@@ -9,24 +9,13 @@
 import UIKit
 import WHPromise
 
-/// Error generated in PaginateTableViewController.
-///
-/// - typeError: The type is not the designated type.
-public enum PaginateTableViewControllerError: Error {
-    case typeError
+@objc
+public protocol PaginatedTableViewControllerDelegate: class {
+    func refresh()
+    func getMore()
 }
 
-/// Control the pull refresh and load more logic.
-///
-/// - idle: No loading.
-/// - loading: Loading.
-enum LoadingStatus {
-    case idle
-    case loading
-}
-
-/// PaginateTableViewController which implemented paginate in UITableView, this is the base class only control the pull refresh and scroll to bottom to load more logic, the reset of all logics have been delegated to TableViewViewModel which should be implemented by the users. The the PaginateTableViewController adopted MVVM, following steps introduce the steps to customized your paginated UITableView.
-/// 1. Implement TableViewViewModel.
+/// PaginateTableViewController which implemented paginate in UITableView, this is the base class only control the pull refresh and scroll to bottom to load more logic, the reset of all logics have been delegated to The the PaginateTableViewController adopted MVVM, following steps introduce the steps to customized your paginated UITableView.
 /// 2. Confrim your data model to protocol TableViewDataModel.
 @objcMembers
 open class PaginateTableViewController: UITableViewController {
@@ -36,22 +25,18 @@ open class PaginateTableViewController: UITableViewController {
     }
     
     var loadingStatus = LoadingStatus.idle
-    open var dateUpdatedPromise: Promise<Data>?
-    
-    /// Responsible in dataSource and delegate in tableView, should not be nil.
-    open var viewModel: TableViewViewModelProtocol?
-    
+
+    public weak var pagenatedViewDelegate: PaginatedTableViewControllerDelegate?
     override open func viewDidLoad() {
         super.viewDidLoad()
-        
         tableView.refreshControl = UIRefreshControl()
-        tableView.refreshControl?.addTarget(self, action: #selector(PaginateTableViewController.refresh), for: .valueChanged)
+        tableView.refreshControl?.addTarget(self, action: #selector(_refresh), for: .valueChanged)
     }
     
-    func refresh() {
+    public func _refresh() {
         if loadingStatus == .idle {
             loadingStart(.refresh)
-            dateUpdatedPromise = viewModel?.promiseByRefresh()
+            pagenatedViewDelegate?.refresh()
         }
     }
     
@@ -83,10 +68,6 @@ extension PaginateTableViewController {
     
     override open func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 0
-    }
-    
-    override open func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        viewModel?.selectDataAt(indexPath: indexPath)
     }
 }
 
@@ -122,24 +103,7 @@ extension PaginateTableViewController {
         let distanceFromBottom = scrollView.contentSize.height - offset
         if distanceFromBottom < height && loadingStatus == .idle {
             loadingStart(.more)
-            dateUpdatedPromise = viewModel?.promiseByGetMore()
+            pagenatedViewDelegate?.getMore()
         }
-    }
-}
-
-// MARK: - Initializer
-extension PaginateTableViewController {
-    
-    /// Convenience method to generate PaginateTableViewController
-    ///
-    /// - Parameter viewModel: Inject pattern, pass your custom view model on your demand.
-    /// - Returns: The PaginateTableViewController.
-    /// - Throws: Throws PaginateTableViewControllerError.
-    public static func controller(withViewModel viewModel: TableViewViewModelProtocol? = nil) throws -> PaginateTableViewController {
-        guard let controller = Resource.storyBoard.instantiateViewController(withIdentifier: Constant.PaginateTableViewController) as? PaginateTableViewController else {
-            throw PaginateTableViewControllerError.typeError
-        }
-        controller.viewModel = viewModel
-        return controller
     }
 }

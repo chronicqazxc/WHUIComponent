@@ -8,45 +8,17 @@
 
 import Foundation
 import WHUIComponents
-import LifetimeTracker
 
-protocol Debug: LifetimeTrackable {
-    static var debugName: String { get }
-    
-    static var lifetimeConfiguration: LifetimeConfiguration { get }
-    
-    init()
-}
-
-class CoordinatorDebug: Debug {
-    static var debugName: String {
-        return "coordinator"
-    }
-    
-    class var lifetimeConfiguration: LifetimeConfiguration {
-        return LifetimeConfiguration(maxCount: 1, groupName: self.debugName)
-    }
-    
-    required init() {
-        trackLifetime()
-    }
-}
-
-class PaginateTableViewControllerDebug: PaginateTableViewController, Debug {
-    static var debugName: String {
-        return "view controller"
-    }
-    
-    class var lifetimeConfiguration: LifetimeConfiguration {
-        return LifetimeConfiguration(maxCount: 1, groupName: self.debugName)
-    }
-    
-    required init() {
-        fatalError("Not implemented.")
-    }
-    
-    required init?(coder: NSCoder) {
-        super.init(coder: coder)
-        trackLifetime()
+class Debug {
+    deinit {
+        guard let appDelegate = (UIApplication.shared.delegate as? AppDelegate) else {
+            return
+        }
+        let alertController = UIAlertController(title: String(describing: self), message: #function, preferredStyle: .alert)
+        let alertAction = UIAlertAction(title: "OK", style: .default, handler: { _ in
+            appDelegate.presentNextAlertController()
+        })
+        alertController.addAction(alertAction)
+        appDelegate.presentAlertController(alertController)
     }
 }
