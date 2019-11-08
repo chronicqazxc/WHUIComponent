@@ -10,20 +10,22 @@ import UIKit
 import WHUIComponents
 
 class ViewControllerViewModel {
-    weak var coordinateDelegate: Coordinator?
+    var coordinator: Coordinator?
     
     func buttonTapped() {
-        coordinateDelegate?.navigateToNextPage()
-    }
-    
-    deinit {
-        print("")
+        coordinator?.navigateToNextPage()
     }
 }
 
 class ViewController: UIViewController {
     
     var viewModel: ViewControllerViewModel?
+    
+    static func instanceFromStoryboard() -> ViewController {
+        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+        let entryViewController = storyboard.instantiateViewController(withIdentifier: "ViewController") as! ViewController
+        return entryViewController
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()

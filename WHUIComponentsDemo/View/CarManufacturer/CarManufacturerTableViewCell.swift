@@ -1,5 +1,5 @@
 //
-//  ManufacturerTableViewCell.swift
+//  CarManufacturerTableViewCell.swift
 //  WHUIComponentsDemo
 //
 //  Created by Wayne Hsiao on 2019/9/22.
@@ -10,6 +10,11 @@ import UIKit
 import WHUIComponents
 
 class ManufacturerTableViewCell: UITableViewCell {
+    
+    static func nib() -> UINib {
+        let manufacturerTableViewCellNib = UINib(nibName: "CarManufacturerTableViewCell", bundle: Bundle.main)
+        return manufacturerTableViewCellNib
+    }
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -21,7 +26,7 @@ class ManufacturerTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
     }
     
-    func configBy(viewModel: ManufacturerViewModel, indexPath: IndexPath) {
+    func configBy(viewModel: CarManufacturerViewModel, indexPath: IndexPath) {
         if indexPath.row % 2 != 0 {
             backgroundColor = UIColor.lightGray
         } else {

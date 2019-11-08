@@ -27,3 +27,12 @@ public struct TableViewState {
         self.loadingType = loadingType
     }
 }
+
+/// Control the pull refresh and load more logic.
+///
+/// - idle: No loading.
+/// - loading: Loading.
+enum LoadingStatus {
+    case idle
+    case loading
+}

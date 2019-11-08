@@ -14,6 +14,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     var rootCoordinate: Coordinator!
+    private var alertControllers = Stack<UIAlertController>()
+    
+    func presentAlertController(_ alertController: UIAlertController) {
+        if let _ = window!.rootViewController?.presentedViewController as? UIAlertController {
+            alertControllers.push(alertController)
+        } else {
+            window!.rootViewController?.present(alertController, animated: true)
+        }
+    }
+    
+    func presentNextAlertController() {
+        guard let alertController = alertControllers.pop() else {
+            return
+        }
+        window!.rootViewController?.present(alertController, animated: true)
+    }
 
     func application(_ application: UIApplication,
                      didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {

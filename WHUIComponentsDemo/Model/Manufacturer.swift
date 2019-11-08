@@ -1,5 +1,5 @@
 //
-//  Manufacture.swift
+//  CarManufacture.swift
 //  WHUIComponentsDemo
 //
 //  Created by Hsiao, Wayne on 2019/9/20.
@@ -9,7 +9,7 @@
 import Foundation
 import WHUIComponents
 
-public struct Manufacturer: TableViewDataModel {
+public struct CarManufacturer: TableViewDataModel {
     public var title: String {
         return model
     }

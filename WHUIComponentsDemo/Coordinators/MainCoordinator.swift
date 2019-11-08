@@ -9,12 +9,12 @@
 import Foundation
 import WHUIComponents
 
-class MainCoordinator: Coordinator {
+class MainCoordinator: Debug, Coordinator {
     
     var parameters: [AnyHashable : Any]?
-    weak var delegate: CoordinatorDelegate?
+    var delegate: CoordinatorDelegate?
     var coordinators = [Coordinator]()
-    weak private(set) var viewController: UIViewController?
+    private(set) var viewController: UIViewController?
     weak var navigationController: UINavigationController?
     
     required init(navigationController: UINavigationController) {
@@ -22,16 +22,12 @@ class MainCoordinator: Coordinator {
     }
     
     func start() {
-        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
-        guard let viewController = storyboard.instantiateViewController(withIdentifier: "ViewController") as? ViewController else {
-            return
-        }
+        viewController = ViewController.instanceFromStoryboard()
         let viewModel = ViewControllerViewModel()
-        viewModel.coordinateDelegate = self
-        viewController.viewModel = viewModel
-        self.viewController = viewController
+        viewModel.coordinator = self
+        (viewController as? ViewController)?.viewModel = viewModel
         navigationController?.navigationBar.prefersLargeTitles = true
-        navigationController?.viewControllers = [viewController]
+        navigationController?.viewControllers = [viewController!]
     }
 }
 
@@ -40,7 +36,7 @@ extension MainCoordinator {
         guard let navigationController = navigationController else {
             return
         }
-        let manufacturerCoordinator = ManufacturerCoordinator(navigationController: navigationController)
+        let manufacturerCoordinator = CarManufacturerCoordinator(navigationController: navigationController)
         manufacturerCoordinator.delegate = self
         manufacturerCoordinator.start()
         coordinators.append(manufacturerCoordinator)
@@ -52,7 +48,7 @@ extension MainCoordinator {
 }
 
 extension MainCoordinator: CoordinatorDelegate {
-    func finish() {
+    func presentingFinished() {
         coordinators.removeLast()
     }
 }

@@ -7,7 +7,7 @@
 //
 
 import Foundation
-import MyService
+import WHCoreServices
 
 enum Constant {
     static let getManufacturers = "getManufacturers"

@@ -1,5 +1,5 @@
 //
-//  ModelTableViewCell.swift
+//  CarModelTableViewCell.swift
 //  WHUIComponentsDemo
 //
 //  Created by Wayne Hsiao on 2019/9/23.
@@ -9,7 +9,7 @@
 import UIKit
 import WHUIComponents
 
-class ModelTableViewCell: UITableViewCell {
+class CarModelTableViewCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -22,7 +22,7 @@ class ModelTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func configBy(viewModel: ModelViewModel, indexPath: IndexPath) {
+    func configBy(viewModel: CarModelViewModel, indexPath: IndexPath) {
         if indexPath.row % 2 != 0 {
             backgroundColor = UIColor.lightGray
         } else {

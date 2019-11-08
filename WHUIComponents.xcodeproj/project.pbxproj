@@ -8,27 +8,30 @@
 
 /* Begin PBXBuildFile section */
 		A62464DC2334C91300F60CDB /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = A62464DB2334C91300F60CDB /* Service.swift */; };
-		A62464E12334D5E100F60CDB /* MyService.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6B6F1592334C05F0061F48C /* MyService.framework */; };
-		A6A1672D2334DA6100E1143F /* ManufacturerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6A1672C2334DA6100E1143F /* ManufacturerTableViewController.swift */; };
-		A6A1672F2334DEB400E1143F /* ManufacturerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6A1672E2334DEB400E1143F /* ManufacturerViewModel.swift */; };
+		A6A1672D2334DA6100E1143F /* CarManufacturerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6A1672C2334DA6100E1143F /* CarManufacturerTableViewController.swift */; };
+		A6A1672F2334DEB400E1143F /* CarManufacturerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6A1672E2334DEB400E1143F /* CarManufacturerViewModel.swift */; };
 		A6A167342334F15F00E1143F /* Manufacturer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6A167332334F15F00E1143F /* Manufacturer.swift */; };
 		A6A1673F23360D6B00E1143F /* Services.plist in Resources */ = {isa = PBXBuildFile; fileRef = A6A1673E23360D6B00E1143F /* Services.plist */; };
 		A6A167412336142400E1143F /* MockTableViewDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6A167402336142400E1143F /* MockTableViewDataModel.swift */; };
-		A6A167472336219400E1143F /* Page.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6A167362335029300E1143F /* Page.swift */; };
 		A6A1674B233639BA00E1143F /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6A1674A233639BA00E1143F /* Coordinator.swift */; };
 		A6A1674E23363A5900E1143F /* CoordinatorViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6A1674D23363A5900E1143F /* CoordinatorViewControllerDelegate.swift */; };
 		A6A1675023363BE100E1143F /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6A1674F23363BE100E1143F /* MainCoordinator.swift */; };
 		A6A1675223363E5000E1143F /* CoordinatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6A1675123363E5000E1143F /* CoordinatorViewController.swift */; };
-		A6A1675523363F5100E1143F /* ManufacturerCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6A1675423363F5100E1143F /* ManufacturerCoordinator.swift */; };
-		A6A1675723364A3600E1143F /* ModelTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6A1675623364A3600E1143F /* ModelTableViewController.swift */; };
-		A6A1675923364A7000E1143F /* ModelCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6A1675823364A7000E1143F /* ModelCoordinator.swift */; };
-		A6A1675B23365F3700E1143F /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6A1675A23365F3700E1143F /* Model.swift */; };
-		A6B6F146233479040061F48C /* TableViewDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6B6F145233479040061F48C /* TableViewDataModel.swift */; };
+		A6A1675523363F5100E1143F /* CarManufacturerCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6A1675423363F5100E1143F /* CarManufacturerCoordinator.swift */; };
+		A6A1675723364A3600E1143F /* CarModelTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6A1675623364A3600E1143F /* CarModelTableViewController.swift */; };
+		A6A1675923364A7000E1143F /* CarModelCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6A1675823364A7000E1143F /* CarModelCoordinator.swift */; };
+		A6A1675B23365F3700E1143F /* CarModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6A1675A23365F3700E1143F /* CarModel.swift */; };
 		A6B6F14A23347C170061F48C /* TableViewViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6B6F14923347C170061F48C /* TableViewViewModelTest.swift */; };
 		A6B6F1552334BDA10061F48C /* Cartfile in Resources */ = {isa = PBXBuildFile; fileRef = A6B6F1542334BDA10061F48C /* Cartfile */; };
-		A6B6F15A2334C05F0061F48C /* MyService.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6B6F1592334C05F0061F48C /* MyService.framework */; };
-		A6F3EDAE2336943200B00996 /* ModelViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6F3EDAD2336943200B00996 /* ModelViewModel.swift */; };
-		A6F3EDB0233694B800B00996 /* FooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6F3EDAF233694B800B00996 /* FooterView.swift */; };
+		A6C14AEC2375713800A9CA8A /* TableViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6C14AEA2375713800A9CA8A /* TableViewViewModel.swift */; };
+		A6C14AF12375718300A9CA8A /* FooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6C14AEF2375718300A9CA8A /* FooterView.swift */; };
+		A6C14AF5237571AF00A9CA8A /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A6C14AF3237571AE00A9CA8A /* Storyboard.storyboard */; };
+		A6C14AF6237571AF00A9CA8A /* Resource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6C14AF4237571AE00A9CA8A /* Resource.swift */; };
+		A6C14AFA2375735400A9CA8A /* Page.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6C14AF82375735400A9CA8A /* Page.swift */; };
+		A6C14AFB2375735400A9CA8A /* TableViewDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6C14AF92375735400A9CA8A /* TableViewDataModel.swift */; };
+		A6CAD26B236D8940002A51FA /* Debug.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6CAD26A236D8940002A51FA /* Debug.swift */; };
+		A6CAD26D236D91D9002A51FA /* Stack.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6CAD26C236D91D9002A51FA /* Stack.swift */; };
+		A6F3EDAE2336943200B00996 /* CarModelViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6F3EDAD2336943200B00996 /* CarModelViewModel.swift */; };
 		B057B3E42333DB5B00A59F11 /* WHUIComponents.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B057B3DA2333DB5B00A59F11 /* WHUIComponents.framework */; };
 		B057B3E92333DB5B00A59F11 /* WHUIComponentsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B057B3E82333DB5B00A59F11 /* WHUIComponentsTests.swift */; };
 		B057B3EB2333DB5B00A59F11 /* WHUIComponents.h in Headers */ = {isa = PBXBuildFile; fileRef = B057B3DD2333DB5B00A59F11 /* WHUIComponents.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -38,16 +41,17 @@
 		B057B4022333DBD600A59F11 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B057B4012333DBD600A59F11 /* Assets.xcassets */; };
 		B057B4052333DBD600A59F11 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B057B4032333DBD600A59F11 /* LaunchScreen.storyboard */; };
 		B057B40D2333DE1100A59F11 /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B057B40C2333DE1100A59F11 /* Storyboard.storyboard */; };
-		B057B40F2333DECE00A59F11 /* PaginateTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B057B40E2333DECE00A59F11 /* PaginateTableViewController.swift */; };
 		B057B4112333E07300A59F11 /* Resource.swift in Sources */ = {isa = PBXBuildFile; fileRef = B057B4102333E07300A59F11 /* Resource.swift */; };
 		B057B4132333E10100A59F11 /* ResourceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B057B4122333E10100A59F11 /* ResourceTest.swift */; };
-		B057B4152333E30C00A59F11 /* TableViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B057B4142333E30C00A59F11 /* TableViewViewModel.swift */; };
-		B057B4172333E4E500A59F11 /* TableViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = B057B4162333E4E500A59F11 /* TableViewState.swift */; };
 		B069F53A2366D349007A7374 /* WHPromise.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B069F5392366D349007A7374 /* WHPromise.framework */; };
-		B092A2202337C60C003DEC7C /* ManufacturerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B092A21E2337C60C003DEC7C /* ManufacturerTableViewCell.swift */; };
-		B092A2212337C60C003DEC7C /* ManufacturerTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B092A21F2337C60C003DEC7C /* ManufacturerTableViewCell.xib */; };
-		B092A2242337DF7C003DEC7C /* ModelTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B092A2222337DF7C003DEC7C /* ModelTableViewCell.swift */; };
-		B092A2252337DF7C003DEC7C /* ModelTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B092A2232337DF7C003DEC7C /* ModelTableViewCell.xib */; };
+		B08F5BB623759AB1009C9211 /* PaginateTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B08F5BB523759AB1009C9211 /* PaginateTableViewController.swift */; };
+		B08F5BB823759B0E009C9211 /* TableViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = B08F5BB723759B0D009C9211 /* TableViewState.swift */; };
+		B08F5BBA23759C06009C9211 /* WHCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B08F5BB923759C06009C9211 /* WHCoreServices.framework */; };
+		B08F5BBD23759DE6009C9211 /* WHCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B08F5BB923759C06009C9211 /* WHCoreServices.framework */; };
+		B092A2202337C60C003DEC7C /* CarManufacturerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B092A21E2337C60C003DEC7C /* CarManufacturerTableViewCell.swift */; };
+		B092A2212337C60C003DEC7C /* CarManufacturerTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B092A21F2337C60C003DEC7C /* CarManufacturerTableViewCell.xib */; };
+		B092A2242337DF7C003DEC7C /* CarModelTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B092A2222337DF7C003DEC7C /* CarModelTableViewCell.swift */; };
+		B092A2252337DF7C003DEC7C /* CarModelTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B092A2232337DF7C003DEC7C /* CarModelTableViewCell.xib */; };
 		B092A2292337E2AE003DEC7C /* Font+.swift in Sources */ = {isa = PBXBuildFile; fileRef = B092A2282337E2AE003DEC7C /* Font+.swift */; };
 /* End PBXBuildFile section */
 
@@ -72,28 +76,34 @@
 		A62464DB2334C91300F60CDB /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
 		A6A1672A2334D71D00E1143F /* input.xcfilelist */ = {isa = PBXFileReference; lastKnownFileType = text.xcfilelist; path = input.xcfilelist; sourceTree = "<group>"; };
 		A6A1672B2334D72500E1143F /* output.xcfilelist */ = {isa = PBXFileReference; lastKnownFileType = text.xcfilelist; path = output.xcfilelist; sourceTree = "<group>"; };
-		A6A1672C2334DA6100E1143F /* ManufacturerTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManufacturerTableViewController.swift; sourceTree = "<group>"; };
-		A6A1672E2334DEB400E1143F /* ManufacturerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManufacturerViewModel.swift; sourceTree = "<group>"; };
+		A6A1672C2334DA6100E1143F /* CarManufacturerTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarManufacturerTableViewController.swift; sourceTree = "<group>"; };
+		A6A1672E2334DEB400E1143F /* CarManufacturerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarManufacturerViewModel.swift; sourceTree = "<group>"; };
 		A6A167332334F15F00E1143F /* Manufacturer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Manufacturer.swift; sourceTree = "<group>"; };
-		A6A167362335029300E1143F /* Page.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Page.swift; sourceTree = "<group>"; };
 		A6A1673E23360D6B00E1143F /* Services.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Services.plist; sourceTree = "<group>"; };
 		A6A167402336142400E1143F /* MockTableViewDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockTableViewDataModel.swift; sourceTree = "<group>"; };
 		A6A1674A233639BA00E1143F /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		A6A1674D23363A5900E1143F /* CoordinatorViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorViewControllerDelegate.swift; sourceTree = "<group>"; };
 		A6A1674F23363BE100E1143F /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
 		A6A1675123363E5000E1143F /* CoordinatorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorViewController.swift; sourceTree = "<group>"; };
-		A6A1675423363F5100E1143F /* ManufacturerCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManufacturerCoordinator.swift; sourceTree = "<group>"; };
-		A6A1675623364A3600E1143F /* ModelTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelTableViewController.swift; sourceTree = "<group>"; };
-		A6A1675823364A7000E1143F /* ModelCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelCoordinator.swift; sourceTree = "<group>"; };
-		A6A1675A23365F3700E1143F /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
-		A6B6F145233479040061F48C /* TableViewDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewDataModel.swift; sourceTree = "<group>"; };
+		A6A1675423363F5100E1143F /* CarManufacturerCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarManufacturerCoordinator.swift; sourceTree = "<group>"; };
+		A6A1675623364A3600E1143F /* CarModelTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarModelTableViewController.swift; sourceTree = "<group>"; };
+		A6A1675823364A7000E1143F /* CarModelCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarModelCoordinator.swift; sourceTree = "<group>"; };
+		A6A1675A23365F3700E1143F /* CarModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarModel.swift; sourceTree = "<group>"; };
 		A6B6F14923347C170061F48C /* TableViewViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewViewModelTest.swift; sourceTree = "<group>"; };
 		A6B6F14B233484CA0061F48C /* .travis.yml */ = {isa = PBXFileReference; lastKnownFileType = text; path = .travis.yml; sourceTree = "<group>"; };
 		A6B6F14D23348C8F0061F48C /* Gemfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; path = Gemfile; sourceTree = "<group>"; };
 		A6B6F1542334BDA10061F48C /* Cartfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; path = Cartfile; sourceTree = "<group>"; };
 		A6B6F1592334C05F0061F48C /* MyService.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MyService.framework; path = Carthage/Build/iOS/MyService.framework; sourceTree = "<group>"; };
-		A6F3EDAD2336943200B00996 /* ModelViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelViewModel.swift; sourceTree = "<group>"; };
-		A6F3EDAF233694B800B00996 /* FooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FooterView.swift; sourceTree = "<group>"; };
+		A6C14AEA2375713800A9CA8A /* TableViewViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewViewModel.swift; sourceTree = "<group>"; };
+		A6C14AEF2375718300A9CA8A /* FooterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FooterView.swift; sourceTree = "<group>"; };
+		A6C14AF3237571AE00A9CA8A /* Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Storyboard.storyboard; sourceTree = "<group>"; };
+		A6C14AF4237571AE00A9CA8A /* Resource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Resource.swift; sourceTree = "<group>"; };
+		A6C14AF82375735400A9CA8A /* Page.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Page.swift; sourceTree = "<group>"; };
+		A6C14AF92375735400A9CA8A /* TableViewDataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewDataModel.swift; sourceTree = "<group>"; };
+		A6CAD26A236D8940002A51FA /* Debug.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Debug.swift; sourceTree = "<group>"; };
+		A6CAD26C236D91D9002A51FA /* Stack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stack.swift; sourceTree = "<group>"; };
+		A6CAD26E236D9646002A51FA /* Cartfile.private */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; path = Cartfile.private; sourceTree = "<group>"; };
+		A6F3EDAD2336943200B00996 /* CarModelViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarModelViewModel.swift; sourceTree = "<group>"; };
 		A6F3EDB1233894A300B00996 /* .jazzy.yaml */ = {isa = PBXFileReference; lastKnownFileType = text; path = .jazzy.yaml; sourceTree = "<group>"; };
 		A6F3EDB223389FF500B00996 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		A6F3EDB32338B19F00B00996 /* db.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = db.json; sourceTree = "<group>"; };
@@ -111,16 +121,16 @@
 		B057B4042333DBD600A59F11 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B057B4062333DBD600A59F11 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B057B40C2333DE1100A59F11 /* Storyboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Storyboard.storyboard; sourceTree = "<group>"; };
-		B057B40E2333DECE00A59F11 /* PaginateTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaginateTableViewController.swift; sourceTree = "<group>"; };
 		B057B4102333E07300A59F11 /* Resource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resource.swift; sourceTree = "<group>"; };
 		B057B4122333E10100A59F11 /* ResourceTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResourceTest.swift; sourceTree = "<group>"; };
-		B057B4142333E30C00A59F11 /* TableViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewViewModel.swift; sourceTree = "<group>"; };
-		B057B4162333E4E500A59F11 /* TableViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewState.swift; sourceTree = "<group>"; };
 		B069F5392366D349007A7374 /* WHPromise.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WHPromise.framework; path = Carthage/Build/iOS/WHPromise.framework; sourceTree = "<group>"; };
-		B092A21E2337C60C003DEC7C /* ManufacturerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManufacturerTableViewCell.swift; sourceTree = "<group>"; };
-		B092A21F2337C60C003DEC7C /* ManufacturerTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ManufacturerTableViewCell.xib; sourceTree = "<group>"; };
-		B092A2222337DF7C003DEC7C /* ModelTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelTableViewCell.swift; sourceTree = "<group>"; };
-		B092A2232337DF7C003DEC7C /* ModelTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ModelTableViewCell.xib; sourceTree = "<group>"; };
+		B08F5BB523759AB1009C9211 /* PaginateTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaginateTableViewController.swift; sourceTree = "<group>"; };
+		B08F5BB723759B0D009C9211 /* TableViewState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewState.swift; sourceTree = "<group>"; };
+		B08F5BB923759C06009C9211 /* WHCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WHCoreServices.framework; path = Carthage/Build/iOS/WHCoreServices.framework; sourceTree = "<group>"; };
+		B092A21E2337C60C003DEC7C /* CarManufacturerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarManufacturerTableViewCell.swift; sourceTree = "<group>"; };
+		B092A21F2337C60C003DEC7C /* CarManufacturerTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CarManufacturerTableViewCell.xib; sourceTree = "<group>"; };
+		B092A2222337DF7C003DEC7C /* CarModelTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarModelTableViewCell.swift; sourceTree = "<group>"; };
+		B092A2232337DF7C003DEC7C /* CarModelTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CarModelTableViewCell.xib; sourceTree = "<group>"; };
 		B092A2282337E2AE003DEC7C /* Font+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Font+.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -129,7 +139,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A6B6F15A2334C05F0061F48C /* MyService.framework in Frameworks */,
+				B08F5BBA23759C06009C9211 /* WHCoreServices.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -145,7 +155,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A62464E12334D5E100F60CDB /* MyService.framework in Frameworks */,
+				B08F5BBD23759DE6009C9211 /* WHCoreServices.framework in Frameworks */,
 				B069F53A2366D349007A7374 /* WHPromise.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -157,8 +167,9 @@
 			isa = PBXGroup;
 			children = (
 				B057B3FC2333DBD500A59F11 /* ViewController.swift */,
-				B092A22A2337E7FA003DEC7C /* Manufacturer */,
-				B092A22B2337E804003DEC7C /* Model */,
+				A6C14AEF2375718300A9CA8A /* FooterView.swift */,
+				B092A22A2337E7FA003DEC7C /* CarManufacturer */,
+				B092A22B2337E804003DEC7C /* CarModel */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -166,8 +177,9 @@
 		A6A167312334E45B00E1143F /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				A6A1672E2334DEB400E1143F /* ManufacturerViewModel.swift */,
-				A6F3EDAD2336943200B00996 /* ModelViewModel.swift */,
+				A6C14AEA2375713800A9CA8A /* TableViewViewModel.swift */,
+				A6A1672E2334DEB400E1143F /* CarManufacturerViewModel.swift */,
+				A6F3EDAD2336943200B00996 /* CarModelViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -184,7 +196,9 @@
 			isa = PBXGroup;
 			children = (
 				A6A167332334F15F00E1143F /* Manufacturer.swift */,
-				A6A1675A23365F3700E1143F /* Model.swift */,
+				A6A1675A23365F3700E1143F /* CarModel.swift */,
+				A6C14AF82375735400A9CA8A /* Page.swift */,
+				A6C14AF92375735400A9CA8A /* TableViewDataModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -203,37 +217,10 @@
 			isa = PBXGroup;
 			children = (
 				A6A1674F23363BE100E1143F /* MainCoordinator.swift */,
-				A6A1675423363F5100E1143F /* ManufacturerCoordinator.swift */,
-				A6A1675823364A7000E1143F /* ModelCoordinator.swift */,
+				A6A1675423363F5100E1143F /* CarManufacturerCoordinator.swift */,
+				A6A1675823364A7000E1143F /* CarModelCoordinator.swift */,
 			);
 			path = Coordinators;
-			sourceTree = "<group>";
-		};
-		A6B6F14E23349CFD0061F48C /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				B057B4162333E4E500A59F11 /* TableViewState.swift */,
-				B057B4142333E30C00A59F11 /* TableViewViewModel.swift */,
-			);
-			path = ViewModel;
-			sourceTree = "<group>";
-		};
-		A6B6F14F23349D080061F48C /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				A6A167362335029300E1143F /* Page.swift */,
-				A6B6F145233479040061F48C /* TableViewDataModel.swift */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		A6B6F15023349D0F0061F48C /* View */ = {
-			isa = PBXGroup;
-			children = (
-				B057B40E2333DECE00A59F11 /* PaginateTableViewController.swift */,
-				A6F3EDAF233694B800B00996 /* FooterView.swift */,
-			);
-			path = View;
 			sourceTree = "<group>";
 		};
 		A6B6F15123349D3B0061F48C /* Resources */ = {
@@ -248,10 +235,20 @@
 		A6B6F1582334C05F0061F48C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B08F5BB923759C06009C9211 /* WHCoreServices.framework */,
 				B069F5392366D349007A7374 /* WHPromise.framework */,
 				A6B6F1592334C05F0061F48C /* MyService.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A6C14AF2237571AE00A9CA8A /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				A6C14AF3237571AE00A9CA8A /* Storyboard.storyboard */,
+				A6C14AF4237571AE00A9CA8A /* Resource.swift */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 		B057B3D02333DB5B00A59F11 = {
@@ -263,6 +260,7 @@
 				A6A1672A2334D71D00E1143F /* input.xcfilelist */,
 				A6A1672B2334D72500E1143F /* output.xcfilelist */,
 				A6B6F14D23348C8F0061F48C /* Gemfile */,
+				A6CAD26E236D9646002A51FA /* Cartfile.private */,
 				A6B6F1542334BDA10061F48C /* Cartfile */,
 				A6B6F14B233484CA0061F48C /* .travis.yml */,
 				B057B3F92333DBD500A59F11 /* WHUIComponentsDemo */,
@@ -288,10 +286,8 @@
 			children = (
 				B057B3DD2333DB5B00A59F11 /* WHUIComponents.h */,
 				B092A2282337E2AE003DEC7C /* Font+.swift */,
+				B08F5BB423759AB0009C9211 /* View */,
 				A6A1674C23363A0D00E1143F /* Coordinator */,
-				A6B6F14E23349CFD0061F48C /* ViewModel */,
-				A6B6F14F23349D080061F48C /* Model */,
-				A6B6F15023349D0F0061F48C /* View */,
 				A6B6F15123349D3B0061F48C /* Resources */,
 				B057B3DE2333DB5B00A59F11 /* Info.plist */,
 			);
@@ -313,7 +309,10 @@
 		B057B3F92333DBD500A59F11 /* WHUIComponentsDemo */ = {
 			isa = PBXGroup;
 			children = (
+				A6C14AF2237571AE00A9CA8A /* Resources */,
 				B057B3FA2333DBD500A59F11 /* AppDelegate.swift */,
+				A6CAD26A236D8940002A51FA /* Debug.swift */,
+				A6CAD26C236D91D9002A51FA /* Stack.swift */,
 				A6A1675323363F2E00E1143F /* Coordinators */,
 				A6A167352334F16200E1143F /* Model */,
 				A6A167302334E45400E1143F /* View */,
@@ -328,24 +327,33 @@
 			path = WHUIComponentsDemo;
 			sourceTree = "<group>";
 		};
-		B092A22A2337E7FA003DEC7C /* Manufacturer */ = {
+		B08F5BB423759AB0009C9211 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				A6A1672C2334DA6100E1143F /* ManufacturerTableViewController.swift */,
-				B092A21E2337C60C003DEC7C /* ManufacturerTableViewCell.swift */,
-				B092A21F2337C60C003DEC7C /* ManufacturerTableViewCell.xib */,
+				B08F5BB523759AB1009C9211 /* PaginateTableViewController.swift */,
+				B08F5BB723759B0D009C9211 /* TableViewState.swift */,
 			);
-			path = Manufacturer;
+			path = View;
 			sourceTree = "<group>";
 		};
-		B092A22B2337E804003DEC7C /* Model */ = {
+		B092A22A2337E7FA003DEC7C /* CarManufacturer */ = {
 			isa = PBXGroup;
 			children = (
-				A6A1675623364A3600E1143F /* ModelTableViewController.swift */,
-				B092A2222337DF7C003DEC7C /* ModelTableViewCell.swift */,
-				B092A2232337DF7C003DEC7C /* ModelTableViewCell.xib */,
+				A6A1672C2334DA6100E1143F /* CarManufacturerTableViewController.swift */,
+				B092A21E2337C60C003DEC7C /* CarManufacturerTableViewCell.swift */,
+				B092A21F2337C60C003DEC7C /* CarManufacturerTableViewCell.xib */,
 			);
-			path = Model;
+			path = CarManufacturer;
+			sourceTree = "<group>";
+		};
+		B092A22B2337E804003DEC7C /* CarModel */ = {
+			isa = PBXGroup;
+			children = (
+				A6A1675623364A3600E1143F /* CarModelTableViewController.swift */,
+				B092A2222337DF7C003DEC7C /* CarModelTableViewCell.swift */,
+				B092A2232337DF7C003DEC7C /* CarModelTableViewCell.xib */,
+			);
+			path = CarModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -480,11 +488,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B092A2212337C60C003DEC7C /* ManufacturerTableViewCell.xib in Resources */,
+				B092A2212337C60C003DEC7C /* CarManufacturerTableViewCell.xib in Resources */,
 				A6A1673F23360D6B00E1143F /* Services.plist in Resources */,
 				B057B4052333DBD600A59F11 /* LaunchScreen.storyboard in Resources */,
-				B092A2252337DF7C003DEC7C /* ModelTableViewCell.xib in Resources */,
+				B092A2252337DF7C003DEC7C /* CarModelTableViewCell.xib in Resources */,
 				B057B4022333DBD600A59F11 /* Assets.xcassets in Resources */,
+				A6C14AF5237571AF00A9CA8A /* Storyboard.storyboard in Resources */,
 				B057B4002333DBD500A59F11 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -520,15 +529,11 @@
 			files = (
 				A6A1674B233639BA00E1143F /* Coordinator.swift in Sources */,
 				B092A2292337E2AE003DEC7C /* Font+.swift in Sources */,
-				A6B6F146233479040061F48C /* TableViewDataModel.swift in Sources */,
-				B057B4152333E30C00A59F11 /* TableViewViewModel.swift in Sources */,
-				A6A167472336219400E1143F /* Page.swift in Sources */,
 				A6A1675223363E5000E1143F /* CoordinatorViewController.swift in Sources */,
-				A6F3EDB0233694B800B00996 /* FooterView.swift in Sources */,
+				B08F5BB823759B0E009C9211 /* TableViewState.swift in Sources */,
 				A6A1674E23363A5900E1143F /* CoordinatorViewControllerDelegate.swift in Sources */,
-				B057B40F2333DECE00A59F11 /* PaginateTableViewController.swift in Sources */,
+				B08F5BB623759AB1009C9211 /* PaginateTableViewController.swift in Sources */,
 				B057B4112333E07300A59F11 /* Resource.swift in Sources */,
-				B057B4172333E4E500A59F11 /* TableViewState.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -547,19 +552,26 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A6A1672D2334DA6100E1143F /* ManufacturerTableViewController.swift in Sources */,
-				A6A1675723364A3600E1143F /* ModelTableViewController.swift in Sources */,
-				B092A2202337C60C003DEC7C /* ManufacturerTableViewCell.swift in Sources */,
-				A6A1675923364A7000E1143F /* ModelCoordinator.swift in Sources */,
-				A6A1675523363F5100E1143F /* ManufacturerCoordinator.swift in Sources */,
+				A6A1672D2334DA6100E1143F /* CarManufacturerTableViewController.swift in Sources */,
+				A6C14AFB2375735400A9CA8A /* TableViewDataModel.swift in Sources */,
+				A6CAD26B236D8940002A51FA /* Debug.swift in Sources */,
+				A6C14AF6237571AF00A9CA8A /* Resource.swift in Sources */,
+				A6A1675723364A3600E1143F /* CarModelTableViewController.swift in Sources */,
+				B092A2202337C60C003DEC7C /* CarManufacturerTableViewCell.swift in Sources */,
+				A6A1675923364A7000E1143F /* CarModelCoordinator.swift in Sources */,
+				A6A1675523363F5100E1143F /* CarManufacturerCoordinator.swift in Sources */,
 				A6A1675023363BE100E1143F /* MainCoordinator.swift in Sources */,
 				A6A167342334F15F00E1143F /* Manufacturer.swift in Sources */,
 				B057B3FD2333DBD500A59F11 /* ViewController.swift in Sources */,
 				B057B3FB2333DBD500A59F11 /* AppDelegate.swift in Sources */,
-				A6F3EDAE2336943200B00996 /* ModelViewModel.swift in Sources */,
-				A6A1675B23365F3700E1143F /* Model.swift in Sources */,
-				B092A2242337DF7C003DEC7C /* ModelTableViewCell.swift in Sources */,
-				A6A1672F2334DEB400E1143F /* ManufacturerViewModel.swift in Sources */,
+				A6F3EDAE2336943200B00996 /* CarModelViewModel.swift in Sources */,
+				A6A1675B23365F3700E1143F /* CarModel.swift in Sources */,
+				A6C14AF12375718300A9CA8A /* FooterView.swift in Sources */,
+				A6CAD26D236D91D9002A51FA /* Stack.swift in Sources */,
+				B092A2242337DF7C003DEC7C /* CarModelTableViewCell.swift in Sources */,
+				A6C14AFA2375735400A9CA8A /* Page.swift in Sources */,
+				A6A1672F2334DEB400E1143F /* CarManufacturerViewModel.swift in Sources */,
+				A6C14AEC2375713800A9CA8A /* TableViewViewModel.swift in Sources */,
 				A62464DC2334C91300F60CDB /* Service.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

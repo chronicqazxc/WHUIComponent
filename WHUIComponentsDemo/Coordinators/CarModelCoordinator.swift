@@ -1,5 +1,5 @@
 //
-//  ModelCoordinator.swift
+//  CarModelCoordinator.swift
 //  WHUIComponentsDemo
 //
 //  Created by Hsiao, Wayne on 2019/9/21.
@@ -9,7 +9,7 @@
 import Foundation
 import WHUIComponents
 
-class ModelCoordinator: Coordinator {
+class CarModelCoordinator: Debug, Coordinator {
     var parameters: [AnyHashable : Any]?
     
     weak var navigationController: UINavigationController?
@@ -23,23 +23,26 @@ class ModelCoordinator: Coordinator {
     }
     
     func start() {
-        guard let manufacturer = parameters?[ManufacturerTableViewController.Constant.parameterKey] as? Manufacturer else {
+        guard let manufacturer = parameters?[CarManufacturerTableViewController.Constant.parameterKey] as? CarManufacturer else {
                 return
         }
-        let viewModel = ModelViewModel(manufacturer: manufacturer)
+        let viewModel = CarModelViewModel(manufacturer: manufacturer)
         viewModel.coordinator = self
-        guard let modelViewController = ModelTableViewController.instanceWith(viewModel: viewModel) else {
+        
+        guard let modelViewController = CarModelTableViewController.instanceWith(viewModel: viewModel) else {
             return
         }
-        viewController = modelViewController
+        modelViewController.viewModel = viewModel
+
         navigationController?.pushViewController(modelViewController, animated: true)
+        viewController = modelViewController
     }
 }
 
-extension ModelCoordinator {
+extension CarModelCoordinator {
     func navigateToNextPage() {
 
-        guard let viewController = viewController as? ModelTableViewController,
+        guard let viewController = viewController as? CarModelTableViewController,
             let selected = viewController.viewModel?.selectedData().first else {
             return
         }
@@ -56,12 +59,12 @@ extension ModelCoordinator {
             return
         }
         navigationController?.popToViewController(toViewController, animated: true)
-        delegate?.finish()
+        delegate?.presentingFinished()
     }
 }
 
-extension ModelCoordinator: CoordinatorDelegate {
-    func finish() {
+extension CarModelCoordinator: CoordinatorDelegate {
+    func presentingFinished() {
         coordinators.removeLast()
     }
 }
