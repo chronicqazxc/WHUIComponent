@@ -63,7 +63,7 @@
 			remoteGlobalIDString = B057B3D92333DB5B00A59F11;
 			remoteInfo = WHUIComponents;
 		};
-		B057B40A2333DC2E00A59F11 /* PBXContainerItemProxy */ = {
+		B08F5BC02375AA77009C9211 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = B057B3D12333DB5B00A59F11 /* Project object */;
 			proxyType = 1;
@@ -71,6 +71,19 @@
 			remoteInfo = WHUIComponents;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		B03F9E9D2370207B00E8FF59 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		A62464DB2334C91300F60CDB /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
@@ -414,11 +427,12 @@
 				B057B3F52333DBD400A59F11 /* Frameworks */,
 				B057B3F62333DBD400A59F11 /* Resources */,
 				A62464E22334D5F000F60CDB /* ShellScript */,
+				B03F9E9D2370207B00E8FF59 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				B057B40B2333DC2E00A59F11 /* PBXTargetDependency */,
+				B08F5BC12375AA77009C9211 /* PBXTargetDependency */,
 			);
 			name = WHUIComponentsDemo;
 			productName = WHUIComponentsDemo;
@@ -584,10 +598,10 @@
 			target = B057B3D92333DB5B00A59F11 /* WHUIComponents */;
 			targetProxy = B057B3E52333DB5B00A59F11 /* PBXContainerItemProxy */;
 		};
-		B057B40B2333DC2E00A59F11 /* PBXTargetDependency */ = {
+		B08F5BC12375AA77009C9211 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = B057B3D92333DB5B00A59F11 /* WHUIComponents */;
-			targetProxy = B057B40A2333DC2E00A59F11 /* PBXContainerItemProxy */;
+			targetProxy = B08F5BC02375AA77009C9211 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 

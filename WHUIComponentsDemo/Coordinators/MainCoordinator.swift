@@ -17,7 +17,12 @@ class MainCoordinator: Debug, Coordinator {
     private(set) var viewController: UIViewController?
     weak var navigationController: UINavigationController?
     
-    required init(navigationController: UINavigationController) {
+    required override init() {
+        super.init()
+    }
+    
+    required convenience init(navigationController: UINavigationController) {
+        self.init()
         self.navigationController = navigationController
     }
     

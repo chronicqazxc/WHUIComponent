@@ -54,7 +54,7 @@ class CarModelViewModel: Debug, TableViewViewModelProtocol {
             completeHandler(data, response, error)
         }
     }
-    
+
     public func refreshPageIfNeeded(_ type: TableViewState.LoadingType) {
         if type == .refresh {
             page = Page.initialPage()

@@ -18,7 +18,12 @@ class CarModelCoordinator: Debug, Coordinator {
     
     var viewController: UIViewController?
     
-    required init(navigationController: UINavigationController) {
+    required override init() {
+        super.init()
+    }
+    
+    required convenience init(navigationController: UINavigationController) {
+        self.init()
         self.navigationController = navigationController
     }
     
@@ -28,7 +33,7 @@ class CarModelCoordinator: Debug, Coordinator {
         }
         let viewModel = CarModelViewModel(manufacturer: manufacturer)
         viewModel.coordinator = self
-        
+
         guard let modelViewController = CarModelTableViewController.instanceWith(viewModel: viewModel) else {
             return
         }
