@@ -14,9 +14,7 @@
 		A6A1673F23360D6B00E1143F /* Services.plist in Resources */ = {isa = PBXBuildFile; fileRef = A6A1673E23360D6B00E1143F /* Services.plist */; };
 		A6A167412336142400E1143F /* MockTableViewDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6A167402336142400E1143F /* MockTableViewDataModel.swift */; };
 		A6A1674B233639BA00E1143F /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6A1674A233639BA00E1143F /* Coordinator.swift */; };
-		A6A1674E23363A5900E1143F /* CoordinatorViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6A1674D23363A5900E1143F /* CoordinatorViewControllerDelegate.swift */; };
 		A6A1675023363BE100E1143F /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6A1674F23363BE100E1143F /* MainCoordinator.swift */; };
-		A6A1675223363E5000E1143F /* CoordinatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6A1675123363E5000E1143F /* CoordinatorViewController.swift */; };
 		A6A1675523363F5100E1143F /* CarManufacturerCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6A1675423363F5100E1143F /* CarManufacturerCoordinator.swift */; };
 		A6A1675723364A3600E1143F /* CarModelTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6A1675623364A3600E1143F /* CarModelTableViewController.swift */; };
 		A6A1675923364A7000E1143F /* CarModelCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6A1675823364A7000E1143F /* CarModelCoordinator.swift */; };
@@ -95,9 +93,7 @@
 		A6A1673E23360D6B00E1143F /* Services.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Services.plist; sourceTree = "<group>"; };
 		A6A167402336142400E1143F /* MockTableViewDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockTableViewDataModel.swift; sourceTree = "<group>"; };
 		A6A1674A233639BA00E1143F /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
-		A6A1674D23363A5900E1143F /* CoordinatorViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorViewControllerDelegate.swift; sourceTree = "<group>"; };
 		A6A1674F23363BE100E1143F /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
-		A6A1675123363E5000E1143F /* CoordinatorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorViewController.swift; sourceTree = "<group>"; };
 		A6A1675423363F5100E1143F /* CarManufacturerCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarManufacturerCoordinator.swift; sourceTree = "<group>"; };
 		A6A1675623364A3600E1143F /* CarModelTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarModelTableViewController.swift; sourceTree = "<group>"; };
 		A6A1675823364A7000E1143F /* CarModelCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarModelCoordinator.swift; sourceTree = "<group>"; };
@@ -220,8 +216,6 @@
 			isa = PBXGroup;
 			children = (
 				A6A1674A233639BA00E1143F /* Coordinator.swift */,
-				A6A1674D23363A5900E1143F /* CoordinatorViewControllerDelegate.swift */,
-				A6A1675123363E5000E1143F /* CoordinatorViewController.swift */,
 			);
 			path = Coordinator;
 			sourceTree = "<group>";
@@ -543,9 +537,7 @@
 			files = (
 				A6A1674B233639BA00E1143F /* Coordinator.swift in Sources */,
 				B092A2292337E2AE003DEC7C /* Font+.swift in Sources */,
-				A6A1675223363E5000E1143F /* CoordinatorViewController.swift in Sources */,
 				B08F5BB823759B0E009C9211 /* TableViewState.swift in Sources */,
-				A6A1674E23363A5900E1143F /* CoordinatorViewControllerDelegate.swift in Sources */,
 				B08F5BB623759AB1009C9211 /* PaginateTableViewController.swift in Sources */,
 				B057B4112333E07300A59F11 /* Resource.swift in Sources */,
 			);
