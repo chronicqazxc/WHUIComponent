@@ -100,7 +100,7 @@ class CarModelViewModel: Debug, TableViewViewModelProtocol {
     
     func didSelectRowAt(_ indexPath: IndexPath) {
         indexOfCurrentSelected = indexPath
-        coordinator?.navigateToNextPage()
+        coordinator?.navigateForwardToNextPage()
     }
     
     func title() -> String {

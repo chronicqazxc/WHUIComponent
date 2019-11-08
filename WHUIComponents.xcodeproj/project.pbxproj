@@ -10,7 +10,7 @@
 		A62464DC2334C91300F60CDB /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = A62464DB2334C91300F60CDB /* Service.swift */; };
 		A6A1672D2334DA6100E1143F /* CarManufacturerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6A1672C2334DA6100E1143F /* CarManufacturerTableViewController.swift */; };
 		A6A1672F2334DEB400E1143F /* CarManufacturerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6A1672E2334DEB400E1143F /* CarManufacturerViewModel.swift */; };
-		A6A167342334F15F00E1143F /* Manufacturer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6A167332334F15F00E1143F /* Manufacturer.swift */; };
+		A6A167342334F15F00E1143F /* CarManufacturer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6A167332334F15F00E1143F /* CarManufacturer.swift */; };
 		A6A1673F23360D6B00E1143F /* Services.plist in Resources */ = {isa = PBXBuildFile; fileRef = A6A1673E23360D6B00E1143F /* Services.plist */; };
 		A6A167412336142400E1143F /* MockTableViewDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6A167402336142400E1143F /* MockTableViewDataModel.swift */; };
 		A6A1674B233639BA00E1143F /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6A1674A233639BA00E1143F /* Coordinator.swift */; };
@@ -89,7 +89,7 @@
 		A6A1672B2334D72500E1143F /* output.xcfilelist */ = {isa = PBXFileReference; lastKnownFileType = text.xcfilelist; path = output.xcfilelist; sourceTree = "<group>"; };
 		A6A1672C2334DA6100E1143F /* CarManufacturerTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarManufacturerTableViewController.swift; sourceTree = "<group>"; };
 		A6A1672E2334DEB400E1143F /* CarManufacturerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarManufacturerViewModel.swift; sourceTree = "<group>"; };
-		A6A167332334F15F00E1143F /* Manufacturer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Manufacturer.swift; sourceTree = "<group>"; };
+		A6A167332334F15F00E1143F /* CarManufacturer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarManufacturer.swift; sourceTree = "<group>"; };
 		A6A1673E23360D6B00E1143F /* Services.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Services.plist; sourceTree = "<group>"; };
 		A6A167402336142400E1143F /* MockTableViewDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockTableViewDataModel.swift; sourceTree = "<group>"; };
 		A6A1674A233639BA00E1143F /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
@@ -204,7 +204,7 @@
 		A6A167352334F16200E1143F /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				A6A167332334F15F00E1143F /* Manufacturer.swift */,
+				A6A167332334F15F00E1143F /* CarManufacturer.swift */,
 				A6A1675A23365F3700E1143F /* CarModel.swift */,
 				A6C14AF82375735400A9CA8A /* Page.swift */,
 				A6C14AF92375735400A9CA8A /* TableViewDataModel.swift */,
@@ -321,9 +321,9 @@
 				A6CAD26A236D8940002A51FA /* Debug.swift */,
 				A6CAD26C236D91D9002A51FA /* Stack.swift */,
 				A6A1675323363F2E00E1143F /* Coordinators */,
+				A6A167312334E45B00E1143F /* ViewModel */,
 				A6A167352334F16200E1143F /* Model */,
 				A6A167302334E45400E1143F /* View */,
-				A6A167312334E45B00E1143F /* ViewModel */,
 				A6A167322334E46100E1143F /* Service */,
 				B057B3FE2333DBD500A59F11 /* Main.storyboard */,
 				B057B4012333DBD600A59F11 /* Assets.xcassets */,
@@ -567,7 +567,7 @@
 				A6A1675923364A7000E1143F /* CarModelCoordinator.swift in Sources */,
 				A6A1675523363F5100E1143F /* CarManufacturerCoordinator.swift in Sources */,
 				A6A1675023363BE100E1143F /* MainCoordinator.swift in Sources */,
-				A6A167342334F15F00E1143F /* Manufacturer.swift in Sources */,
+				A6A167342334F15F00E1143F /* CarManufacturer.swift in Sources */,
 				B057B3FD2333DBD500A59F11 /* ViewController.swift in Sources */,
 				B057B3FB2333DBD500A59F11 /* AppDelegate.swift in Sources */,
 				A6F3EDAE2336943200B00996 /* CarModelViewModel.swift in Sources */,

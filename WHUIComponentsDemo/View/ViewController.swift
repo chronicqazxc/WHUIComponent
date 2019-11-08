@@ -13,7 +13,7 @@ class ViewControllerViewModel {
     var coordinator: Coordinator?
     
     func buttonTapped() {
-        coordinator?.navigateToNextPage()
+        coordinator?.navigateForwardToNextPage()
     }
 }
 

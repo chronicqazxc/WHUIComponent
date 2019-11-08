@@ -14,7 +14,7 @@ class CarModelCoordinator: Debug, Coordinator {
     
     weak var navigationController: UINavigationController?
     var delegate: CoordinatorDelegate?
-    var coordinators = [Coordinator]()
+    var coordinators = [AnyHashable: Coordinator]()
     
     var viewController: UIViewController?
     
@@ -45,7 +45,7 @@ class CarModelCoordinator: Debug, Coordinator {
 }
 
 extension CarModelCoordinator {
-    func navigateToNextPage() {
+    func navigateForwardToNextPage() {
 
         guard let viewController = viewController as? CarModelTableViewController,
             let selected = viewController.viewModel?.selectedData().first else {
@@ -70,6 +70,6 @@ extension CarModelCoordinator {
 
 extension CarModelCoordinator: CoordinatorDelegate {
     func presentingFinished() {
-        coordinators.removeLast()
+        
     }
 }

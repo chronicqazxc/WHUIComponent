@@ -21,7 +21,7 @@ public protocol Coordinator: class {
     var delegate: CoordinatorDelegate? { get set }
     
     /// Child coordinators.
-    var coordinators: [Coordinator] { get }
+    var coordinators: [AnyHashable: Coordinator] { get }
     
     /// Parameter dictionary used to present view controllers, usually provided by delegate(parent coordinator).
     var parameters: [AnyHashable: Any]? { get set }
@@ -38,7 +38,7 @@ public protocol Coordinator: class {
     func start()
     
     /// Logic which navigate to next page.
-    func navigateToNextPage()
+    func navigateForwardToNextPage()
     
     /// Logic which navigate to previous page.
     func naviageBackToPreviousPage()
