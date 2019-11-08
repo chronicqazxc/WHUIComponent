@@ -9,15 +9,14 @@
 import Foundation
 import WHUIComponents
 
-class ManufacturerCoordinator: CoordinatorDebug, Coordinator {
-
+class CarManufacturerCoordinator: Debug, Coordinator {
     var parameters: [AnyHashable : Any]?
     var delegate: CoordinatorDelegate?
     var coordinators = [Coordinator]()
     private(set) var viewController: UIViewController?
     weak var navigationController: UINavigationController?
     
-    required init() {
+    required override init() {
         super.init()
     }
     
@@ -27,33 +26,30 @@ class ManufacturerCoordinator: CoordinatorDebug, Coordinator {
     }
     
     func start() {
-        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
-        guard let manufacturerViewController = storyboard.instantiateViewController(withIdentifier: "ManufacturerTableViewController") as? ManufacturerTableViewController else {
-            return
-        }
+        let carManufactureViewController = CarManufacturerTableViewController.instanceFromStoryboard()
 
-        let viewModel = ManufacturerViewModel()
+        let viewModel = CarManufacturerViewModel()
         viewModel.coordinator = self
         
-        manufacturerViewController.viewModel = viewModel
+        carManufactureViewController.viewModel = viewModel
         
-        navigationController?.pushViewController(manufacturerViewController, animated: true)
-        viewController = manufacturerViewController
+        navigationController?.pushViewController(carManufactureViewController, animated: true)
+        viewController = carManufactureViewController
     }
 }
 
-extension ManufacturerCoordinator {
+extension CarManufacturerCoordinator {
     func navigateToNextPage() {
         guard let navigationController = navigationController,
-            let manufacturerViewController = viewController as? ManufacturerTableViewController else {
+            let manufacturerViewController = viewController as? CarManufacturerTableViewController else {
             return
         }
         let viewModel = manufacturerViewController.viewModel
-        let manufacture = viewModel!.selectedData().first as! Manufacturer
+        let manufacture = viewModel!.selectedData().first as! CarManufacturer
         
-        let modelCoordinator = ModelCoordinator(navigationController: navigationController)
+        let modelCoordinator = CarModelCoordinator(navigationController: navigationController)
         modelCoordinator.delegate = self
-        modelCoordinator.parameters = [ManufacturerTableViewController.Constant.parameterKey: manufacture]
+        modelCoordinator.parameters = [CarManufacturerTableViewController.Constant.parameterKey: manufacture]
         modelCoordinator.start()
         coordinators.append(modelCoordinator)
     }
@@ -63,12 +59,12 @@ extension ManufacturerCoordinator {
             return
         }
         navigationController?.popToViewController(toViewController, animated: true)
-        delegate?.finish()
+        delegate?.presentingFinished()
     }
 }
 
-extension ManufacturerCoordinator: CoordinatorDelegate {
-    func finish() {
+extension CarManufacturerCoordinator: CoordinatorDelegate {
+    func presentingFinished() {
         coordinators.removeLast()
     }
 }

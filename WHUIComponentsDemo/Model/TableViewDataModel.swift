@@ -6,7 +6,7 @@
 //  Copyright © 2019 Wayne Hsiao. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 /// Confirm this protocol to your designated data models.
 public protocol TableViewDataModel {

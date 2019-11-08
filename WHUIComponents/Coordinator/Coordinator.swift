@@ -11,7 +11,7 @@ import Foundation
 /// Protocol for coordinator delegate.
 public protocol CoordinatorDelegate: Coordinator {
     /// Coordinator is no needed.
-    func finish()
+    func presentingFinished()
 }
 
 /// Protocol for Coordinator pattern.

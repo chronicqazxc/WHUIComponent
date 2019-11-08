@@ -1,5 +1,5 @@
 //
-//  ManufacturerViewModel.swift
+//  CarManufacturerViewModel.swift
 //  WHUIComponentsDemo
 //
 //  Created by Hsiao, Wayne on 2019/9/20.
@@ -17,9 +17,8 @@ public enum APIError: Error {
     case unknow
 }
 
-class ManufacturerViewModel: TableViewViewModelProtocol {
+class CarManufacturerViewModel: Debug, TableViewViewModelProtocol {
     weak public var coordinator: Coordinator?
-    
     fileprivate var indexOfCurrentSelected: IndexPath?
     public private(set) var state = TableViewState()
     public private(set) var data: [TableViewDataModel] {
@@ -29,12 +28,13 @@ class ManufacturerViewModel: TableViewViewModelProtocol {
             })
         }
     }
-    public var callback: CallBack?
+    var successCallback: SuccessCallback?
+    var failureCallback: FailureCallback?
     public private(set) var page = Page.initialPage()
+    var promise: Promise<[TableViewDataModel]> = Promise(value: [])
     
-    required public init(_ callback: CallBack? = nil) {
-        self.callback = callback
-        self.data = [Manufacturer]()
+    required public override init() {
+        self.data = [CarManufacturer]()
     }
     
     public func willCallBack(_ type: TableViewState.LoadingType, data :[TableViewDataModel]?) {
@@ -65,30 +65,7 @@ class ManufacturerViewModel: TableViewViewModelProtocol {
             completeHandler(data, response, error)
         }
     }
-    
-    public func apiRequest(type: TableViewState.LoadingType) -> Promise<Data> {
-        refreshPageIfNeeded(type)
-        
-        let promise = Promise<Data>.init { (fulfill, reject) in
-            Service.shared.getManufacturer(page: self.page.next) { (data, response, error) in
-                guard self.page.hasNextPage() == true else {
-                    reject(APIError.EOF)
-                    return
-                }
-                if let error = error {
-                    reject(error)
-                } else if let data = data {
-                    let model = self.parse(data)
-                    self.willCallBack(type, data: model)
-                    fulfill(data)
-                } else {
-                    reject(APIError.unknow)
-                }
-            }
-        }
-        return promise
-    }
-    
+
     public func refreshPageIfNeeded(_ type: TableViewState.LoadingType) {
         if type == .refresh {
             page = Page.initialPage()
@@ -108,13 +85,8 @@ class ManufacturerViewModel: TableViewViewModelProtocol {
         }
         page = Page(current: currentPage, total: totalPage)
         return wkda.map {
-            return Manufacturer(id: $0.key, model: $0.value)
+            return CarManufacturer(id: $0.key, model: $0.value)
         }
-    }
-    
-    public func selectDataAt(indexPath: IndexPath) {
-        indexOfCurrentSelected = indexPath
-        coordinator?.navigateToNextPage()
     }
     
     public func selectedData() -> [TableViewDataModel] {
@@ -125,7 +97,20 @@ class ManufacturerViewModel: TableViewViewModelProtocol {
         }
     }
     
-    func didDismiss() {
+    func dismiss() {
         coordinator?.naviageBackToPreviousPage()
+    }
+    
+    func numberOfSections() -> Int {
+        return 1
+    }
+    
+    func numberOfRowsInSection(_ section: Int) -> Int {
+        return data.count
+    }
+    
+    func didSelectRowAt(_ indexPath: IndexPath) {
+        indexOfCurrentSelected = indexPath
+        coordinator?.navigateToNextPage()
     }
 }
