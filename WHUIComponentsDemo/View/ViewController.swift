@@ -30,6 +30,10 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Demo"
+        FloatingViewIntegration.shared.showFloatingView()
+        FloatingViewIntegration.shared.entryViewController = {
+            return IntroductionViewController.instanceFromStoryboard()
+        }
     }
 
     @IBAction func showPaginateTableView(_ sender: Any) {

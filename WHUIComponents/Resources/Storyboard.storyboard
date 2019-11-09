@@ -4,6 +4,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -34,6 +35,40 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ahC-M5-GxV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="53" y="64"/>
+        </scene>
+        <!--Circular View Controller View Controller-->
+        <scene sceneID="zZ2-eL-gSt">
+            <objects>
+                <viewController storyboardIdentifier="CircularViewControllerViewController" id="Z0L-a2-TC1" customClass="CircularViewControllerViewController" customModule="WHUIComponents" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="aKj-Am-CYK">
+                        <rect key="frame" x="0.0" y="0.0" width="100" height="200"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xHz-Fn-l5B" userLabel="Round View">
+                                <rect key="frame" x="10" y="60" width="80" height="80"/>
+                                <color key="backgroundColor" systemColor="systemIndigoColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="xHz-Fn-l5B" secondAttribute="height" multiplier="1:1" id="Dvf-Wp-dmH"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="xHz-Fn-l5B" firstAttribute="leading" secondItem="aKj-Am-CYK" secondAttribute="leading" constant="10" id="2zC-8o-Mfc"/>
+                            <constraint firstAttribute="trailing" secondItem="xHz-Fn-l5B" secondAttribute="trailing" constant="10" id="6KW-S4-rgy"/>
+                            <constraint firstItem="xHz-Fn-l5B" firstAttribute="top" relation="greaterThanOrEqual" secondItem="eKg-g4-h0T" secondAttribute="top" constant="10" id="Ibb-8M-zeV"/>
+                            <constraint firstItem="eKg-g4-h0T" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="xHz-Fn-l5B" secondAttribute="bottom" constant="10" id="Kp4-yb-gsh"/>
+                            <constraint firstItem="xHz-Fn-l5B" firstAttribute="centerY" secondItem="aKj-Am-CYK" secondAttribute="centerY" id="Skg-Ka-fUw"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="eKg-g4-h0T"/>
+                    </view>
+                    <size key="freeformSize" width="100" height="200"/>
+                    <connections>
+                        <outlet property="floatingView" destination="xHz-Fn-l5B" id="OvQ-Yb-G5Q"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="udu-x4-8jf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-598" y="-225"/>
         </scene>
     </scenes>
 </document>

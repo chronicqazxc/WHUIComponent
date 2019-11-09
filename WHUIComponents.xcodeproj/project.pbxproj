@@ -46,6 +46,10 @@
 		B08F5BB823759B0E009C9211 /* TableViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = B08F5BB723759B0D009C9211 /* TableViewState.swift */; };
 		B08F5BBA23759C06009C9211 /* WHCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B08F5BB923759C06009C9211 /* WHCoreServices.framework */; };
 		B08F5BBD23759DE6009C9211 /* WHCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B08F5BB923759C06009C9211 /* WHCoreServices.framework */; };
+		B08F5BC32375BE88009C9211 /* CircularViewControllerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B08F5BC22375BE88009C9211 /* CircularViewControllerViewController.swift */; };
+		B08F5BC52375BEF6009C9211 /* FloatingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B08F5BC42375BEF6009C9211 /* FloatingViewController.swift */; };
+		B08F5BC72375BF08009C9211 /* FloatingViewIntegration.swift in Sources */ = {isa = PBXBuildFile; fileRef = B08F5BC62375BF08009C9211 /* FloatingViewIntegration.swift */; };
+		B08F5BC92375C80E009C9211 /* IntroductionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B08F5BC82375C80E009C9211 /* IntroductionViewController.swift */; };
 		B092A2202337C60C003DEC7C /* CarManufacturerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B092A21E2337C60C003DEC7C /* CarManufacturerTableViewCell.swift */; };
 		B092A2212337C60C003DEC7C /* CarManufacturerTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B092A21F2337C60C003DEC7C /* CarManufacturerTableViewCell.xib */; };
 		B092A2242337DF7C003DEC7C /* CarModelTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B092A2222337DF7C003DEC7C /* CarModelTableViewCell.swift */; };
@@ -136,6 +140,10 @@
 		B08F5BB523759AB1009C9211 /* PaginateTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaginateTableViewController.swift; sourceTree = "<group>"; };
 		B08F5BB723759B0D009C9211 /* TableViewState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewState.swift; sourceTree = "<group>"; };
 		B08F5BB923759C06009C9211 /* WHCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WHCoreServices.framework; path = Carthage/Build/iOS/WHCoreServices.framework; sourceTree = "<group>"; };
+		B08F5BC22375BE88009C9211 /* CircularViewControllerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularViewControllerViewController.swift; sourceTree = "<group>"; };
+		B08F5BC42375BEF6009C9211 /* FloatingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingViewController.swift; sourceTree = "<group>"; };
+		B08F5BC62375BF08009C9211 /* FloatingViewIntegration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingViewIntegration.swift; sourceTree = "<group>"; };
+		B08F5BC82375C80E009C9211 /* IntroductionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroductionViewController.swift; sourceTree = "<group>"; };
 		B092A21E2337C60C003DEC7C /* CarManufacturerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarManufacturerTableViewCell.swift; sourceTree = "<group>"; };
 		B092A21F2337C60C003DEC7C /* CarManufacturerTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CarManufacturerTableViewCell.xib; sourceTree = "<group>"; };
 		B092A2222337DF7C003DEC7C /* CarModelTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarModelTableViewCell.swift; sourceTree = "<group>"; };
@@ -175,6 +183,7 @@
 		A6A167302334E45400E1143F /* View */ = {
 			isa = PBXGroup;
 			children = (
+				B08F5BC82375C80E009C9211 /* IntroductionViewController.swift */,
 				B057B3FC2333DBD500A59F11 /* ViewController.swift */,
 				A6C14AEF2375718300A9CA8A /* FooterView.swift */,
 				B092A22A2337E7FA003DEC7C /* CarManufacturer */,
@@ -293,6 +302,7 @@
 			children = (
 				B057B3DD2333DB5B00A59F11 /* WHUIComponents.h */,
 				B092A2282337E2AE003DEC7C /* Font+.swift */,
+				B08F5BC62375BF08009C9211 /* FloatingViewIntegration.swift */,
 				B08F5BB423759AB0009C9211 /* View */,
 				A6A1674C23363A0D00E1143F /* Coordinator */,
 				A6B6F15123349D3B0061F48C /* Resources */,
@@ -339,6 +349,8 @@
 			children = (
 				B08F5BB523759AB1009C9211 /* PaginateTableViewController.swift */,
 				B08F5BB723759B0D009C9211 /* TableViewState.swift */,
+				B08F5BC42375BEF6009C9211 /* FloatingViewController.swift */,
+				B08F5BC22375BE88009C9211 /* CircularViewControllerViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -536,7 +548,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				A6A1674B233639BA00E1143F /* Coordinator.swift in Sources */,
+				B08F5BC52375BEF6009C9211 /* FloatingViewController.swift in Sources */,
 				B092A2292337E2AE003DEC7C /* Font+.swift in Sources */,
+				B08F5BC72375BF08009C9211 /* FloatingViewIntegration.swift in Sources */,
+				B08F5BC32375BE88009C9211 /* CircularViewControllerViewController.swift in Sources */,
 				B08F5BB823759B0E009C9211 /* TableViewState.swift in Sources */,
 				B08F5BB623759AB1009C9211 /* PaginateTableViewController.swift in Sources */,
 				B057B4112333E07300A59F11 /* Resource.swift in Sources */,
@@ -558,6 +573,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B08F5BC92375C80E009C9211 /* IntroductionViewController.swift in Sources */,
 				A6A1672D2334DA6100E1143F /* CarManufacturerTableViewController.swift in Sources */,
 				A6C14AFB2375735400A9CA8A /* TableViewDataModel.swift in Sources */,
 				A6CAD26B236D8940002A51FA /* Debug.swift in Sources */,
