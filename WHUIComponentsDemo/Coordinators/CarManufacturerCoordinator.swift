@@ -12,7 +12,7 @@ import WHUIComponents
 class CarManufacturerCoordinator: Debug, Coordinator {
     var parameters: [AnyHashable : Any]?
     var delegate: CoordinatorDelegate?
-    var coordinators = [Coordinator]()
+    var coordinators = [AnyHashable: Coordinator]()
     private(set) var viewController: UIViewController?
     weak var navigationController: UINavigationController?
     
@@ -39,7 +39,7 @@ class CarManufacturerCoordinator: Debug, Coordinator {
 }
 
 extension CarManufacturerCoordinator {
-    func navigateToNextPage() {
+    func navigateForwardToNextPage() {
         guard let navigationController = navigationController,
             let manufacturerViewController = viewController as? CarManufacturerTableViewController else {
             return
@@ -51,7 +51,7 @@ extension CarManufacturerCoordinator {
         modelCoordinator.delegate = self
         modelCoordinator.parameters = [CarManufacturerTableViewController.Constant.parameterKey: manufacture]
         modelCoordinator.start()
-        coordinators.append(modelCoordinator)
+        coordinators["CarModelCoordinator"] = modelCoordinator
     }
     
     func naviageBackToPreviousPage() {
@@ -65,6 +65,6 @@ extension CarManufacturerCoordinator {
 
 extension CarManufacturerCoordinator: CoordinatorDelegate {
     func presentingFinished() {
-        coordinators.removeLast()
+        coordinators.removeValue(forKey: "CarModelCoordinator")
     }
 }

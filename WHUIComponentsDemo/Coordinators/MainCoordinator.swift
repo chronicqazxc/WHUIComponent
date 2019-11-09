@@ -13,7 +13,7 @@ class MainCoordinator: Debug, Coordinator {
     
     var parameters: [AnyHashable : Any]?
     var delegate: CoordinatorDelegate?
-    var coordinators = [Coordinator]()
+    var coordinators = [AnyHashable: Coordinator]()
     private(set) var viewController: UIViewController?
     weak var navigationController: UINavigationController?
     
@@ -37,14 +37,14 @@ class MainCoordinator: Debug, Coordinator {
 }
 
 extension MainCoordinator {
-    func navigateToNextPage() {
+    func navigateForwardToNextPage() {
         guard let navigationController = navigationController else {
             return
         }
         let manufacturerCoordinator = CarManufacturerCoordinator(navigationController: navigationController)
         manufacturerCoordinator.delegate = self
         manufacturerCoordinator.start()
-        coordinators.append(manufacturerCoordinator)
+        coordinators["CarManufacturerCoordinator"] = manufacturerCoordinator
     }
     
     func naviageBackToPreviousPage() {
@@ -54,6 +54,6 @@ extension MainCoordinator {
 
 extension MainCoordinator: CoordinatorDelegate {
     func presentingFinished() {
-        coordinators.removeLast()
+        coordinators.removeValue(forKey: "CarManufacturerCoordinator")
     }
 }

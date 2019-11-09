@@ -65,7 +65,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="v7I-fX-2EM">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="v7I-fX-2EM">
                                 <rect key="frame" x="0.0" y="55.5" width="320" height="43.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="v7I-fX-2EM" id="XqF-ME-6KL">
@@ -83,6 +83,58 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3zv-x4-cuN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1733" y="121"/>
+        </scene>
+        <!--Introduction View Controller-->
+        <scene sceneID="Ig0-dK-ueq">
+            <objects>
+                <viewController storyboardIdentifier="IntroductionViewController" id="lj8-r0-R3q" customClass="IntroductionViewController" customModule="WHUIComponentsDemo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="FfD-Sb-bon">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="17" translatesAutoresizingMaskIntoConstraints="NO" id="eIe-5H-pbp">
+                                <rect key="frame" x="0.0" y="231" width="320" height="106.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="WHUIComponents" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="07N-wQ-NXc">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="https://github.com/chronicqazxc/WHUIComponent" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="waX-dv-wWl">
+                                        <rect key="frame" x="0.0" y="37.5" width="320" height="22"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="22" id="3ut-xF-QyH"/>
+                                        </constraints>
+                                        <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                        <dataDetectorType key="dataDetectorTypes" link="YES"/>
+                                    </textView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VYC-jG-Jky">
+                                        <rect key="frame" x="0.0" y="76.5" width="320" height="30"/>
+                                        <state key="normal" title="Dismiss"/>
+                                        <connections>
+                                            <action selector="dismiss:" destination="lj8-r0-R3q" eventType="touchUpInside" id="k3i-ii-BKY"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="6yU-ZE-fGg" firstAttribute="trailing" secondItem="eIe-5H-pbp" secondAttribute="trailing" id="XaB-Gd-D5g"/>
+                            <constraint firstItem="eIe-5H-pbp" firstAttribute="centerX" secondItem="FfD-Sb-bon" secondAttribute="centerX" id="fiD-Ty-Emp"/>
+                            <constraint firstItem="eIe-5H-pbp" firstAttribute="leading" secondItem="6yU-ZE-fGg" secondAttribute="leading" id="j09-zn-wjw"/>
+                            <constraint firstItem="eIe-5H-pbp" firstAttribute="centerY" secondItem="FfD-Sb-bon" secondAttribute="centerY" id="xjT-lc-xjJ"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6yU-ZE-fGg"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LGh-74-s6S" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-825" y="119.36619718309859"/>
         </scene>
     </scenes>
 </document>
