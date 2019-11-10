@@ -135,3 +135,13 @@ extension TableViewViewModelProtocol {
         return promise
     }
 }
+
+extension TableViewViewModelProtocol {
+    public func barButtonItemName() -> String {
+        return "back"
+    }
+    
+    func dismiss() {
+        coordinator?.naviageBackToPreviousPage()
+    }
+}

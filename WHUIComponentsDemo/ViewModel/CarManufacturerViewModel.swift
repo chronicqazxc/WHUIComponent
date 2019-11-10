@@ -97,10 +97,6 @@ class CarManufacturerViewModel: Debug, TableViewViewModelProtocol {
         }
     }
     
-    func dismiss() {
-        coordinator?.naviageBackToPreviousPage()
-    }
-    
     func numberOfSections() -> Int {
         return 1
     }
@@ -112,5 +108,9 @@ class CarManufacturerViewModel: Debug, TableViewViewModelProtocol {
     func didSelectRowAt(_ indexPath: IndexPath) {
         indexOfCurrentSelected = indexPath
         coordinator?.navigateForwardToNextPage()
+    }
+    
+    @objc func barItemAction() {
+        dismiss()
     }
 }

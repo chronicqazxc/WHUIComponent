@@ -33,8 +33,13 @@ class CarManufacturerTableViewController: PaginateTableViewController, Paginated
         tableView.register(manufacturerTableViewCellNib, forCellReuseIdentifier: "cell")
         
         navigationItem.hidesBackButton = true
-        let backButton = UIBarButtonItem(title: "Back", style: .plain, target: self, action: #selector(CarManufacturerTableViewController.back))
-        navigationItem.leftBarButtonItem = backButton
+        
+        if let carManufacturerViewModel = viewModel as? CarManufacturerViewModel {
+            let button = UIBarButtonItem(title: carManufacturerViewModel.barButtonItemName(),
+                                         style: .plain, target: carManufacturerViewModel,
+                                         action: #selector(carManufacturerViewModel.barItemAction))
+            navigationItem.leftBarButtonItem = button
+        }
         
         tableView.estimatedRowHeight = 100
         tableView.rowHeight = UITableView.automaticDimension
@@ -51,12 +56,7 @@ class CarManufacturerTableViewController: PaginateTableViewController, Paginated
             print(error.localizedDescription)
         }
     }
-    
-    @objc
-    func back() {
-        viewModel?.dismiss()
-    }
-    
+
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         refresh()
