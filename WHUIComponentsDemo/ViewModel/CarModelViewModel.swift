@@ -86,10 +86,6 @@ class CarModelViewModel: Debug, TableViewViewModelProtocol {
         }
     }
     
-    func dismiss() {
-        coordinator?.naviageBackToPreviousPage()
-    }
-    
     func numberOfSections() -> Int {
         return 1
     }
@@ -105,5 +101,9 @@ class CarModelViewModel: Debug, TableViewViewModelProtocol {
     
     func title() -> String {
         return manufacturer.title
+    }
+    
+    @objc func barItemAction() {
+        dismiss()
     }
 }

@@ -23,8 +23,13 @@ class CarModelTableViewController: PaginateTableViewController, PaginatedTableVi
         title = (viewModel as! CarModelViewModel).title()
         
         navigationItem.hidesBackButton = true
-        let backButton = UIBarButtonItem(title: "Back", style: .plain, target: self, action: #selector(CarManufacturerTableViewController.back))
-        navigationItem.leftBarButtonItem = backButton
+        
+        if let carManufacturerViewModel = viewModel as? CarModelViewModel {
+            let button = UIBarButtonItem(title: carManufacturerViewModel.barButtonItemName(),
+                                         style: .plain, target: carManufacturerViewModel,
+                                         action: #selector(carManufacturerViewModel.barItemAction))
+            navigationItem.leftBarButtonItem = button
+        }
         
         tableView.estimatedRowHeight = 100
         tableView.rowHeight = UITableView.automaticDimension
