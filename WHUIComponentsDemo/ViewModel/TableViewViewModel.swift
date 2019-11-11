@@ -136,10 +136,6 @@ extension TableViewViewModelProtocol {
     }
 }
 
-@objc protocol NavigationBarDismissible: NSObjectProtocol {
-    @objc func barItemAction()
-}
-
 @objc protocol NavigationBarButtonItemHandler: NSObjectProtocol {
     func leftBarButtonItemName() -> String
     func rightBarButtonItemName() -> String
