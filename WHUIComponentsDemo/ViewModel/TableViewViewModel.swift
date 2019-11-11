@@ -136,12 +136,6 @@ extension TableViewViewModelProtocol {
     }
 }
 
-extension TableViewViewModelProtocol {
-    public func barButtonItemName() -> String {
-        return "back"
-    }
-    
-    func dismiss() {
-        coordinator?.naviageBackToPreviousPage()
-    }
+@objc protocol NavigationBarDismissible: NSObjectProtocol {
+    @objc func barItemAction()
 }

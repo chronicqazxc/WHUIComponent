@@ -9,7 +9,7 @@
 import Foundation
 import WHUIComponents
 
-class Debug {
+class Debug: NSObject {
     deinit {
         guard let appDelegate = (UIApplication.shared.delegate as? AppDelegate) else {
             return

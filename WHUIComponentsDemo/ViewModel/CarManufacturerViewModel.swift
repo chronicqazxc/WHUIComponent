@@ -17,7 +17,7 @@ public enum APIError: Error {
     case unknow
 }
 
-class CarManufacturerViewModel: Debug, TableViewViewModelProtocol {
+class CarManufacturerViewModel: Debug, NavigationBarDismissible, TableViewViewModelProtocol {
     weak public var coordinator: Coordinator?
     fileprivate var indexOfCurrentSelected: IndexPath?
     public private(set) var state = TableViewState()
@@ -110,7 +110,16 @@ class CarManufacturerViewModel: Debug, TableViewViewModelProtocol {
         coordinator?.navigateForwardToNextPage()
     }
     
-    @objc func barItemAction() {
+    // MARK: - NavigationBarButtonItem
+    public func barButtonItemName() -> String {
+        return "back"
+    }
+    
+    func dismiss() {
+        coordinator?.naviageBackToPreviousPage()
+    }
+    
+    func barItemAction() {
         dismiss()
     }
 }
