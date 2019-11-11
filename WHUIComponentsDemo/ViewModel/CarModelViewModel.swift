@@ -11,7 +11,7 @@ import WHUIComponents
 import WHCoreServices
 import WHPromise
 
-class CarModelViewModel: Debug, TableViewViewModelProtocol {
+class CarModelViewModel: Debug, NavigationBarButtonItemHandler, TableViewViewModelProtocol {
     weak public var coordinator: Coordinator?
     public private(set) var indexOfCurrentSelected: IndexPath?
     public private(set) var state = TableViewState()
@@ -103,7 +103,24 @@ class CarModelViewModel: Debug, TableViewViewModelProtocol {
         return manufacturer.title
     }
     
-    @objc func barItemAction() {
+    func dismiss() {
+        coordinator?.naviageBackToPreviousPage()
+    }
+    
+    // MARK: - NavigationBarButtonItem
+    func leftBarButtonItemName() -> String {
+        return "back"
+    }
+    
+    func rightBarButtonItemName() -> String {
+        return ""
+    }
+    
+    func leftBarButtonItemAction() {
         dismiss()
+    }
+    
+    func rightBarButtonItemAction() {
+        
     }
 }

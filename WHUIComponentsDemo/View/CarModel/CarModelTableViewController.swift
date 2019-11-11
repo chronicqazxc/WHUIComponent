@@ -22,12 +22,11 @@ class CarModelTableViewController: PaginateTableViewController, PaginatedTableVi
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "default")
         title = (viewModel as! CarModelViewModel).title()
         
-        navigationItem.hidesBackButton = true
-        
         if let carManufacturerViewModel = viewModel as? CarModelViewModel {
-            let button = UIBarButtonItem(title: carManufacturerViewModel.barButtonItemName(),
+            navigationItem.hidesBackButton = true
+            let button = UIBarButtonItem(title: carManufacturerViewModel.leftBarButtonItemName(),
                                          style: .plain, target: carManufacturerViewModel,
-                                         action: #selector(carManufacturerViewModel.barItemAction))
+                                         action: #selector(carManufacturerViewModel.leftBarButtonItemAction))
             navigationItem.leftBarButtonItem = button
         }
         

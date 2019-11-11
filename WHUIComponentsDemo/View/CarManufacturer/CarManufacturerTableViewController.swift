@@ -31,13 +31,12 @@ class CarManufacturerTableViewController: PaginateTableViewController, Paginated
 
         let manufacturerTableViewCellNib = ManufacturerTableViewCell.nib()
         tableView.register(manufacturerTableViewCellNib, forCellReuseIdentifier: "cell")
-        
-        navigationItem.hidesBackButton = true
-        
+
         if let carManufacturerViewModel = viewModel as? CarManufacturerViewModel {
-            let button = UIBarButtonItem(title: carManufacturerViewModel.barButtonItemName(),
+            navigationItem.hidesBackButton = true
+            let button = UIBarButtonItem(title: carManufacturerViewModel.leftBarButtonItemName(),
                                          style: .plain, target: carManufacturerViewModel,
-                                         action: #selector(carManufacturerViewModel.barItemAction))
+                                         action: #selector(carManufacturerViewModel.leftBarButtonItemAction))
             navigationItem.leftBarButtonItem = button
         }
         
