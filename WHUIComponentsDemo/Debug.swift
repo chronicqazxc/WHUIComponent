@@ -6,20 +6,19 @@
 //  Copyright © 2019 Wayne Hsiao. All rights reserved.
 //
 
-import UIKit
+import Foundation
 import WHUIComponents
 
 class Debug: NSObject {
     deinit {
-        guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
-            let sceneDelegate = windowScene.delegate as? SceneDelegate else {
+        guard let appDelegate = (UIApplication.shared.delegate as? AppDelegate) else {
             return
         }
         let alertController = UIAlertController(title: String(describing: self), message: #function, preferredStyle: .alert)
         let alertAction = UIAlertAction(title: "OK", style: .default, handler: { _ in
-            sceneDelegate.presentNextAlertController()
+            appDelegate.presentNextAlertController()
         })
         alertController.addAction(alertAction)
-        sceneDelegate.presentAlertController(alertController)
+        appDelegate.presentAlertController(alertController)
     }
 }
