@@ -12,8 +12,34 @@ import WHUIComponents
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
+    var window: UIWindow?
+    var rootCoordinate: Coordinator!
+    private var alertControllers = Stack<UIAlertController>()
+    
+    func presentAlertController(_ alertController: UIAlertController) {
+        if let _ = window!.rootViewController?.presentedViewController as? UIAlertController {
+            alertControllers.push(alertController)
+        } else {
+            window!.rootViewController?.present(alertController, animated: true)
+        }
+    }
+    
+    func presentNextAlertController() {
+        guard let alertController = alertControllers.pop() else {
+            return
+        }
+        window!.rootViewController?.present(alertController, animated: true)
+    }
+
     func application(_ application: UIApplication,
                      didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        
+        window = UIWindow(frame: UIScreen.main.bounds)
+        window?.rootViewController = UINavigationController()
+        rootCoordinate = MainCoordinator(navigationController: window?.rootViewController as! UINavigationController)
+        rootCoordinate.start()
+        window?.makeKeyAndVisible()
+        
         return true
     }
 
@@ -39,10 +65,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
 
-    func application(_ application: UIApplication,
-                     configurationForConnecting connectingSceneSession: UISceneSession,
-                     options: UIScene.ConnectionOptions) -> UISceneConfiguration {
-        return UISceneConfiguration(name: "Default Configuration", sessionRole: connectingSceneSession.role)
-    }
+
 }
 
