@@ -40,14 +40,29 @@ public final class FloatingViewIntegration: NSObject, FloatingViewControllerDele
     }
     
     fileprivate lazy var window: UIWindow? = {
-        let window = UIWindow(frame: .zero)
+        if #available(iOS 13.0, *) {
+            guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene else {
+                let window = UIWindow(frame: .zero)
+                configWindow(window)
+                return window
+            }
+            let window = UIWindow(windowScene: windowScene)
+            configWindow(window)
+            return window
+        } else {
+            let window = UIWindow(frame: .zero)
+            configWindow(window)
+            return window
+        }
+    }()
+    
+    fileprivate func configWindow(_ window: UIWindow) {
         window.windowLevel = UIWindow.Level.statusBar
         floatingViewController.delegate = self
         window.rootViewController = floatingViewController
         window.alpha = 0
         window.isHidden = true
-        return window
-    }()
+    }
 }
 
 extension FloatingViewIntegration: UIViewControllerTransitioningDelegate {

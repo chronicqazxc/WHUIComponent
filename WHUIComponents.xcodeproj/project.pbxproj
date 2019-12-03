@@ -29,6 +29,7 @@
 		A6C14AFB2375735400A9CA8A /* TableViewDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6C14AF92375735400A9CA8A /* TableViewDataModel.swift */; };
 		A6CAD26B236D8940002A51FA /* Debug.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6CAD26A236D8940002A51FA /* Debug.swift */; };
 		A6CAD26D236D91D9002A51FA /* Stack.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6CAD26C236D91D9002A51FA /* Stack.swift */; };
+		A6F3B066239689930061E6A6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6F3B065239689930061E6A6 /* SceneDelegate.swift */; };
 		A6F3EDAE2336943200B00996 /* CarModelViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6F3EDAD2336943200B00996 /* CarModelViewModel.swift */; };
 		B057B3E42333DB5B00A59F11 /* WHUIComponents.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B057B3DA2333DB5B00A59F11 /* WHUIComponents.framework */; };
 		B057B3E92333DB5B00A59F11 /* WHUIComponentsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B057B3E82333DB5B00A59F11 /* WHUIComponentsTests.swift */; };
@@ -116,6 +117,7 @@
 		A6CAD26A236D8940002A51FA /* Debug.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Debug.swift; sourceTree = "<group>"; };
 		A6CAD26C236D91D9002A51FA /* Stack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stack.swift; sourceTree = "<group>"; };
 		A6CAD26E236D9646002A51FA /* Cartfile.private */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; path = Cartfile.private; sourceTree = "<group>"; };
+		A6F3B065239689930061E6A6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		A6F3EDAD2336943200B00996 /* CarModelViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarModelViewModel.swift; sourceTree = "<group>"; };
 		A6F3EDB1233894A300B00996 /* .jazzy.yaml */ = {isa = PBXFileReference; lastKnownFileType = text; path = .jazzy.yaml; sourceTree = "<group>"; };
 		A6F3EDB223389FF500B00996 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
@@ -328,6 +330,7 @@
 			children = (
 				A6C14AF2237571AE00A9CA8A /* Resources */,
 				B057B3FA2333DBD500A59F11 /* AppDelegate.swift */,
+				A6F3B065239689930061E6A6 /* SceneDelegate.swift */,
 				A6CAD26A236D8940002A51FA /* Debug.swift */,
 				A6CAD26C236D91D9002A51FA /* Stack.swift */,
 				A6A1675323363F2E00E1143F /* Coordinators */,
@@ -579,6 +582,7 @@
 				A6CAD26B236D8940002A51FA /* Debug.swift in Sources */,
 				A6C14AF6237571AF00A9CA8A /* Resource.swift in Sources */,
 				A6A1675723364A3600E1143F /* CarModelTableViewController.swift in Sources */,
+				A6F3B066239689930061E6A6 /* SceneDelegate.swift in Sources */,
 				B092A2202337C60C003DEC7C /* CarManufacturerTableViewCell.swift in Sources */,
 				A6A1675923364A7000E1143F /* CarModelCoordinator.swift in Sources */,
 				A6A1675523363F5100E1143F /* CarManufacturerCoordinator.swift in Sources */,
@@ -879,7 +883,7 @@
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = WHUIComponentsDemo/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -902,7 +906,7 @@
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = WHUIComponentsDemo/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
